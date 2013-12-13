@@ -1,0 +1,400 @@
+<div id="content">
+	<div class="presell">
+		$!control.setTemplate("item/crumb.vm").setParameter("title","编辑预售")
+		##<div class="crumb">您的位置：首页&gt;出售中的宝贝&gt; 编辑预售宝贝</div>
+		<ul id="J_Tabs" class="ui-tab-os-s tab-extra" data-index="0">
+			<li class="ui-tab-option ui-tab-cur">
+				<a class="ui-tab-name">编辑预售</a>
+			</li>
+		</ul>
+		<div class="presellHelp">
+			<a href="http://www.tmall.com/go/rgn/fxb01/ywjs01.php" target="_blank">帮助</a>
+		</div>
+
+		<form method="post" action="" name="presaleForm">
+			$csrfToken.hiddenField
+			#set ($sellerPresaleItemGroup = $form.sellerPresaleItem.defaultInstance)
+
+			<input type="hidden" name="action" value="item/sellerPresaleItemAction"/>
+			<input type="hidden" name="event_submit_do_commit" value="submit"/>
+
+			<input type="hidden" name="$sellerPresaleItemGroup.id.key" value="$!sellerPresaleItem.id"/>
+			<input type="hidden" name="$sellerPresaleItemGroup.readyStatus.key" value="$!sellerPresaleItem.readyStatus"/>
+			<input type="hidden" name="$sellerPresaleItemGroup.rejectReason.key" value="$!sellerPresaleItem.rejectReason"/>
+
+			#if($sellerPresaleItem.readyStatus == 6)
+			<div class="ui-msg ui-page-tip presell-ui-msg">
+				<div class="ui-msg-con ui-msg-tip">
+					亲，您的设置未审核通过，请重新编辑设置。拒绝原因：$!sellerPresaleItem.rejectReason
+					<s class="ui-msg-icon"></s>
+				</div>
+			</div>
+			#end
+
+			<!-- 校验错误信息提示 -->
+			#if($!errors)
+				#foreach($msg in $!errors)
+					<div class="ui-msg ui-page-tip presell-ui-msg">
+						<div class="ui-msg-con ui-msg-error">
+							$msg</br>
+							<s class="ui-msg-icon"></s>
+						</div>
+			        </div>
+				#end
+			#end
+
+    		<table width="100%" class="presell-tab">
+    			<col width="25%"/>
+    			<tr>
+    				<td class="presell-tab-t">商品标题：</td>
+    				<td>$!securityUtil.ignoretext($!item.title)</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">商品ID：</td>
+    				<td>$!item.itemId</td>
+    				<input type="hidden" name="$sellerPresaleItemGroup.itemId.key" value="$!item.itemId"/>
+					<input type="hidden" name="itemId" value="$!item.itemId"/>
+    			</tr>
+				<tr>
+					<td class="presell-tab-t">活动类型：</td>
+					<td >
+						<label><input type="radio" onclick="_selPre(this.value)" class="radio" value="1" name="presaleType" #if($!sellerPresaleItem.presaleType==1) checked #end/>活动预售</label>
+						<label><input type="radio" onclick="_selPre(this.value)" class="radio" value="2" name="presaleType" #if("$!sellerPresaleItem.presaleType"==""||$!sellerPresaleItem.presaleType==2) checked #end/>常态预售</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<span class="presell-tip">活动预售：参加预售活动，提交审核后，还须在预售商品活动报名商品方可通过审核</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<span class="presell-tip">常态预售：店铺内预售</span>
+					</td>
+				</tr>
+    			<tr>
+    				<td class="presell-tab-t">预售类型：</td>
+    				<td>
+    					<label><input type="radio" class="radio" name="stageType" value="3" #if(!$sellerPresaleItem.stageType || $!sellerPresaleItem.stageType == 3) checked #end>三阶段</label>
+    					<label><input type="radio" class="radio" name="stageType" value="1" #if($!sellerPresaleItem.stageType == 1) checked #end>一阶段<span class="presell-tip j_stageType" attr="1">&nbsp;&nbsp;(分定金，尾款两阶段支付)</span></label>
+    					<label><input type="radio" class="radio" name="stageType" value="0" #if($!sellerPresaleItem.stageType == 0) checked #end>全款<span class="presell-tip j_stageType" attr="0">&nbsp;&nbsp;(一次支付总价，其中定金为不可退金额)</span></label>
+    				</td>
+    			</tr>
+    			<tr class="j_stageType" attr="0,1,3">
+    				<td class="presell-tab-t">总价：</td>
+    				<td class="presell-lvPrice j_stageType" attr="3" style="display:none;">
+    					<p>
+							<span>一阶段<input type="hidden" class="presell-num j_v_stageType_3 j_float" name="$sellerPresaleItemGroup.step1Num.key" value="1" msg="一阶段人数">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人</span>
+							<span>价格：<input type="text" class="j_v_stageType_3 j_num" name="$sellerPresaleItemGroup.step1Price_3.key" value="$!sellerPresaleItem.step1Price_3BD" msg="一阶段价格">元<span class="presell-tip">&nbsp;&nbsp;</span></span>
+    					</p>
+    					<p>
+							<span>二阶段<input type="text" class="presell-num j_v_stageType_3 j_float" name="$sellerPresaleItemGroup.step2Num.key" value="$!sellerPresaleItem.step2Num" msg="二阶段人数">人<span class="presell-tip">&nbsp;&nbsp;必须大于等于10人</span></span>
+							<span>价格：<input type="text" class="j_v_stageType_3 j_num" name="$sellerPresaleItemGroup.step2Price_3.key" value="$!sellerPresaleItem.step2Price_3BD" msg="二阶段价格">元<span class="presell-tip">&nbsp;&nbsp;必须小于一阶段</span></span>
+    					</p>
+    					<p>
+							<span>三阶段<input type="text" class="presell-num j_v_stageType_3 j_float" name="$sellerPresaleItemGroup.step3Num.key" value="$!sellerPresaleItem.step3Num" msg="三阶段人数">人<span class="presell-tip">&nbsp;&nbsp;必须大于等于20人</span></span>
+							<span>价格：<input type="text" class="j_v_stageType_3 j_num" name="$sellerPresaleItemGroup.step3Price_3.key" value="$!sellerPresaleItem.step3Price_3BD" msg="三阶段价格">元<span class="presell-tip">&nbsp;&nbsp;必须小于二阶段</span></span>
+    					</p>
+    				</td>
+    				<td class="j_stageType" attr="0,1">
+    					<input type="text" class="j_v_stageType_0 j_v_stageType_1 j_num" name="$sellerPresaleItemGroup.totalPrice.key" value="$!sellerPresaleItem.totalPriceBD" msg="总价">&nbsp;&nbsp;<span>元</span>&nbsp;&nbsp;
+    					<span class="presell-tip"></span>
+    				</td>
+    			</tr>
+    			<tr class="j_stageType" attr="0,1,3">
+    				<td class="presell-tab-t">定金：</td>
+    				<td><input type="text" class="j_v_stageType_0 j_v_stageType_1 j_v_stageType_3 j_float" name="$sellerPresaleItemGroup.deposit.key" value="$!sellerPresaleItem.deposit" msg="定金"/>&nbsp;&nbsp;<span>元</span>&nbsp;&nbsp;</td>
+    			</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<span class="presell-tip j_stageType" attr="0" style="display: none;">1.总价<500时，总价10%≤定金≤总价20%，定金>=10元（若总价20%<10元，则设10元）；</span>
+                        <span class="presell-tip j_stageType" attr="1" style="display: none;">1.总价<500时，总价10%≤定金≤总价20%，定金>=10元（若总价20%<10元，则设10元）；</span>
+						<span class="presell-tip j_stageType" attr="3" style="display: none;">1.三阶段总价<500时，三阶段总价10%≤定金≤三阶段总价20%，定金>=10元（若三阶段总价20%<10元，则设10元）；</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<span class="presell-tip j_stageType" attr="0" style="display: none;">2.总价≥500时，99元≤定金≤总价20%；</span>
+                        <span class="presell-tip j_stageType" attr="1" style="display: none;">2.总价≥500时，99元≤定金≤总价20%；</span>
+						<span class="presell-tip j_stageType" attr="3" style="display: none;">2.三阶段总价≥500时，99元≤定金≤三阶段总价20%；</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<span class="presell-tip">3.定金必须为整数；</span>
+					</td>
+				</tr>
+    			<tr id="_ac_tm">
+    				<td class="presell-tab-t">预售时间：</td>
+    				<td>
+    					<input id="K_Calendar28" type="text" class="ks-select-calendar j_date j_v_presell_date" msg="预售开始时间" name="$sellerPresaleItemGroup.startDate.key" value="$!sellerPresaleItem.startDate"/>
+    					&nbsp;
+    					<select name="$sellerPresaleItemGroup.startTime.key">
+    						<option value="00:00:00" #if($sellerPresaleItem.startTime == "00:00:00") selected #end>00时00分</option>
+    						<option value="10:00:00" #if($sellerPresaleItem.startTime == "10:00:00") selected #end>10时00分</option>
+    					</select>
+    					&nbsp;
+    					<span>至</span>
+    					&nbsp;
+    					<input id="K_Calendar39" type="text" class="ks-select-calendar j_date j_v_presell_date" msg="预售结束时间" name="$sellerPresaleItemGroup.endDate.key" value="$!sellerPresaleItem.endDate"/>
+    					&nbsp;
+    					<span id="_p_e_t_s">23时59分</span>
+						<input id="_p_e_t_i" type="hidden" name="$sellerPresaleItemGroup.endTime.key" value="23:59:59"/>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">定金付款超时时间：</td>
+					<!-- 单位为分 -->
+					<input name="$sellerPresaleItemGroup.depositTimeout.key" type="hidden" value="1800"/>
+    				<td>
+                        <div class="prsell-payInfo">
+							下单后30分钟未付定金，自动关闭订单
+                            <div class="ui-msg ui-msg-empty">
+                                <div class="ui-msg-con ui-msg-question">
+                                    <a href="http://service.tmall.com/support/tmall/knowledge-5215992.htm" target="_blank"><s class="ui-msg-icon"></s></a>
+                                </div>
+                            </div>
+                        </div>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">尾款付款超时时间：</td>
+					<!-- 单位为分 -->
+					<td>
+					<div class="prsell-payInfo">
+						<label id="_l_t_t_2">预售结束后 3 天未付尾款，自动关闭订单</label>
+					<div class="ui-msg ui-msg-empty">
+					<div class="ui-msg-con ui-msg-question">
+					<a href="http://service.tmall.com/support/tmall/knowledge-5215992.htm" target="_blank"><s class="ui-msg-icon"></s></a>
+					</div>
+					</div>
+					</div>
+					</td>
+    			</tr>
+                <style>
+                    .prsell-payInfo{
+                        position:relative;
+                    }
+                    .prsell-payInfo .ui-msg{
+                        position:absolute;
+                    }
+                </style>
+    			<tr>
+    				<td class="presell-tab-t">发货时间：</td>
+    				<td>
+    					<div class="presell-option">
+    						<label><input type="radio" class="radio" value="1" name="deliveryType" #if($sellerPresaleItem.deliveryType == 1) checked #end>固定发货时间</label>
+    						<label><input type="radio" class="radio" value="2" name="deliveryType" #if(!$sellerPresaleItem.deliveryType || $sellerPresaleItem.deliveryType == 2) checked #end>相对发货时间</label>
+    					</div>
+    					<div class="presell-option-info j_deliveryType" attr="1">
+    						<i></i>
+    						<div class="presell-info">
+    							是否按规格设置发货时间？
+    							<select name="skuType" id="J_hasSKUPost" #if($!item.noSku) disabled="true" #end>
+									<option value="0" #if(!$sellerPresaleItem.skuType || $sellerPresaleItem.skuType == 0) selected #end>否</option>
+									<option value="1" #if($sellerPresaleItem.skuType == 1) selected #end>是</option>
+								</select>
+    							<table class="presell-sku j_skuType" width="100%" attr="1">
+									#foreach($sku in $!item.skuList)
+    								<tr>
+										#foreach($itemPVPairDO in $!sku.propertyList)
+											<td align="center">
+											#if($!itemPVPairDO.valueAliasText)
+												$!itemPVPairDO.valueAliasText
+											#else
+												$!itemPVPairDO.valueText
+											#end
+											</td>
+										#end
+										<td><input id="K_Calendar49$velocityCount" class="ks-select-calendar j_v_skuType_1 j_date" type="text" msg="固定发货时间" name="sku_time_$!sku.skuId" #if($sellerPresaleItem.deliveryType == 1) value="$!sellerPresaleItem.deliveryMap.get("$!sku.skuId")" #end />&nbsp;&nbsp;24时前</td>
+                                    </tr>
+									#end
+    							</table>
+    							<br>
+    							<br>
+    							<input id="K_Calendar109" class="ks-select-calendar j_skuType j_date j_v_skuType_0" type="text" msg="固定发货时间" attr="0" name="itemTime" #if($sellerPresaleItem.deliveryType == 1) value="$!sellerPresaleItem.deliveryMap.get("$!item.itemId")" #end />
+    							&nbsp;
+    							<span class="j_skuType" attr="0">24时前</span>&nbsp;<br>
+								<span class="presell-tip">$!SupplyChainResponseCycleRule</span><br>
+    							<span class="presell-tip">请认真填写。如未按约定时间发货，可能引起投诉和退款。</span>&nbsp;&nbsp;
+    							<a href="http://service.tmall.com/support/tmall/knowledge-1126800.htm" target="_blank">详情</a>
+    						</div>
+    					</div>
+						<div class="presell-option-info j_deliveryType" attr="2">
+							<i style="left:132px;"></i>
+							<div class="presell-info">
+								是否按规格设置发货时间？
+								<select name="skuTypeR" id="J_hasSKUPostR" #if($!item.noSku) disabled="true" #end>
+									<option value="0" #if(!$sellerPresaleItem.skuType || $sellerPresaleItem.skuType == 0) selected #end>否</option>
+									<option value="1" #if($sellerPresaleItem.skuType == 1) selected #end>是</option>
+								</select>
+								<table class="presell-sku j_skuTypeR" width="100%" attr="1">
+									#foreach($sku in $!item.skuList)
+    								<tr>
+										#foreach($itemPVPairDO in $!sku.propertyList)
+											<td align="center">
+											#if($!itemPVPairDO.valueAliasText)
+												$!itemPVPairDO.valueAliasText
+											#else
+												$!itemPVPairDO.valueText
+											#end
+											</td>
+										#end
+										<td>买家支付尾款后<input class="j_v_skuTypeR_1 j_float" type="text" msg="相对发货时间" name="sku_time_r_$!sku.skuId" #if($sellerPresaleItem.deliveryType == 2) value="$!sellerPresaleItem.deliveryMap.get("$!sku.skuId")" #end/>&nbsp;&nbsp;天内发货</td>
+                                    </tr>
+									#end
+								</table>
+								<br><br>
+								<span class="j_skuTypeR" attr="0">买家支付尾款后</span>&nbsp;&nbsp;
+								<input type="text" attr="0" class="j_skuTypeR j_v_skuTypeR_0 j_float" msg="相对发货时间" name="itemTime_r" #if($sellerPresaleItem.deliveryType == 2) value="$!sellerPresaleItem.deliveryMap.get("$!item.itemId")" #end/>&nbsp;&nbsp;
+								<span class="j_skuTypeR" attr="0">天内发货</span>&nbsp;<br>
+									<span class="presell-tip">$!SupplyChainResponseCycleRule</span><br>
+								<span class="presell-tip">请认真填写。如未按约定时间发货，可能引起投诉和退款。</span>&nbsp;&nbsp;
+								<a href="http://service.tmall.com/support/tmall/knowledge-1126800.htm" target="_blank">详情</a>
+							</div>
+						</div>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">商品是否限购：</td>
+    				<td>
+    					<label><input type="radio" class="radio" value="1" name="limit" #if($!sellerPresaleItem.amountLimit != 0) checked #end/>是</label>
+    					<label><input type="radio" class="radio" value="0" name="limit" #if(!$sellerPresaleItem.amountLimit || $!sellerPresaleItem.amountLimit == 0) checked #end/>否</label>
+    					<div class="presell-option-info j_limit" attr="1">
+    						<i></i>
+    						<div class="presell-info" >
+    							每个用户限购&nbsp;&nbsp;
+    							<input class="presell-num j_v_limit_1 j_float" type="text" msg="限购数量" name="$sellerPresaleItemGroup.amountLimit.key" value="$!sellerPresaleItem.amountLimit"/>
+    							&nbsp;&nbsp;件
+    						</div>
+    					</div>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">商品是否赠品：</td>
+    				<td>
+    					<label><input type="radio" class="radio" name="hasGift" value="1" #if($sellerPresaleItem.giftName.size() > 0) checked #end>是</label>
+    					<label><input type="radio" class="radio" name="hasGift" value="0" #if(!$sellerPresaleItem.giftName || $sellerPresaleItem.giftName.size() == 0) checked #end>否</label>
+    					<div class="presell-option-info j_hasGift" attr="1">
+    						<i></i>
+    						<div class="presell-info presell-gift" >
+    							<table id="J_gift">
+									#if($sellerPresaleItem.giftName && $sellerPresaleItem.giftName.size() > 0)
+										#foreach($giftName in $sellerPresaleItem.giftName)
+										#set($index = $velocityCount - 1)
+        								<tr>
+        									<td>第&nbsp;
+												<input class="presellCount j_v_hasGift_1 j_float" type="text" msg="礼物人数" name="fromNum" value="$!sellerPresaleItem.fromNum.get($index)"/>&nbsp;&nbsp;至&nbsp;&nbsp;
+												<input class="presellCount j_v_hasGift_1 j_float" type="text" msg="礼物人数" name="toNum" value="$!sellerPresaleItem.toNum.get($index)"/>&nbsp;位&nbsp;支付定金
+											</td>
+        									<td align="right">
+        										赠送：
+        										<input class="j_v_hasGift_1" type="text" msg="赠品名称" name="giftName" value="$!sellerPresaleItem.giftName.get($index)"/><br/><br/>
+        										商品ID：
+        										<input class="j_v_hasGift_1 j_itemid" type="text" msg="商品ID" name="giftItemId" value="$!sellerPresaleItem.giftItemId.get($index)"/>
+												<i class="gift_del"></i>
+											</td>
+        								</tr>
+										#end
+									#else
+										<tr>
+        									<td>第&nbsp;
+												<input class="presellCount j_v_hasGift_1 j_float" type="text" msg="礼物人数" name="fromNum" />&nbsp;&nbsp;至&nbsp;&nbsp;
+												<input class="presellCount j_v_hasGift_1 j_float" type="text" msg="礼物人数" name="toNum" />&nbsp;位&nbsp;支付定金
+											</td>
+        									<td align="right">
+        										赠送：<input class="j_v_hasGift_1" type="text" msg="赠品名称" name="giftName" />
+        										<br/>
+        										<br/>
+        										商品ID：<input class="j_v_hasGift_1 j_itemid" type="text" msg="商品ID" name="giftItemId" />
+        									</td>
+        								</tr>
+									#end
+    							</table>
+								<input id="J_giftCount" type="hidden" name="giftNum">
+    							<a href="javascript:void(0)" class="ui-btn-m" id="J_addGift">新增</a>
+    						</div>
+    					</div>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">活动结束后状态：</td>
+    				<td>
+						<div class="presell-tab-end">
+    						<label><input type="radio" class="radio" value="0" name="finishStatus" #if(!$sellerPresaleItem.finishStatus || $!sellerPresaleItem.finishStatus == 0) checked #end/>正常商品销售</label>
+    					</div>
+    					<div class="presell-tab-end"><label>
+							<input type="radio" class="radio" value="1" name="finishStatus" #if($!sellerPresaleItem.finishStatus == 1) checked #end/>下架预售商品</label>
+						</div>
+    					<div class="presell-tab-end presell-tab-continue j_deliveryType" attr="2">
+    						<label><input type="radio" class="radio" value="2" name="finishStatus" #if($!sellerPresaleItem.finishStatus == 2) checked #end />继续预售</label>
+							<span class="presell-tip">只有选择相对发货时间才能继续预售</span>
+    						<br/>
+    						<div class="presell-option-info j_finishStatus" attr="2">
+    							<i style="left:0px;"></i>
+    							<div class="presell-info" style="left:-10px;">
+    								<input type="radio" class="radio" name="$sellerPresaleItemGroup.continueType.key" value="0" #if(!$sellerPresaleItem.continueType || $!sellerPresaleItem.continueType == 0) checked #end>
+    								&nbsp;固定时间&nbsp;&nbsp;&nbsp;
+    								<input id="K_Calendar119" class="ks-select-calendar j_v_continue_0 j_date" type="text" msg="固定时间" name="$sellerPresaleItemGroup.continueStartDate.key" value="$!sellerPresaleItem.continueStartDate"/>
+    								&nbsp;&nbsp;&nbsp;
+    								<select name="$sellerPresaleItemGroup.continuestartTime.key">
+										<option value="00:00:00" #if($!sellerPresaleItem.continuestartTime == '00:00:00') selected #end>00时00分</option>
+										<option value="10:00:00" #if($!sellerPresaleItem.continuestartTime == '10:00:00') selected #end>10时00分</option>
+									</select>
+    								&nbsp;&nbsp;至&nbsp;&nbsp;
+    								<input id="K_Calendar129" class="ks-select-calendar j_v_continue_0 j_date" type="text" msg="固定时间" name="$sellerPresaleItemGroup.continueEndDate.key" value="$!sellerPresaleItem.continueEndDate"/>
+									<input type="hidden" name="$sellerPresaleItemGroup.continueEndTime.key" value="23:59:59"/>
+    								23时59分
+    								<br>
+    								<br>
+    								<input type="radio" class="radio" name="$sellerPresaleItemGroup.continueType.key" value="1" #if($!sellerPresaleItem.continueType == 1) checked #end>
+    								&nbsp;相对时间&nbsp;&nbsp;&nbsp;间隔&nbsp;
+    								<input type="text" class="presell-num j_v_continue_1 j_float" msg="间隔时间" name="$sellerPresaleItemGroup.continueIntervalDays.key" value="$!sellerPresaleItem.continueIntervalDays"/>
+    								&nbsp;天,&nbsp;&nbsp;循环&nbsp;
+    								<input type="text" class="presell-num j_v_continue_1 j_float" msg="循环次数" name="$sellerPresaleItemGroup.continueLoopNum.key" value="$!sellerPresaleItem.continueLoopNum"/>
+    								&nbsp;次
+    							</div>
+    						</div>
+    					</div>
+    				</td>
+    			</tr>
+				<tr>
+					<td colspan="2">
+            			<div class="ui-msg ui-page-tip presell-ui-msg hidden" id="J_errorBox">
+            		        <div class="ui-msg-con ui-msg-error">
+            		           	<div id="J_error"></div>
+            		            <s class="ui-msg-icon"></s>
+            		        </div>
+            		    </div>
+                    </td>
+                </tr>
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="hidden" name="submitType" id="J_submitType"/>
+						<a href="javascript:;" class="ui-btn-l j_submit" formName="presaleForm" value="1">确认并预览</a>
+						<a href="javascript:;" class="ui-btn-l-primary j_submit" formName="presaleForm" value="2">提交审核</a>
+						<a href="javascript:;" class="ui-btn-l j_cancel">取消设置</a>
+					</td>
+    			</tr>
+    		</table>
+        </form>
+	</div>
+</div>
+<script>
+function _selPre(val){
+	document.getElementById("_l_t_t_2").innerHTML = '预售结束后 3 天未付尾款，自动关闭订单';
+	document.getElementById("_p_e_t_s").innerHTML = '23时59分';
+	document.getElementById("_p_e_t_i").value = '23:59:59';
+}
+</script>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:services="http://www.alibaba.com/schema/services" xmlns:conditions="http://www.alibaba.com/schema/services/form/conditions" xmlns:validators="http://www.alibaba.com/schema/services/form/validators"
+	xmlns="http://www.alibaba.com/schema/services/form/validators" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+        http://www.alibaba.com/schema/services/form/conditions http://localhost:8080/schema/services-form-conditions.xsd
+        http://www.alibaba.com/schema/services/form/validators http://localhost:8080/schema/services-form-validators.xsd
+        http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+    <services:form postOnlyByDefault="true">
+        <!--
+          - ===============================================
+          - 用来检查csrf token。
+          - ===============================================
+        -->   
+        <services:group name="csrfCheck">
+            <services:field name="_csrf_token">
+                <csrf-validator>
+                    <message>提交的数据已过期</message>
+                </csrf-validator>                
+            </services:field>
+        </services:group> 
+        
+		<!-- 卖家预售商品 -->
+        <services:group name="sellerPresaleItem" extends="csrfCheck">
+			<services:field name="id" displayName="主键ID" >
+			</services:field>
+			<services:field name="itemId" displayName="商品ID" >
+			</services:field>
+			<services:field name="presaleType" displayName="活动类型" >
+			</services:field>	
+			<services:field name="step1Price_3" displayName="三阶一阶价格" >
+			</services:field>
+			<services:field name="step2Price_3" displayName="三阶二阶价格" >
+			</services:field>			
+			<services:field name="step3Price_3" displayName="三阶三阶价格" >
+			</services:field>
+			<services:field name="step1Num" displayName="三阶一阶人数" >
+			</services:field>	
+			<services:field name="step2Num" displayName="三阶二阶人数" >
+			</services:field>	
+			<services:field name="step3Num" displayName="三阶三阶人数" >
+			</services:field>	
+			<services:field name="totalPrice" displayName="总价" >
+			</services:field>
+			<services:field name="deposit" displayName="定金" >
+			</services:field>	
+			<services:field name="startDate" displayName="预售开始日期" >
+			</services:field>
+			<services:field name="startTime" displayName="预售开始时间" >
+			</services:field>	
+			<services:field name="endDate" displayName="预售结束日期" >
+			</services:field>
+			<services:field name="endTime" displayName="预售结束时间" >
+			</services:field>	
+			<services:field name="depositTimeout" displayName="定金付款超时时间" >
+			</services:field>	
+			<services:field name="tailTimeout" displayName="尾款付款超时时间" >
+			</services:field>
+			<services:field name="amountLimit" displayName="限购数量" >
+			</services:field>
+			<services:field name="continueType" displayName="继续预售方式" >
+			</services:field>	
+			<services:field name="continueStartDate" displayName="预售开始日期" >
+			</services:field>
+			<services:field name="continueStartTime" displayName="预售开始时间" >
+			</services:field>	
+			<services:field name="continueEndDate" displayName="预售结束日期" >
+			</services:field>
+			<services:field name="continueEndTime" displayName="预售结束时间" >
+			</services:field>	
+			<services:field name="continueIntervalDays" displayName="预售间隔天数" >
+			</services:field>	
+			<services:field name="continueLoopNum" displayName="循环销售次数" >
+			</services:field>	
+			<services:field name="readyStatus" displayName="审核状态" >
+			</services:field>
+			<services:field name="rejectReason" displayName="审核不通过原因" >
+			</services:field>
+        </services:group>     
+        
+    </services:form>
+</beans:beans>

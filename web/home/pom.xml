@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>parent</artifactId>
+		<groupId>com.sesame.novel.web</groupId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<groupId>com.sesame.novel.web</groupId>
+	<artifactId>novel-web-home</artifactId>
+	<packaging>jar</packaging>
+	<name>novel-web-home</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.alibaba.citrus</groupId>
+			<artifactId>citrus-webx-all</artifactId>
+		</dependency>
+		<!--log begin -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!--log end -->
+
+	<dependency>
+			<groupId>com.alibaba.toolkit</groupId>
+			<artifactId>toolkit-webx-all-in-one</artifactId>
+	</dependency>
+		
+		
+		<!--webx rpc begin -->
+		<dependency>
+			<groupId>com.alibaba.platform.shared</groupId>
+			<artifactId>webx3.extension.rpc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.platform.shared</groupId>
+			<artifactId>nonda.databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.platform.shared</groupId>
+			<artifactId>nonda.validation-webx3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.platform.shared</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<!--webx rpc end -->
+		<dependency>
+			<groupId>com.alibaba.citrus</groupId>
+			<artifactId>citrus-webx-all</artifactId>
+		</dependency>
+		<!-- webx3 begin -->
+	</dependencies>
+</project>

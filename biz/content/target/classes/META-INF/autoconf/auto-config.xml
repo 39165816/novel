@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config description="autoconf">
+
+	<script>
+		<generate template="content.xml.vm" destfile="spring/content.xml"
+			charset="UTF-8" />
+	</script>
+</config>
