@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<var-def name="maininfo">
+			<xpath expression='//div[@id="maininfo"]'>
+				<html-to-xml>
+					<http url="http://www.biquge.com/0_494/" charset="gbk"/>
+				</html-to-xml>
+			</xpath>
+	</var-def>
+	
+	<var-def name="title"  >
+		 <xpath expression="//div[1]/h1/text()">
+			<var name="maininfo" />
+		</xpath>
+     </var-def>
+
+	<var-def name="author"  >
+		 <xpath expression="//div[1]/p[1]/text()">
+			<var name="maininfo" />
+		</xpath>
+     </var-def>
+	 
+	<var-def name="lastUpdateTime"  >
+		 <xpath expression="//div[1]/p[3]/text()">
+			<var name="maininfo" />
+		</xpath>
+     </var-def>
+
+	<var-def name="introduce"  >
+		 <xpath expression="//div[2]/p[1]/text()">
+			<var name="maininfo" />
+		</xpath>
+     </var-def>
+
+	 <var-def name="pictureUrl">
+			<xpath expression='//div[@id="sidebar"]/div[1]/img/@src'>
+				<html-to-xml>
+					<http url="http://www.biquge.com/0_494/" charset="gbk"/>
+				</html-to-xml>
+			</xpath>
+	</var-def>
+
+	 <var-def name="type">
+			<xpath expression='//div[@class="con_top"]/a[2]/text()'>
+				<html-to-xml>
+					<http url="http://www.biquge.com/0_494/"/>
+				</html-to-xml>
+			</xpath>
+	</var-def>
+	
+	<var-def name="allinfo">
+			<xpath expression='//div[@id="list"]/dl/*'>
+				<html-to-xml>
+					<http url="http://www.biquge.com/0_494/" charset="gbk"/>
+				</html-to-xml>
+			</xpath>
+	</var-def>	
+	
+</config>
+

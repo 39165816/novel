@@ -1,6 +1,0 @@
-Last Configured at: Fri Dec 13 20:09:49 CST 2013
-
-Base URL: file:/home/mike/data/githome/my/novel/master/biz/content/target/classes/
-Descriptor: META-INF/autoconf/auto-config.xml
-
-Generating META-INF/autoconf/content.xml.vm [UTF-8] => spring/content.xml [UTF-8]
