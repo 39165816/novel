@@ -2,7 +2,7 @@ package com.mike.novel.spider.biqege;
 
 public interface BqgConstants {
     //笔趣阁的网址
-    String BQG_WEBSITE          = "www.biquge.com";
+    String BQG_WEBSITE          = "http://www.biquge.com";
 
     //首页harvest配置文件路径
     String HARVEST_INDEX_CONFIG = "/home/mike/data/githome/my/novel/master/biz/common/src/main/resources/harvest/biquge-index.xml";

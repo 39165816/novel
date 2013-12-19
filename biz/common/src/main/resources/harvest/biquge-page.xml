@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<var-def name="content">
-			<xpath expression='//div[@id="content"]/text()'>
+			<xpath expression='//div[@id="content"]'>
 				<html-to-xml>
-					<http url="www.biquge.com/0_494/205922.html"/>
+					<http url="${chapter}"/>  
 				</html-to-xml>
 			</xpath>
 	</var-def>

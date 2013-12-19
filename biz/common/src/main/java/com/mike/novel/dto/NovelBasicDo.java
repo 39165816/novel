@@ -9,7 +9,7 @@ import java.util.List;
  * @author 听雷 2013年12月18日下午7:37:42
  */
 public class NovelBasicDo {
-
+    //自增id
     private int                id;
 
     private int                nid;
@@ -31,10 +31,12 @@ public class NovelBasicDo {
     private String             info1;
 
     private String             info2;
-    
-    private boolean  isReadyPublic;
-    
-    private boolean isGeneratehtml;
+
+    private boolean            isReadyPublic;
+
+    private boolean            isGeneratehtml;
+
+    private String             title;
 
     //卷list
     private List<NovelVolumDo> volums;
@@ -135,22 +137,28 @@ public class NovelBasicDo {
         this.volums = volums;
     }
 
-	public boolean isReadyPublic() {
-		return isReadyPublic;
-	}
+    public boolean isReadyPublic() {
+        return isReadyPublic;
+    }
 
-	public void setReadyPublic(boolean isReadyPublic) {
-		this.isReadyPublic = isReadyPublic;
-	}
+    public void setReadyPublic(boolean isReadyPublic) {
+        this.isReadyPublic = isReadyPublic;
+    }
 
-	public boolean isGeneratehtml() {
-		return isGeneratehtml;
-	}
+    public boolean isGeneratehtml() {
+        return isGeneratehtml;
+    }
 
-	public void setGeneratehtml(boolean isGeneratehtml) {
-		this.isGeneratehtml = isGeneratehtml;
-	}
-    
-    
+    public void setGeneratehtml(boolean isGeneratehtml) {
+        this.isGeneratehtml = isGeneratehtml;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 }
