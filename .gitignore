@@ -1,6 +1,10 @@
 biz/common/.classpath
 biz/common/target/
+biz/content/.classpath
 biz/content/target/
 deploy/target/
+deploy/.classpath
 web/content/target/
+web/content/.classpath
 web/home/target/
+web/home/.classpath
