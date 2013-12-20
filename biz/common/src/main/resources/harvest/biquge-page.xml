@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<var-def name="content">
-			<xpath expression='//div[@id="content"]'>
+			<xpath expression='//div[@id="content"]/text()'>
 				<html-to-xml>
-					<http url="${chapter}"/>  
+					<http url="${chapter}" />  
 				</html-to-xml>
 			</xpath>
 	</var-def>

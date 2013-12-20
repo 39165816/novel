@@ -7,84 +7,94 @@ package com.mike.novel.dto;
  */
 public class NovelChapterDo {
 
-    private int     id;
+	private int id;
 
-    private int     vid;
+	private int vid;
 
-    private long    cid;
+	private long cid;
 
-    private long    nextid;
+	private long nextid;
 
-    private long    upid;
+	private long upid;
 
-    private String  cname;
+	private String cname;
 
-    private int     cnum;
+	private int cnum;
 
-    private boolean isContent;
+	private boolean isContent;
 
-    public int getId() {
-        return id;
-    }
+	private TasksDo task;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public int getVid() {
-        return vid;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setVid(int vid) {
-        this.vid = vid;
-    }
+	public int getVid() {
+		return vid;
+	}
 
-    public long getCid() {
-        return cid;
-    }
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
 
-    public void setCid(long cid) {
-        this.cid = cid;
-    }
+	public long getCid() {
+		return cid;
+	}
 
-    public long getNextid() {
-        return nextid;
-    }
+	public void setCid(long cid) {
+		this.cid = cid;
+	}
 
-    public void setNextid(long nextid) {
-        this.nextid = nextid;
-    }
+	public long getNextid() {
+		return nextid;
+	}
 
-    public long getUpid() {
-        return upid;
-    }
+	public void setNextid(long nextid) {
+		this.nextid = nextid;
+	}
 
-    public void setUpid(long upid) {
-        this.upid = upid;
-    }
+	public long getUpid() {
+		return upid;
+	}
 
-    public String getCname() {
-        return cname;
-    }
+	public void setUpid(long upid) {
+		this.upid = upid;
+	}
 
-    public void setCname(String cname) {
-        this.cname = cname;
-    }
+	public String getCname() {
+		return cname;
+	}
 
-    public int getCnum() {
-        return cnum;
-    }
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
 
-    public void setCnum(int cnum) {
-        this.cnum = cnum;
-    }
+	public int getCnum() {
+		return cnum;
+	}
 
-    public boolean isContent() {
-        return isContent;
-    }
+	public void setCnum(int cnum) {
+		this.cnum = cnum;
+	}
 
-    public void setContent(boolean isContent) {
-        this.isContent = isContent;
-    }
+	public boolean isContent() {
+		return isContent;
+	}
+
+	public void setContent(boolean isContent) {
+		this.isContent = isContent;
+	}
+
+	public TasksDo getTask() {
+		return task;
+	}
+
+	public void setTask(TasksDo task) {
+		this.task = task;
+	}
 
 }

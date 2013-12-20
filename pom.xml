@@ -232,32 +232,6 @@
 
 			<!--test begin -->
 			<dependency>
-				<groupId>com.alibaba.shared</groupId>
-				<artifactId>toolkit.sandbox.jtester</artifactId>
-				<version>1.1.6</version>
-				<scope>test</scope>
-				<exclusions>
-					<exclusion>
-						<groupId>cglib</groupId>
-						<artifactId>cglib</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>apache-log4j</groupId>
-						<artifactId>log4j</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-  				<groupId>org.testng</groupId>
-	  			<artifactId>testng</artifactId>
-  				<scope>test</scope>
-				<version>6.0.1</version>
-			</dependency>
-			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>4.5</version>
@@ -537,24 +511,6 @@
 				<configuration>
 					<attach>false</attach>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.7.2</version>
-				<configuration>
-					<argLine>-javaagent:"${settings.localRepository}/com/alibaba/external/test.jmockit/0.999.9-patch/test.jmockit-0.999.9-patch.jar"
-					</argLine>
-					<junitArtifactName>junit:junit</junitArtifactName>
-					<testNGArtifactName>org.testng:testng</testNGArtifactName>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>

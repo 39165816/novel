@@ -9,6 +9,7 @@ import org.webharvest.runtime.Scraper;
 import org.webharvest.runtime.variables.Variable;
 
 import com.mike.novel.dto.NovelBasicDo;
+import com.mike.novel.util.NovelType;
 
 /**
  * biquge基本信息爬虫
@@ -53,6 +54,7 @@ public class BqgBasiceInfo {
         //类型
         Variable type = (Variable) indexScraper.getContext().get("type");
         System.out.println(type.toString());
+        novelBasicDo.setType(NovelType.getType(type.toString()).type);
 
         Variable allinfo = (Variable) indexScraper.getContext().get("allinfo");
         System.out.println(allinfo.toString());

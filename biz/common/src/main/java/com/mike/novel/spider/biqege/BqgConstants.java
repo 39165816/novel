@@ -5,10 +5,10 @@ public interface BqgConstants {
     String BQG_WEBSITE          = "http://www.biquge.com";
 
     //首页harvest配置文件路径
-    String HARVEST_INDEX_CONFIG = "/home/mike/data/githome/my/novel/master/biz/common/src/main/resources/harvest/biquge-index.xml";
+    String HARVEST_INDEX_CONFIG = "/home/mike/data/githome/novel/biz/common/src/main/resources/harvest/biquge-index.xml";
 
     //Page harvest配置文件路径
-    String HARVEST_PAGE_CONFIG  = "/home/mike/data/githome/my/novel/master/biz/common/src/main/resources/harvest/biquge-page.xml";
+    String HARVEST_PAGE_CONFIG  = "/home/mike/data/githome/novel/biz/common/src/main/resources/harvest/biquge-page.xml";
 
     //harvest 工作目录
     String HARVEST_WORKING_DIR  = "/tmp";
