@@ -9,4 +9,8 @@
     http://www.springframework.org/schema/context/spring-context.xsd"
     default-autowire="byName">
 
+
+    <bean id="basicInfoAccess" class="com.mike.novel.spider.biqege.BqgBasiceInfo"/>
+    <bean id="novelStatusServcie" class="com.mike.novel.content.service.impl.NovelStatusServiceImpl"/>
+
 </beans>

@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Welcome to back door!</title>
+	</head>
+<body>
+    ##	$control.setTemplate("vmcommon/p/3.1/b2c/apps/back/header.vm")
+	## 内容区域，带侧边栏；不需要可直接:
+	$screen_placeholder
+	##$control.setTemplate("vmcommon/p/3.1/b2c/apps/back/footer.vm")
+	##<script src="$gassetsServer/tm/seller-elink/1.0.1/presell/js/seller-init.js?t=20120702.js"></script>
+	##<script src="$gassetsServer/tm/seller-elink/1.0.4/presell/js/presell.js"></script>
+</body>
+</html>

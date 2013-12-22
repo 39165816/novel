@@ -1,1 +1,0 @@
-<div class="crumb">您的位置：<a href="$!{sellerCenterServer}seller_admin.htm">首页</a>&gt;<a href="$!{tmallSellServer}auction/goods/goods_on_sale.htm">出售中的宝贝</a>&gt; $!title</div>

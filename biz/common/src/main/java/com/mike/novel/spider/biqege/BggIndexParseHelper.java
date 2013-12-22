@@ -24,12 +24,14 @@ public abstract class BggIndexParseHelper {
 	 * @param nameLength
 	 *            书名的长度，用来过滤卷中的无用书名
 	 */
-	public static void parse(String original, List<NovelVolumDo> volums, int nameLength) {
+	public static List<NovelVolumDo> parse(String original, int nameLength) {
+		List<NovelVolumDo> volums = new ArrayList<NovelVolumDo>();
+		
 		// 跳过第一个无用卷
 		int currentPosition = original.indexOf(volumEndFlag);
 		currentPosition = original.indexOf(volumStartFlag, currentPosition);
 		if (currentPosition == -1) {
-			return;
+			return volums;
 		}
 
 		// 通过currentPosition的变化，不断推进
@@ -55,7 +57,7 @@ public abstract class BggIndexParseHelper {
 						currentPosition, cnum);
 				cnum++;
 			} else if (status == 0) {// 结束了
-				return;
+				return volums;
 			}
 		}
 	}

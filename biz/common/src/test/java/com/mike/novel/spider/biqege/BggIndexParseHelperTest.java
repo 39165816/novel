@@ -2,7 +2,6 @@ package com.mike.novel.spider.biqege;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -2034,9 +2033,7 @@ public class BggIndexParseHelperTest {
 
 	@Test
 	public void test() {
-		List<NovelVolumDo> volums  = new ArrayList<NovelVolumDo>();
-		System.out.println("testData.length()"+testData.length());
-		BggIndexParseHelper.parse(testData,volums,  4);
+		List<NovelVolumDo> volums = BggIndexParseHelper.parse(testData,  4);
 		assertEquals(volums.size(),10);
 		//第一卷基本信息
 		assertEquals("第一卷 武道先天",volums.get(0).getVname());

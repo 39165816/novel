@@ -1,0 +1,50 @@
+			<div class="ui-msg ui-msg-empty ui-top-tip" id="msg2">
+				<div class="ui-msg-con ui-msg-ok">
+					<p>
+					</p>
+					<s class="ui-msg-icon"></s>
+				</div>
+			</div>
+			<h3>URL提交成功</h3>
+			
+			
+    		<table width="100%" class="presell-tab">
+    			<col width="25%"/>
+					<p>
+						<h3>基本信息:</h3>
+					</p>
+				<tr>
+    				<td class="presell-tab-t">小说的名字：</td>
+    				<td>$!novelStatus.novelBasicDo.title</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">作者：</td>
+    				<td>$!novelStatus.novelBasicDo.author</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">最后更新时间：</td>
+    				<td>$!novelStatus.novelBasicDo.lastUpdateTime</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">简介：</td>
+    				<td>$!novelStatus.novelBasicDo.introduce</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">图片地址：</td>
+    				<td>$!novelStatus.novelBasicDo.picturePath</td>
+    			</tr>
+    			<tr>
+    				<td class="presell-tab-t">类型：</td>
+    				<td>$!novelStatus.novelBasicDo.type</td>
+    			</tr>
+				
+			</table>
+			
+					<p>
+						<h3>详细信息：小说共有$!novelStatus.volums.size() 卷， $!novelStatus.totalNum 章。详细的目录如下：</h3>
+					<p>
+						$!novelStatus.allChapterName 
+					</p>
+		</div>
+	</div>
+</div>

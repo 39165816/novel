@@ -39,6 +39,12 @@
 				</html-to-xml>
 			</xpath>
 	</var-def>
+	
+    <file action="write" type="binary"
+		 path="${pictureSavePath}">
+		 <http url="http://www.biquge.com${pictureUrl}"/>
+	</file>
+	
 
 	 <var-def name="type">
 			<xpath expression='//div[@class="con_top"]/a[2]/text()'>

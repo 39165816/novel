@@ -1,0 +1,38 @@
+<div id="content">
+	<div class="presell">
+
+		<form method="post" action="" name="presaleForm">
+			#set ($inputUrlForm = $form.inputUrlForm.defaultInstance)
+
+			<input type="hidden" name="action" value="backdoor/CurlWebAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+
+			<!-- 校验错误信息提示 -->
+			#if($!errors)
+				#foreach($msg in $!errors)
+					<div class="ui-msg ui-page-tip presell-ui-msg">
+						<div class="ui-msg-con ui-msg-error">
+							$msg</br>
+							<s class="ui-msg-icon"></s>
+						</div>
+			        </div>
+				#end
+			#end
+
+    		<table width="100%" >
+    		<!--	<col width="25%"/> -->
+    			<tr>
+    				<td class="presell-tab-t">笔趣阁小说URL：</td>
+    				<td><input type="text" name="inputUrl" value="" msg="笔趣阁小说UR"/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+        </form>
+	</div>
+</div>
