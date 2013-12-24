@@ -10,8 +10,6 @@
 			#else
 			<h2>URL提交成功</h2>
 			#end
-			
-			
     		<table width="100%" class="presell-tab">
     			<col width="25%"/>
 					<p>
@@ -41,11 +39,21 @@
     				<td class="presell-tab-t">类型：</td>
     				<td>$!novelStatus.novelBasicDo.type</td>
     			</tr>
-				
+    			<tr>
+    				<td class="presell-tab-t">是否对外：</td>
+    				<td>$!novelStatus.novelBasicDo.isReadyPublic()</td>
+    			</tr>
 			</table>
-			
+					<p>
+						<h3>任务的状态：$!novelStatus.taskStatus   
+						<a href="/content/backdoor/runtask.htm?nid=$!novelStatus.novelBasicDo.nid">执行</a>
+						</h3>
+					</p>
 					<p>
 						<h3>详细信息：小说共有$!novelStatus.volums.size() 卷， $!novelStatus.totalNum 章。详细的目录如下：</h3>
+					</p>
+					
+					
 					<p>
 						$!novelStatus.allChapterName 
 					</p>

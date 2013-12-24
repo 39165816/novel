@@ -1,6 +1,7 @@
 package com.mike.novel.content.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.alibaba.lp.orm.ibatis.page.PageSqlMapClientDaoSupport;
 import com.mike.novel.content.dao.NovelChapterDao;
@@ -38,5 +39,13 @@ public class NovelChapterDaoImpl extends
 
 	private String getSqlMapNamesapce() {
 		return "novelChapter.";
+	}
+
+	@Override
+	public List<NovelChapterDo> getbyVid(int vid) {
+		@SuppressWarnings("unchecked")
+		List<NovelChapterDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "getbyVid", vid);
+		return flowList;
 	}
 }

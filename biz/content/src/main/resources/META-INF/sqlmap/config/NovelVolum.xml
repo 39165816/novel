@@ -44,6 +44,14 @@
     ]]>
     </delete>
     
+    <select id="novelVolum.queryByNid" resultMap="novelVolum.rm">
+		SELECT <include refid="novelVolum.columns" />
+	    <![CDATA[
+		    FROM NovelVolum WHERE 1=1 and NID=#nid#
+	    ]]>
+	</select>
+    
+    
     <select id="novelVolum.getById" resultMap="novelVolum.rm">
 		SELECT <include refid="novelVolum.columns" />
 	    <![CDATA[

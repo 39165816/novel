@@ -20,4 +20,5 @@ public interface NovelCombServcie {
 	 */
 	void saveVolumAndTask(List<NovelVolumDo> volums);
 
+	void processTask(long nid);
 }

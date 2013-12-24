@@ -24,8 +24,16 @@
 
 
     <bean id="basicInfoAccess" class="com.mike.novel.spider.biqege.BqgBasiceInfo"/>
+    <bean id="chapterAccess" class="com.mike.novel.spider.biqege.BqgChapterAccess"/>
+    
     <bean id="novelBasicService" class="com.mike.novel.content.service.impl.NovelBasicServiceImpl"/>
     <bean id="novelCombServcie" class="com.mike.novel.content.service.impl.NovelCombServcieImpl"/>
+
+    <bean id="tasksService" class="com.mike.novel.content.service.impl.TasksServiceImpl"/>
+
+    <bean id="bqgChapterTask" class="com.mike.novel.spider.biqege.BqgChapterTask"/>
+    
+    
  
 	 <!-- DAO -->
 	 <bean id="novelBasicDao" class="com.mike.novel.content.dao.impl.NovelBasicDaoImpl"/>

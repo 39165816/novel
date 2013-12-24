@@ -33,6 +33,16 @@
         SELECT @@IDENTITY AS ID
     </selectKey>
 	</insert>
+	
+	
+	<update id="tasks.update" parameterClass="TasksDo">
+    <![CDATA[
+        UPDATE Tasks SET
+	        ISFINISHED = #isFinished# ,
+        WHERE 
+	        ID = #id# 
+    ]]>
+	</update>
    
     <delete id="tasks.deleteById">
     <![CDATA[
@@ -45,6 +55,13 @@
 		SELECT <include refid="tasks.columns" />
 	    <![CDATA[
 		    FROM Tasks WHERE ID = #id#
+	    ]]>
+	</select>
+	
+	<select id="tasks.getByNid" resultMap="tasks.rm">
+		SELECT <include refid="tasks.columns" />
+	    <![CDATA[
+		    FROM Tasks WHERE 1=1 and NID=#nid#
 	    ]]>
 	</select>
 	

@@ -1,6 +1,7 @@
 package com.mike.novel.content.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.alibaba.lp.orm.ibatis.page.PageSqlMapClientDaoSupport;
 import com.mike.novel.content.dao.NovelVolumDao;
@@ -38,6 +39,14 @@ public class NovelVolumDaoImpl extends PageSqlMapClientDaoSupport<NovelVolumDo>
 
 	private String getSqlMapNamesapce() {
 		return "novelVolum.";
+	}
+
+	@Override
+	public List<NovelVolumDo> queryByNid(long nid) {
+		@SuppressWarnings("unchecked")
+		List<NovelVolumDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "queryByNid", nid);
+		return flowList;
 	}
 
 }

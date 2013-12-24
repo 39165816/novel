@@ -16,4 +16,9 @@ public interface NovelBasicService {
 	 * 检测需要爬去的url是否存在
 	 */
 	public NovelBasicDo queryByTargetUrl(String targetUrl);
+
+	/**
+	 * 根据nid查找
+	 */
+	public NovelBasicDo queryByNid(long nid);
 }

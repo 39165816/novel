@@ -52,5 +52,12 @@
 		    FROM NovelChapter WHERE ID = #id#
 	    ]]>
 	</select>
+
+    <select id="novelChapter.getbyVid" resultMap="novelChapter.rm">
+		SELECT <include refid="novelChapter.columns" />
+	    <![CDATA[
+		    FROM NovelChapter WHERE VID = #vid#
+	    ]]>
+	</select>	
 	
 </sqlMap>

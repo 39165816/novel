@@ -1,6 +1,7 @@
 package com.mike.novel.content.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.alibaba.lp.orm.ibatis.page.PageSqlMapClientDaoSupport;
 import com.mike.novel.content.dao.TasksDao;
@@ -20,8 +21,11 @@ public class TasksDaoImpl extends PageSqlMapClientDaoSupport<TasksDo> implements
 
 	@Override
 	public void update(TasksDo tasksDo) {
-		// TODO Auto-generated method stub
-
+		if (tasksDo == null) {
+			return;
+		}
+		getSqlMapClientTemplate().update(getSqlMapNamesapce() + "update",
+				tasksDo);
 	}
 
 	@Override
@@ -31,9 +35,11 @@ public class TasksDaoImpl extends PageSqlMapClientDaoSupport<TasksDo> implements
 	}
 
 	@Override
-	public TasksDo getById(Serializable id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TasksDo> getByNid(long nid) {
+		@SuppressWarnings("unchecked")
+		List<TasksDo> TasksDo = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "getByNid", nid);
+		return TasksDo;
 	}
 
 	private String getSqlMapNamesapce() {

@@ -18,6 +18,8 @@ public interface NovelBasicDao {
 
 	public NovelBasicDo queryByTargetUrl(String targetUrl);
 
+	public NovelBasicDo getByNid(long nid);
+
 	public List<NovelBasicDo> findByIds(List<Serializable> ids);
 
 	public List<NovelBasicDo> find(NovelBasicDo novelBasicDo);

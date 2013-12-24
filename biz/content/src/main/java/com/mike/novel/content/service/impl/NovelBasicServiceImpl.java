@@ -20,4 +20,9 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 		return novelBasicDao.queryByTargetUrl(targetUrl);
 	}
 
+	@Override
+	public NovelBasicDo queryByNid(long nid) {
+		return novelBasicDao.getByNid(nid);
+	}
+
 }

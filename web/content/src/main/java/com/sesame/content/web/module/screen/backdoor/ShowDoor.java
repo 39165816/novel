@@ -1,4 +1,3 @@
-
 package com.sesame.content.web.module.screen.backdoor;
 
 import javax.servlet.http.HttpSession;
@@ -15,17 +14,19 @@ import com.alibaba.citrus.turbine.dataresolver.Param;
  * 
  */
 public class ShowDoor {
-	private final static Logger logger = LoggerFactory.getLogger(ShowDoor.class);
+	private final static Logger logger = LoggerFactory
+			.getLogger(ShowDoor.class);
 
 	private static String hardcode_pin = "123";
-	
-	public void execute(@Param("pin") String pin, HttpSession httpSession, Context context, Navigator nav) {
-		if (!hardcode_pin.equals(pin)){
-			logger.error("wrong pin:"+pin);
+
+	public void execute(@Param("pin") String pin, HttpSession httpSession,
+			Context context, Navigator nav) {
+		if (!hardcode_pin.equals(pin)) {
+			logger.error("wrong pin:" + pin);
 			context.put("errMsg", "wrong pin!");
 			nav.forwardTo("/backdoor/error.vm");
-			return ;
+			return;
 		}
-		
+
 	}
 }

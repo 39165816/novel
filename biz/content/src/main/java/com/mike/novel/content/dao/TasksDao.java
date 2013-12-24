@@ -1,6 +1,7 @@
 package com.mike.novel.content.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.mike.novel.dto.TasksDo;
 
@@ -12,6 +13,5 @@ public interface TasksDao {
 
 	public void deleteById(Serializable id);
 
-	public TasksDo getById(Serializable id);
-
+	public List<TasksDo> getByNid(long nid);
 }

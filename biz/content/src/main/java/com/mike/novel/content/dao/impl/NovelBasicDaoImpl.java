@@ -78,4 +78,10 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 				getSqlMapNamesapce() + "queryByTargetUrl", targetUrl);
 	}
 
+	@Override
+	public NovelBasicDo getByNid(long nid) {
+		return (NovelBasicDo) getSqlMapClientTemplate().queryForObject(
+				getSqlMapNamesapce() + "getByNid", nid);
+	}
+
 }

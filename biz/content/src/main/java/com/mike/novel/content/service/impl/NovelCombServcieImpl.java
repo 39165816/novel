@@ -7,12 +7,15 @@ import javax.annotation.Resource;
 import com.alibaba.lp.orm.sequence.BizCommonSequence;
 import com.mike.novel.content.dao.NovelChapterDao;
 import com.mike.novel.content.dao.NovelVolumDao;
-import com.mike.novel.content.dao.TasksDao;
+import com.mike.novel.content.service.NovelBasicService;
 import com.mike.novel.content.service.NovelCombServcie;
+import com.mike.novel.content.service.TasksService;
+import com.mike.novel.dto.NovelBasicDo;
 import com.mike.novel.dto.NovelChapterDo;
 import com.mike.novel.dto.NovelVolumDo;
 import com.mike.novel.dto.TasksDo;
 import com.mike.novel.dto.vo.NovelStatusVo;
+import com.mike.novel.spider.biqege.BqgChapterTask;
 
 public class NovelCombServcieImpl implements NovelCombServcie {
 
@@ -23,12 +26,42 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 	@Resource
 	private NovelChapterDao novelChapterDao;
 	@Resource
-	private TasksDao tasksDao;
+	private TasksService tasksService;
+
+	@Resource
+	private BqgChapterTask bqgChapterTask;
+
+	@Resource
+	private NovelBasicService novelBasicService;
 
 	@Override
 	public NovelStatusVo queryNovelStatus(long nid) {
-		// TODO Auto-generated method stub
-		return new NovelStatusVo();
+		NovelStatusVo result = new NovelStatusVo();
+		// 基本信息
+		NovelBasicDo novelBasicDo = novelBasicService.queryByNid(nid);
+		if (novelBasicDo == null) {
+			result.setExists(false);
+		} else {
+			result.setExists(true);
+		}
+		result.setNovelBasicDo(novelBasicDo);
+
+		// 卷信息
+		List<NovelVolumDo> volums = novelVolumDao.queryByNid(nid);
+		result.setVolums(volums);
+
+		// 对于每个卷，补充章信息
+		if (volums != null) {
+			for (NovelVolumDo oneVolum : volums) {
+				oneVolum.setChapters(novelChapterDao.getbyVid(oneVolum.getVid()));
+			}
+		}
+
+		// 任务信息
+		List<TasksDo> tasks = tasksService.queryByNid(nid);
+		result.setTasks(tasks);
+
+		return result;
 	}
 
 	@Override
@@ -78,10 +111,19 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 				task.setNid(oneVolum.getNid());// nid
 				task.setCid(novelChapterDo.getCid());// cid
 
-				tasksDao.save(task);
+				tasksService.save(task);
 			}
 
 		}
 
+	}
+
+	@Override
+	public void processTask(long nid) {
+		List<TasksDo> tasksDo = tasksService.queryByNid(nid);
+		if (tasksDo == null || tasksDo.size() == 0) {
+			return;
+		}
+		bqgChapterTask.processTask(tasksDo);
 	}
 }

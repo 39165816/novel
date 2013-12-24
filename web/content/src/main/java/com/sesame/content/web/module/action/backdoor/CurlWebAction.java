@@ -29,9 +29,6 @@ import com.mike.novel.spider.BasicInfoAccess;
 import com.mike.novel.util.BqgConstants;
 
 /**
- * 卖家预售商品action
- * 
- * @author jiashu.wujs
  */
 public class CurlWebAction {
 	@Resource
@@ -74,17 +71,15 @@ public class CurlWebAction {
 				.queryByTargetUrl(targetUrl);
 		if (novelBasicDo == null) {
 			novelStatus = basicInfoAccess.executeIndexPage(targetUrl);
-			novelStatus.setExists(false);
 		} else {
 			// 查询状态
 			novelStatus = new NovelStatusVo();
 			novelStatus.setNovelBasicDo(novelBasicDo);
-			novelStatus.setExists(true);
 		}
-		// TODO: add more task info!
+		int nid = novelStatus.getNovelBasicDo().getNid();
+		NovelStatusVo queryNovelStatus = novelCombServcie.queryNovelStatus(nid);
 
-		context.put("novelStatus", novelStatus);
-
+		context.put("novelStatus", queryNovelStatus);
 		nav.forwardTo("/backdoor/status.vm");
 	}
 }
