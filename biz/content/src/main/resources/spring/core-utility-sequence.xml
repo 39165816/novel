@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 统一的Sequence生成器 -->
+	<bean id="mySequenceDao"
+		class="com.alibaba.lp.orm.sequence.DefaultSequenceDao">
+		<property name="dataSource" ref="dataSource" />
+		<property name="tableName" value="Novel_ids" />
+		<property name="nameColumnName" value="count_type" />
+		<property name="valueColumnName" value="generatedid" />
+		<property name="gmtModifiedColumnName" value="gmt_modified" />
+		<property name="step" value="10" />
+	</bean>
+
+	<!-- nid的Sequence生成器 -->
+	<bean id="nidSequence"
+		class="com.alibaba.lp.orm.sequence.DefaultSequence">
+		<property name="sequenceDao" ref="mySequenceDao" />
+		<property name="name" value="nid" />
+	</bean>
+
+	<!-- vid的Sequence生成器 -->
+	<bean id="vidSequence"
+		class="com.alibaba.lp.orm.sequence.DefaultSequence">
+		<property name="sequenceDao" ref="mySequenceDao" />
+		<property name="name" value="vid" />
+	</bean>
+	
+	<!-- cid的Sequence生成器 -->
+	<bean id="cidSequence"
+		class="com.alibaba.lp.orm.sequence.DefaultSequence">
+		<property name="sequenceDao" ref="mySequenceDao" />
+		<property name="name" value="cid" />
+	</bean>
+
+	<!-- 业务类的ID生成器 -->
+	<bean id="bizCommonSequence"
+		class="com.alibaba.lp.orm.sequence.BizCommonSequence">
+		<property name="nidSequence" ref="nidSequence" />
+		<property name="vidSequence" ref="vidSequence" />
+		<property name="cidSequence" ref="cidSequence" />
+	</bean>
+</beans>

@@ -72,4 +72,10 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 		return "novelBasic.";
 	}
 
+	@Override
+	public NovelBasicDo queryByTargetUrl(String targetUrl) {
+		return (NovelBasicDo) getSqlMapClientTemplate().queryForObject(
+				getSqlMapNamesapce() + "queryByTargetUrl", targetUrl);
+	}
+
 }

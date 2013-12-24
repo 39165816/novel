@@ -7,5 +7,13 @@ import com.mike.novel.dto.NovelBasicDo;
  */
 public interface NovelBasicService {
 
+	/**
+	 * 保存基本信息do
+	 */
 	public Integer insert(NovelBasicDo novelBasicDo);
+
+	/**
+	 * 检测需要爬去的url是否存在
+	 */
+	public NovelBasicDo queryByTargetUrl(String targetUrl);
 }

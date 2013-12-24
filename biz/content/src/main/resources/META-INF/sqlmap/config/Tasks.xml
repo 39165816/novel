@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="">
+
+	<typeAlias alias="TasksDo" type="com.mike.novel.dto.TasksDo" />
+	<resultMap id="tasks.rm" class="TasksDo">
+        <result property="id" column="ID"/>
+        <result property="nid" column="NID"/>
+        <result property="cid" column="CID"/>
+        <result property="url" column="URL"/>
+        <result property="isFinished" column="ISFINISHED"/>
+        <result property="isDeleted" column="ISDELETED"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+	</resultMap>
+	
+	<sql id="tasks.columns">
+	    <![CDATA[
+	    	ID,NID,CID,URL,ISFINISHED,ISDELETED,GMTCREATE,GMTMODIFY  
+	    ]]>
+	</sql>
+	
+	<insert id="tasks.insert" parameterClass="TasksDo">
+    <![CDATA[
+        INSERT INTO Tasks (
+				ID,NID,CID,URL,ISFINISHED,ISDELETED,GMTCREATE,GMTMODIFY 
+        ) VALUES (
+        		#id#,#nid#,#cid#,#url#,#isFinished#,#isDeleted#,now(), now()
+        )
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+   
+    <delete id="tasks.deleteById">
+    <![CDATA[
+        DELETE FROM Tasks WHERE
+        ID = #id# 
+    ]]>
+    </delete>
+    
+    <select id="tasks.getById" resultMap="tasks.rm">
+		SELECT <include refid="tasks.columns" />
+	    <![CDATA[
+		    FROM Tasks WHERE ID = #id#
+	    ]]>
+	</select>
+	
+</sqlMap>

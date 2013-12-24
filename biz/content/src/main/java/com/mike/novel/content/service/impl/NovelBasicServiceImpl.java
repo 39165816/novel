@@ -15,4 +15,9 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 		return novelBasicDao.save(novelBasicDo);
 	}
 
+	@Override
+	public NovelBasicDo queryByTargetUrl(String targetUrl) {
+		return novelBasicDao.queryByTargetUrl(targetUrl);
+	}
+
 }

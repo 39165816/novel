@@ -5,7 +5,11 @@
 					<s class="ui-msg-icon"></s>
 				</div>
 			</div>
-			<h3>URL提交成功</h3>
+			#if($novelStatus.isExists())
+			<h2>注意小说已存在，状态如下</h2>
+			#else
+			<h2>URL提交成功</h2>
+			#end
 			
 			
     		<table width="100%" class="presell-tab">

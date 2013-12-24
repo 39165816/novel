@@ -22,12 +22,13 @@
         <result property="title" column="TITLE"/>
         <result property="gmtCreate" column="GMTCREATE"/>
         <result property="gmtModify" column="GMTMODIFY"/>
+        <result property="originalUrl" column="ORIGINALURL"/>
 	</resultMap>
 	
 	<sql id="novelBasic.columns">
 	    <![CDATA[
 	    	ID,	NID,PICTUREPATH,AUTHOR,ISFINISHED,	INTRODUCE,LASTUPDATETIME,ISFORDOWNLOAD, TYPE, 
-	    	INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,GMTCREATE, GMTMODIFY  
+	    	INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,GMTCREATE, GMTMODIFY,ORIGINALURL  
 	    ]]>
 	</sql>
 	
@@ -53,10 +54,10 @@
     <![CDATA[
         INSERT INTO NovelBasic (
         ID,	NID,PICTUREPATH,AUTHOR,ISFINISHED,INTRODUCE,LASTUPDATETIME,ISFORDOWNLOAD,
-         TYPE, INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,  GMTCREATE, GMTMODIFY  
+         TYPE, INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,  GMTCREATE, GMTMODIFY,ORIGINALURL  
         ) VALUES (
 			#id#,#nid#,#picturePath#,#author#,#isFinished#,#introduce#,#lastUpdateTime#,#isForDownload#,
-			#type#,#info1#,#info2#,#isReadyPublic#,#isGenerateHtml#,#title#, now(), now()
+			#type#,#info1#,#info2#,#isReadyPublic#,#isGenerateHtml#,#title#, now(), now(), #originalUrl#
         )
     ]]>
     <selectKey keyProperty="id" resultClass="java.lang.Integer">  
@@ -94,6 +95,14 @@
 		    FROM NovelBasic WHERE ID = #id#
 	    ]]>
 	</select>
+	
+    <select id="novelBasic.queryByTargetUrl" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic WHERE ORIGINALURL = #targetUrl#
+	    ]]>
+	</select>
+	
 	
 	<select id="novelBasic.findByIds" parameterClass="list" resultMap="novelBasic.rm">
 		SELECT <include refid="novelBasic.columns" />

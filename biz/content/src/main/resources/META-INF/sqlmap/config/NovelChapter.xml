@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="novelPage">
+
+	<typeAlias alias="NovelChapterDo" type="com.mike.novel.dto.NovelChapterDo" />
+
+	<resultMap id="novelChapter.rm" class="NovelChapterDo">
+        <result property="id" column="ID"/>
+        <result property="vid" column="VID"/>
+        <result property="cid" column="CID"/>
+        <result property="nextid" column="NEXTID"/>
+        <result property="upid" column="UPID"/>
+        <result property="cname" column="CNAME"/>
+        <result property="cnum" column="CNUM"/>
+        <result property="info1" column="INFO1"/>
+        <result property="info2" column="INFO2"/>
+        <result property="isContent" column="ISCONTENT"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+	</resultMap>
+	
+	<sql id="novelChapter.columns">
+	    <![CDATA[
+	    	ID,VID,CID,NEXTID,UPID,CNAME,CNUM,INFO1,INFO2,ISCONTENT,GMTCREATE,GMTMODIFY  
+	    ]]>
+	</sql>
+	
+	<insert id="novelChapter.insert" parameterClass="NovelChapterDo">
+    <![CDATA[
+        INSERT INTO NovelChapter (
+				ID,VID,CID,NEXTID,UPID,CNAME,CNUM,INFO1,INFO2,ISCONTENT,GMTCREATE,GMTMODIFY  
+        ) VALUES (
+        		#id#,#vid#,#cid#,#nextid#,#upid#,#cname#,#cnum#,#info1#,#info2#,#isContent#,now(), now()
+        )
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+   
+    <delete id="novelChapter.deleteById">
+    <![CDATA[
+        DELETE FROM NovelChapter WHERE
+        ID = #id# 
+    ]]>
+    </delete>
+    
+    <select id="novelChapter.getById" resultMap="novelChapter.rm">
+		SELECT <include refid="novelChapter.columns" />
+	    <![CDATA[
+		    FROM NovelChapter WHERE ID = #id#
+	    ]]>
+	</select>
+	
+</sqlMap>

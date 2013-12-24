@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="novelPage">
+
+	<typeAlias alias="NovelPageDo" type="com.mike.novel.dto.NovelPageDo" />
+
+	<resultMap id="novelPage.rm" class="NovelPageDo">
+        <result property="id" column="ID"/>
+        <result property="cid" column="CID"/>
+        <result property="content" column="CONTENT"/>
+        <result property="info1" column="INFO1"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+	</resultMap>
+	
+	<sql id="novelPage.columns">
+	    <![CDATA[
+	    	ID,CID,CONTENT,INFO1,GMTCREATE,GMTMODIFY  
+	    ]]>
+	</sql>
+	
+	<insert id="novelPage.insert" parameterClass="NovelPageDo">
+    <![CDATA[
+        INSERT INTO NovelPage (
+				ID,CID,CONTENT,INFO1,GMTCREATE,GMTMODIFY  
+        ) VALUES (
+        		#id#,#cid#,#content#,#info1#,now(), now()
+        )
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Long">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+   
+    <delete id="novelPage.deleteById">
+    <![CDATA[
+        DELETE FROM NovelPage WHERE
+        ID = #id# 
+    ]]>
+    </delete>
+    
+    <select id="novelPage.getById" resultMap="novelPage.rm">
+		SELECT <include refid="novelPage.columns" />
+	    <![CDATA[
+		    FROM NovelPage WHERE ID = #id#
+	    ]]>
+	</select>
+	
+</sqlMap>

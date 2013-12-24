@@ -37,6 +37,8 @@ public class NovelBasicDo {
 	private boolean isGenerateHtml;
 	// 标题
 	private String title;
+	// 原始的URL，用来去重
+	private String originalUrl;
 
 	// 卷list
 	private List<NovelVolumDo> volums;
@@ -179,6 +181,14 @@ public class NovelBasicDo {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getOriginalUrl() {
+		return originalUrl;
+	}
+
+	public void setOriginalUrl(String originalUrl) {
+		this.originalUrl = originalUrl;
 	}
 
 }

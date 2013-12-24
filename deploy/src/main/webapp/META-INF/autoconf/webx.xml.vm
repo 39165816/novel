@@ -45,6 +45,7 @@
 	<!--业务配置-->
    	<beans:import resource="classpath:spring/content.xml" />
    	<beans:import resource="classpath:spring/biz-datasource.xml" />
+   	<beans:import resource="classpath:spring/core-utility-sequence.xml" />
    	
     <!-- 综合设置。 -->
     <services:webx-configuration>

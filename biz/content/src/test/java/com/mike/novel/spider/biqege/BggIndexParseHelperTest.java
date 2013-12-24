@@ -2033,26 +2033,35 @@ public class BggIndexParseHelperTest {
 
 	@Test
 	public void test() {
-		List<NovelVolumDo> volums = BggIndexParseHelper.parse(testData,  4);
-		assertEquals(volums.size(),10);
-		//第一卷基本信息
-		assertEquals("第一卷 武道先天",volums.get(0).getVname());
+		List<NovelVolumDo> volums = BggIndexParseHelper.parse(testData, 4,
+				10001);
+		assertEquals(volums.size(), 10);
+		// 第一卷基本信息
+		assertEquals("第一卷 武道先天", volums.get(0).getVname());
 		assertEquals(1, volums.get(0).getVnum());
 		assertEquals(39, volums.get(0).getChapters().size());
 		assertEquals("第一章 武道先天", volums.get(0).getChapters().get(0).getCname());
-		assertEquals("第三十九章 绝世奇才", volums.get(0).getChapters().get(38).getCname());
+		assertEquals("第三十九章 绝世奇才", volums.get(0).getChapters().get(38)
+				.getCname());
 		assertEquals(1, volums.get(0).getChapters().get(0).getCnum());
 		assertEquals(39, volums.get(0).getChapters().get(38).getCnum());
-		assertEquals("http://www.biquge.com/0_494/205923.html", volums.get(0).getChapters().get(38).getTask().getUrl());
-		
-		//第十卷信息
-		assertEquals("第十卷 神王夺帝",volums.get(9).getVname());
+		assertEquals("http://www.biquge.com/0_494/205923.html", volums.get(0)
+				.getChapters().get(38).getTask().getUrl());
+
+		// 第十卷信息
+		assertEquals("第十卷 神王夺帝", volums.get(9).getVname());
 		assertEquals(1, volums.get(0).getVnum());
-		assertEquals("第一千零五十六章 最后的私心", volums.get(9).getChapters().get(volums.get(9).getChapters().size()-1).getCname());
-		assertEquals(1056, volums.get(9).getChapters().get(volums.get(9).getChapters().size()-1).getCnum());
-		assertEquals("http://www.biquge.com/0_494/655356.html", volums.get(9).getChapters().get(volums.get(9).getChapters().size()-1).getTask().getUrl());
-		
-		
+		assertEquals(
+				"第一千零五十六章 最后的私心",
+				volums.get(9).getChapters()
+						.get(volums.get(9).getChapters().size() - 1).getCname());
+		assertEquals(
+				1056,
+				volums.get(9).getChapters()
+						.get(volums.get(9).getChapters().size() - 1).getCnum());
+		assertEquals("http://www.biquge.com/0_494/655356.html", volums.get(9)
+				.getChapters().get(volums.get(9).getChapters().size() - 1)
+				.getTask().getUrl());
 
 	}
 

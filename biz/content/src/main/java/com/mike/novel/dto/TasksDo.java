@@ -9,20 +9,20 @@ import java.sql.Date;
  */
 public class TasksDo {
 
-    private int     id;
+	private int id;
+	// 小说id
+	private int nid;
+	// 章编号
+	private long cid;
+	// 待爬url
+	private String url;
+	// 是否完成
+	private boolean isFinished;
+	// 是否删除
+	private boolean isDeleted;
 
-    private int     nid;
+	private Date gmtCreate;
 
-    private long    pid;
-
-    private String  url;
-
-    private boolean isFinished;
-
-    private boolean isDeleted;
-    
-	private Date gmtCreate ;
-	
 	private Date gmtModify;
 
 	public Date getGmtCreate() {
@@ -41,53 +41,52 @@ public class TasksDo {
 		this.gmtModify = gmtModify;
 	}
 
+	public int getId() {
+		return id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getNid() {
+		return nid;
+	}
 
-    public int getNid() {
-        return nid;
-    }
+	public void setNid(int nid) {
+		this.nid = nid;
+	}
 
-    public void setNid(int nid) {
-        this.nid = nid;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public long getPid() {
-        return pid;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public void setPid(long pid) {
-        this.pid = pid;
-    }
+	public boolean isFinished() {
+		return isFinished;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public void setFinished(boolean isFinished) {
+		this.isFinished = isFinished;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public boolean isDeleted() {
+		return isDeleted;
+	}
 
-    public boolean isFinished() {
-        return isFinished;
-    }
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 
-    public void setFinished(boolean isFinished) {
-        this.isFinished = isFinished;
-    }
+	public long getCid() {
+		return cid;
+	}
 
-    public boolean isDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+	public void setCid(long cid) {
+		this.cid = cid;
+	}
 
 }

@@ -20,14 +20,16 @@ public abstract class BggIndexParseHelper {
 	 *            原始内容
 	 * @param volums
 	 *            空的卷信息，用来储存结果
-	 * @param tasks
-	 *            空的任务信息，用来储存结果
 	 * @param nameLength
 	 *            书名的长度，用来过滤卷中的无用书名
+	 * @param nid
+	 *            小说nid
+	 * 
 	 */
-	public static List<NovelVolumDo> parse(String original, int nameLength) {
+	public static List<NovelVolumDo> parse(String original, int nameLength,
+			int nid) {
 		List<NovelVolumDo> volums = new ArrayList<NovelVolumDo>();
-		
+
 		// 跳过第一个无用卷
 		int currentPosition = original.indexOf(volumEndFlag);
 		currentPosition = original.indexOf(volumStartFlag, currentPosition);
@@ -41,14 +43,15 @@ public abstract class BggIndexParseHelper {
 		int cnum = 1;
 		int copy = currentPosition;
 		while (true) {
-//			System.out.println("currentPosition"+currentPosition);
-			if (copy > currentPosition){
+			// System.out.println("currentPosition"+currentPosition);
+			if (copy > currentPosition) {
 				System.err.println("something goes wrong");
 			}
 			copy = currentPosition;
 			int status = isVolum(currentPosition, original);
 			if (status == 1) {// 卷信息
 				currentVolum = new NovelVolumDo();
+				currentVolum.setNid(nid);
 				currentVolum.setVnum(vnum++);
 				volums.add(currentVolum);
 				currentPosition = parseVname(original, nameLength,
@@ -71,8 +74,8 @@ public abstract class BggIndexParseHelper {
 		if (volumPosition == -1 && chapterPosition == -1) {
 			return 0;
 		}
-		
-		if (volumPosition==-1){//卷已结束
+
+		if (volumPosition == -1) {// 卷已结束
 			return 2;
 		}
 
@@ -88,8 +91,8 @@ public abstract class BggIndexParseHelper {
 	 */
 	private static int parseVname(String original, int nameLength,
 			int currentPosition, NovelVolumDo currentVolum) {
-		int startPoint = original.indexOf(volumStartFlag, currentPosition
-				) + volumStartFlag.length();
+		int startPoint = original.indexOf(volumStartFlag, currentPosition)
+				+ volumStartFlag.length();
 		int endPoint = original.indexOf(volumEndFlag, startPoint);
 		String vname = original
 				.substring(startPoint + nameLength + 2, endPoint);
@@ -112,20 +115,20 @@ public abstract class BggIndexParseHelper {
 				+ chapterStartFlag.length());
 		int urlEndPosition = original.indexOf("\"", urlStartPosition + 1);
 		String url = BqgConstants.BQG_WEBSITE
-				+ original.substring(urlStartPosition+1, urlEndPosition);
+				+ original.substring(urlStartPosition + 1, urlEndPosition);
 		TasksDo oneTask = new TasksDo();
 		oneTask.setUrl(url);
 		novelChapterDo.setTask(oneTask);
 
 		// 分析章名
 		int cnameStartPosition = original.indexOf(">", urlEndPosition) + 1;
-		int cnameEndPosition = original.indexOf("<", cnameStartPosition) ;
+		int cnameEndPosition = original.indexOf("<", cnameStartPosition);
 		String cname = original.substring(cnameStartPosition, cnameEndPosition);
 		novelChapterDo.setCname(cname);
-//		System.out.println(cname);
-		
+		// System.out.println(cname);
+
 		List<NovelChapterDo> chapters = currentVolum.getChapters();
-		if (chapters ==null){
+		if (chapters == null) {
 			chapters = new ArrayList<NovelChapterDo>();
 			currentVolum.setChapters(chapters);
 		}

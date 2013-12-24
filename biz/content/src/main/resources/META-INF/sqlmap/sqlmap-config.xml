@@ -8,6 +8,10 @@
 	<sqlMap resource="META-INF/sqlmap/pagination.xml" />
 	
 	<sqlMap resource="META-INF/sqlmap/config/NovelBasic.xml" />
+	<sqlMap resource="META-INF/sqlmap/config/NovelChapter.xml" />
+	<sqlMap resource="META-INF/sqlmap/config/NovelVolum.xml" />
+	<sqlMap resource="META-INF/sqlmap/config/NovelPage.xml" />
+	<sqlMap resource="META-INF/sqlmap/config/Tasks.xml" />
 
 	
 </sqlMapConfig>

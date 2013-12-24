@@ -9,15 +9,16 @@ import java.sql.Date;
  */
 public class NovelPageDo {
 
-    private int    id;
+	private int id;
 
-    private String content;
+	// ÕÂid
+	private long cid;
+	// ÕýÎÄ
+	private String content;
+	private String info1;
 
-    private String info1;
+	private Date gmtCreate;
 
-    
-	private Date gmtCreate ;
-	
 	private Date gmtModify;
 
 	public Date getGmtCreate() {
@@ -36,28 +37,36 @@ public class NovelPageDo {
 		this.gmtModify = gmtModify;
 	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public String getInfo1() {
-        return info1;
-    }
+	public String getInfo1() {
+		return info1;
+	}
 
-    public void setInfo1(String info1) {
-        this.info1 = info1;
-    }
+	public void setInfo1(String info1) {
+		this.info1 = info1;
+	}
+
+	public long getCid() {
+		return cid;
+	}
+
+	public void setCid(long cid) {
+		this.cid = cid;
+	}
 
 }

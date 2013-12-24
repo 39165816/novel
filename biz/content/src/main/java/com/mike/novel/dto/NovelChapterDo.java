@@ -10,26 +10,29 @@ import java.sql.Date;
 public class NovelChapterDo {
 
 	private int id;
-
+	// 卷id
 	private int vid;
-
+	// 章id
 	private long cid;
-
+	// 下一章id
 	private long nextid;
-
+	// 上一章id
 	private long upid;
-
+	// 章名字
 	private String cname;
-
+	// 章编号
 	private int cnum;
-
+	// 是否是内容
 	private boolean isContent;
+
+	private String info1;
+
+	private String info2;
 
 	private TasksDo task;
 
-	
-	private Date gmtCreate ;
-	
+	private Date gmtCreate;
+
 	private Date gmtModify;
 
 	public Date getGmtCreate() {
@@ -118,6 +121,22 @@ public class NovelChapterDo {
 
 	public void setTask(TasksDo task) {
 		this.task = task;
+	}
+
+	public String getInfo1() {
+		return info1;
+	}
+
+	public void setInfo1(String info1) {
+		this.info1 = info1;
+	}
+
+	public String getInfo2() {
+		return info2;
+	}
+
+	public void setInfo2(String info2) {
+		this.info2 = info2;
 	}
 
 }

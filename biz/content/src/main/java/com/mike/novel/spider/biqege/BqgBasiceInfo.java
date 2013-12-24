@@ -11,7 +11,9 @@ import org.webharvest.definition.ScraperConfiguration;
 import org.webharvest.runtime.Scraper;
 import org.webharvest.runtime.variables.Variable;
 
+import com.alibaba.lp.orm.sequence.BizCommonSequence;
 import com.mike.novel.content.service.NovelBasicService;
+import com.mike.novel.content.service.NovelCombServcie;
 import com.mike.novel.dto.NovelBasicDo;
 import com.mike.novel.dto.NovelVolumDo;
 import com.mike.novel.dto.vo.NovelStatusVo;
@@ -29,9 +31,13 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 
 	@Resource
 	private ConfigConstants configConstants;
-
 	@Resource
 	private NovelBasicService novelBasicService;
+	@Resource
+	private NovelCombServcie novelCombServcie;
+
+	@Resource
+	private BizCommonSequence bizCommonSequence;
 
 	public NovelStatusVo executeIndexPage(String indexPage) {
 		ScraperConfiguration indexConfig;
@@ -54,22 +60,29 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		indexScraper.getContext().setVar("pictureSavePath", pictureSavePath);
 		indexScraper.execute();
 
-		NovelBasicDo novelBasicDo = curlBasicInfo(indexScraper, pictureSavePath);
+		// 分析并保存基本信息
+		NovelBasicDo novelBasicDo = curlBasicInfo(indexScraper,
+				pictureSavePath, indexPage);
 		result.setNovelBasicDo(novelBasicDo);
-		Integer id = novelBasicService.insert(novelBasicDo);
+		novelBasicService.insert(novelBasicDo);
+
+		int nid = novelBasicDo.getNid();
 
 		Variable allinfo = (Variable) indexScraper.getContext().get("allinfo");
 		List<NovelVolumDo> volums = BggIndexParseHelper.parse(
-				allinfo.toString(), novelBasicDo.getTitle().length());
+				allinfo.toString(), novelBasicDo.getTitle().length(), nid);
 		result.setVolums(volums);
 		// TODO: 把volum和task存到db中
+		novelCombServcie.saveVolumAndTask(volums);
 
 		return result;
 	}
 
 	private NovelBasicDo curlBasicInfo(Scraper indexScraper,
-			String pictureSavePath) {
+			String pictureSavePath, String indexPage) {
 		NovelBasicDo novelBasicDo = new NovelBasicDo();
+		// 设置原始输入URL
+		novelBasicDo.setOriginalUrl(indexPage.trim());
 		// 标题
 		Variable title = (Variable) indexScraper.getContext().get("title");
 		novelBasicDo.setTitle(title.toString());
@@ -95,8 +108,7 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		novelBasicDo.setIsForDownload(0);// 默认不提供下载
 		novelBasicDo.setReadyPublic(false);// 默认不公开
 		novelBasicDo.setGenerateHtml(false);// 默认走db,不生成html
-		// TODO: 待定nid，通过全局id来做
-		// novelBasicDo.setNid(nid);
+		novelBasicDo.setNid(bizCommonSequence.getNidSequenceCode()); // 通过全局id来做
 
 		return novelBasicDo;
 	}

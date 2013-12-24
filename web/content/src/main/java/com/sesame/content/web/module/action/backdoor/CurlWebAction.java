@@ -21,7 +21,9 @@ import com.alibaba.citrus.service.form.FormService;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.Navigator;
 import com.alibaba.citrus.turbine.TurbineRunData;
-import com.mike.novel.content.service.NovelStatusServcie;
+import com.mike.novel.content.service.NovelBasicService;
+import com.mike.novel.content.service.NovelCombServcie;
+import com.mike.novel.dto.NovelBasicDo;
 import com.mike.novel.dto.vo.NovelStatusVo;
 import com.mike.novel.spider.BasicInfoAccess;
 import com.mike.novel.util.BqgConstants;
@@ -38,7 +40,10 @@ public class CurlWebAction {
 	@Resource
 	private BasicInfoAccess basicInfoAccess;
 	@Resource
-	private NovelStatusServcie novelStatusServcie;
+	private NovelCombServcie novelCombServcie;
+
+	@Resource
+	private NovelBasicService novelBasicService;
 
 	/**
 	 * 提交审核（detail页面）
@@ -64,13 +69,22 @@ public class CurlWebAction {
 			return;
 
 		}
-
-		NovelStatusVo novelStatus = basicInfoAccess.executeIndexPage(targetUrl);
+		NovelStatusVo novelStatus;
+		NovelBasicDo novelBasicDo = novelBasicService
+				.queryByTargetUrl(targetUrl);
+		if (novelBasicDo == null) {
+			novelStatus = basicInfoAccess.executeIndexPage(targetUrl);
+			novelStatus.setExists(false);
+		} else {
+			// 查询状态
+			novelStatus = new NovelStatusVo();
+			novelStatus.setNovelBasicDo(novelBasicDo);
+			novelStatus.setExists(true);
+		}
 		// TODO: add more task info!
-		novelStatusServcie.queryNovelStatus(novelStatus.getNovelBasicDo().getId());
+
 		context.put("novelStatus", novelStatus);
 
 		nav.forwardTo("/backdoor/status.vm");
 	}
-
 }

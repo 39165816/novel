@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="novelVolum">
+
+	<typeAlias alias="NovelVolumDo" type="com.mike.novel.dto.NovelVolumDo" />
+
+	<resultMap id="novelVolum.rm" class="NovelVolumDo">
+        <result property="id" column="ID"/>
+        <result property="nid" column="NID"/>
+        <result property="vid" column="VID"/>
+        <result property="vname" column="VNAME"/>
+        <result property="vnum" column="VNUM"/>
+        <result property="vintro" column="VINTRO"/>
+        <result property="info1" column="INFO1"/>
+        <result property="info2" column="INFO2"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+	</resultMap>
+	
+	<sql id="novelVolum.columns">
+	    <![CDATA[
+	    	ID,	NID,VID,VNAME,VNUM,	VINTRO, INFO1, INFO2, GMTCREATE, GMTMODIFY  
+	    ]]>
+	</sql>
+	
+	<insert id="novelVolum.insert" parameterClass="NovelVolumDo">
+    <![CDATA[
+        INSERT INTO NovelVolum (
+				ID,	NID,VID,VNAME,VNUM,	VINTRO, INFO1, INFO2, GMTCREATE, GMTMODIFY  
+        ) VALUES (
+        		#id#,#nid#,#vid#,#vname#,#vnum#,#vintro#,#info1#,#info2#,now(), now()
+        )
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+   
+    <delete id="novelVolum.deleteById">
+    <![CDATA[
+        DELETE FROM NovelVolum WHERE
+        ID = #id# 
+    ]]>
+    </delete>
+    
+    <select id="novelVolum.getById" resultMap="novelVolum.rm">
+		SELECT <include refid="novelVolum.columns" />
+	    <![CDATA[
+		    FROM NovelVolum WHERE ID = #id#
+	    ]]>
+	</select>
+	
+</sqlMap>

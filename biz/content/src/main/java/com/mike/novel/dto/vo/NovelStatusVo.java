@@ -1,5 +1,6 @@
 package com.mike.novel.dto.vo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mike.novel.dto.NovelBasicDo;
@@ -10,7 +11,9 @@ public class NovelStatusVo {
 
 	private NovelBasicDo novelBasicDo;
 
-	private List<NovelVolumDo> volums;
+	private List<NovelVolumDo> volums = new ArrayList<NovelVolumDo>();
+
+	private boolean isExists;
 
 	public NovelBasicDo getNovelBasicDo() {
 		return novelBasicDo;
@@ -54,4 +57,13 @@ public class NovelStatusVo {
 
 		return sb.toString();
 	}
+
+	public boolean isExists() {
+		return isExists;
+	}
+
+	public void setExists(boolean isExists) {
+		this.isExists = isExists;
+	}
+
 }
