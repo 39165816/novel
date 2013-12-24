@@ -49,7 +49,19 @@
                                 <artifactId>junit</artifactId>
                                 <scope>test</scope>
                         </dependency>
+						<dependency>
+						  <groupId>com.alibaba</groupId>
+						  <artifactId>druid</artifactId>
+						</dependency>
 
-
+                        <dependency>
+                                <groupId>com.alibaba.external</groupId>
+                                <artifactId>sourceforge.ibatis</artifactId>
+                        </dependency>
+                        <dependency>
+                                <groupId>com.alibaba.external</groupId>
+                                <artifactId>jdbc.mysql.mysql-connector</artifactId>
+                        </dependency>
+                        
 	</dependencies>
 </project>

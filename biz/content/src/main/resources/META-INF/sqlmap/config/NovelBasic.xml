@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="novelBasic">
+
+	<typeAlias alias="NovelBasicDo" type="com.mike.novel.dto.NovelBasicDo" />
+
+	<resultMap id="novelBasic.rm" class="NovelBasicDo">
+        <result property="id" column="ID"/>
+        <result property="nid" column="NID"/>
+        <result property="picturePath" column="PICTUREPATH"/>
+        <result property="author" column="AUTHOR"/>
+        <result property="isFinished" column="ISFINISHED"/>
+        <result property="introduce" column="INTRODUCE"/>
+        <result property="lastUpdateTime" column="LASTUPDATETIME"/>
+        <result property="isForDownload" column="ISFORDOWNLOAD"/>
+        <result property="type" column="TYPE"/>
+        <result property="info1" column="INFO1"/>
+        <result property="info2" column="INFO2"/>
+        <result property="isReadyPublic" column="ISREADYPUBLIC"/>
+        <result property="isGenerateHtml" column="ISGENERATEHTML"/>
+        <result property="title" column="TITLE"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+	</resultMap>
+	
+	<sql id="novelBasic.columns">
+	    <![CDATA[
+	    	ID,	NID,PICTUREPATH,AUTHOR,ISFINISHED,	INTRODUCE,LASTUPDATETIME,ISFORDOWNLOAD, TYPE, 
+	    	INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,GMTCREATE, GMTMODIFY  
+	    ]]>
+	</sql>
+	
+	<sql id="novelBasic.queryCondition">
+		<isNotEmpty prepend=" and " property="id">
+		<![CDATA[ ID = #id# ]]>
+		</isNotEmpty>
+		<isNotEmpty prepend=" and " property="nid">
+		<![CDATA[ NID = #nid# ]]>
+		</isNotEmpty>
+		<isNotEmpty prepend=" and " property="isReadyPublic">
+		<![CDATA[ ISREADYPUBLIC = #isReadyPublic# ]]>
+		</isNotEmpty>
+	</sql>
+
+    <sql id="novelBasic.pageQueryCondition">
+		<isNotEmpty prepend=" and " property="type">
+		<![CDATA[ TYPE = #type# ]]>
+		</isNotEmpty>
+	</sql>
+	
+	<insert id="novelBasic.insert" parameterClass="NovelBasicDo">
+    <![CDATA[
+        INSERT INTO NovelBasic (
+        ID,	NID,PICTUREPATH,AUTHOR,ISFINISHED,INTRODUCE,LASTUPDATETIME,ISFORDOWNLOAD,
+         TYPE, INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,  GMTCREATE, GMTMODIFY  
+        ) VALUES (
+			#id#,#nid#,#picturePath#,#author#,#isFinished#,#introduce#,#lastUpdateTime#,#isForDownload#,
+			#type#,#info1#,#info2#,#isReadyPublic#,#isGenerateHtml#,#title#, now(), now()
+        )
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+	
+    <!--
+	<update id="novelBasic.update" parameterClass="NovelBasicDo">
+    <![CDATA[
+        UPDATE NovelBasic SET
+	        FLOW_CODE = #flowCode# ,
+	        FLOW_NAME = #flowName# ,
+	        FLOW_XML = #flowXml# ,
+	        GROUP_ID = #groupId# ,
+	        GMT_MODIFIED = now() ,
+	        REMARK = #remark# 
+        WHERE 
+	        ID = #id# 
+    ]]>
+	</update>
+   -->
+   
+   
+    <delete id="novelBasic.deleteById">
+    <![CDATA[
+        DELETE FROM NovelBasic WHERE
+        ID = #id# 
+    ]]>
+    </delete>
+    
+    <select id="novelBasic.getById" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic WHERE ID = #id#
+	    ]]>
+	</select>
+	
+	<select id="novelBasic.findByIds" parameterClass="list" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic WHERE ID 
+	    ]]>
+		<dynamic prepend=" in ">
+			<iterate open="(" close=")" conjunction=", ">
+			#idList[]#
+			</iterate>
+		</dynamic>
+	</select>
+	
+    <select id="novelBasic.getCount" parameterClass="map" resultClass="int">
+        SELECT count(*) FROM NovelBasic WHERE 1=1 
+		<include refid="novelBasic.pageQueryCondition"/>
+    </select>
+    
+    <select id="novelBasic.queryPage" parameterClass="map" resultMap="novelBasic.rm">
+    <include refid="paginationStart" />
+    	SELECT <include refid="novelBasic.columns" />
+	    FROM NovelBasic WHERE 1=1
+		<include refid="novelBasic.pageQueryCondition"/>
+      ORDER BY ID desc
+    <include refid="paginationEnd" />
+    </select>
+	
+	<select id="novelBasic.find" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic WHERE 1=1
+	    ]]>
+	    <include refid="novelBasic.queryCondition"/>
+    ORDER BY ID desc
+	</select>
+	
+</sqlMap>

@@ -44,7 +44,8 @@
 	
 	<!--业务配置-->
    	<beans:import resource="classpath:spring/content.xml" />
-
+   	<beans:import resource="classpath:spring/biz-datasource.xml" />
+   	
     <!-- 综合设置。 -->
     <services:webx-configuration>
         <!-- 默认将productionMode设为true，建议在jetty插件中设置-DproductionMode=false。 -->

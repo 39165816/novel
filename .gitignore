@@ -8,3 +8,4 @@ web/content/target/
 web/content/.classpath
 web/home/target/
 web/home/.classpath
+antx.properties

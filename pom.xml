@@ -418,17 +418,26 @@
 				</exclusions>
             </dependency>
 			<!--ibatis-->
-            <dependency>
-                <groupId>org.apache.ibatis</groupId>
-                <artifactId>ibatis-sqlmap</artifactId>
-                <version>2.3.4.726</version>
-            </dependency>
-            <!--jdbc-->
+            
+                        <dependency>
+                                <groupId>com.alibaba.external</groupId>
+                                <artifactId>sourceforge.ibatis</artifactId>
+                                <version>2.3.4.726-patch</version>
+                        </dependency>
+<!--jdbc-->
 			<dependency>
                 <groupId>oracle.jdbc</groupId>
    	          	<artifactId>ojdbc</artifactId>
              	<version>10.2.0.3.0</version>
       		</dependency>
+<!--mysql-->
+                        <dependency>
+                                <groupId>com.alibaba.external</groupId>
+                                <artifactId>jdbc.mysql.mysql-connector</artifactId>
+                                <version>5.1.12</version>
+                        </dependency>
+
+
 			<dependency>
 				<groupId>com.alibaba.external</groupId>
 				<artifactId>xml.apis.css</artifactId>
@@ -467,7 +476,12 @@
   <artifactId>webharvest</artifactId>
   <version>2.tinglei</version>
 </dependency>		
-
+ <!-- druid-->
+<dependency>
+  <groupId>com.alibaba</groupId>
+  <artifactId>druid</artifactId>
+  <version>1.0.1</version>
+</dependency>
 </dependencies>
 	</dependencyManagement>
 

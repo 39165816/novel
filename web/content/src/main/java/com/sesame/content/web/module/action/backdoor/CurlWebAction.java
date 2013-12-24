@@ -24,7 +24,7 @@ import com.alibaba.citrus.turbine.TurbineRunData;
 import com.mike.novel.content.service.NovelStatusServcie;
 import com.mike.novel.dto.vo.NovelStatusVo;
 import com.mike.novel.spider.BasicInfoAccess;
-import com.mike.novel.spider.biqege.BqgConstants;
+import com.mike.novel.util.BqgConstants;
 
 /**
  * 卖家预售商品action
