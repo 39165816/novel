@@ -10,11 +10,11 @@ public class NovelPageDaoImpl extends PageSqlMapClientDaoSupport<NovelPageDo>
 		implements NovelPageDao {
 
 	@Override
-	public Integer save(NovelPageDo novelPageDo) {
+	public Long save(NovelPageDo novelPageDo) {
 		if (novelPageDo == null) {
-			return 0;
+			return 0l;
 		}
-		return (Integer) getSqlMapClientTemplate().insert(
+		return (Long) getSqlMapClientTemplate().insert(
 				getSqlMapNamesapce() + "insert", novelPageDo);
 	}
 

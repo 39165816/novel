@@ -6,6 +6,9 @@ import java.util.concurrent.Executors;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.mike.novel.content.dao.NovelPageDao;
 import com.mike.novel.content.service.TasksService;
 import com.mike.novel.dto.NovelPageDo;
@@ -17,6 +20,9 @@ import com.mike.novel.spider.ChapterAccess;
  * 
  */
 public class BqgChapterTask {
+
+	private static Logger loggor = LoggerFactory
+			.getLogger(BqgChapterTask.class);
 
 	private static final int CORE_NUM = 2;
 	private static final int SLEEP_TIME = 200;
@@ -54,6 +60,7 @@ public class BqgChapterTask {
 			tasksDo.setFinished(true);
 			tasksService.finishTask(tasksDo);
 
+			loggor.info("curl one chapter suceesss! url" + tasksDo.getUrl());
 			try {
 				Thread.sleep(SLEEP_TIME);
 			} catch (InterruptedException e) {

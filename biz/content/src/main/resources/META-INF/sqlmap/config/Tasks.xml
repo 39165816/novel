@@ -38,7 +38,7 @@
 	<update id="tasks.update" parameterClass="TasksDo">
     <![CDATA[
         UPDATE Tasks SET
-	        ISFINISHED = #isFinished# ,
+	        ISFINISHED = #isFinished# 
         WHERE 
 	        ID = #id# 
     ]]>

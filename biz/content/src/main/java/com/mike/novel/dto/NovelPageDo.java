@@ -9,7 +9,7 @@ import java.sql.Date;
  */
 public class NovelPageDo {
 
-	private int id;
+	private long id;
 
 	// ÕÂid
 	private long cid;
@@ -37,11 +37,11 @@ public class NovelPageDo {
 		this.gmtModify = gmtModify;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

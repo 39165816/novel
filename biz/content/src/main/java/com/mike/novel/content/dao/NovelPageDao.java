@@ -6,7 +6,7 @@ import com.mike.novel.dto.NovelPageDo;
 
 public interface NovelPageDao {
 
-	public Integer save(NovelPageDo novelPageDo);
+	public Long save(NovelPageDo novelPageDo);
 
 	public void update(NovelPageDo novelPageDo);
 
