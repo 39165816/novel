@@ -11,7 +11,7 @@ import com.mike.novel.dto.vo.NovelStatusVo;
  */
 public interface NovelCombServcie {
 	/**
-	 * 根据小说nid，返回小说的状态：包括基本信息，爬取的状态等
+	 * 查询小说的信息（包括任务执行状态）
 	 */
 	NovelStatusVo queryNovelStatus(long nid);
 
@@ -20,5 +20,13 @@ public interface NovelCombServcie {
 	 */
 	void saveVolumAndTask(List<NovelVolumDo> volums);
 
+	/**
+	 * 执行一个小说的爬行
+	 */
 	void processTask(long nid);
+
+	/**
+	 * 查询小说的信息（不包括任务）
+	 */
+	NovelStatusVo queryNovelInfo(long nid);
 }

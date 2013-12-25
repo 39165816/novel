@@ -3,6 +3,8 @@ package com.mike.novel.dto;
 import java.sql.Date;
 import java.util.List;
 
+import com.mike.novel.util.NovelType;
+
 /**
  * 类 NovelBasicDo 的实现描述：小说基本信息Do
  * 
@@ -189,6 +191,10 @@ public class NovelBasicDo {
 
 	public void setOriginalUrl(String originalUrl) {
 		this.originalUrl = originalUrl;
+	}
+
+	public String getTypeName() {
+		return NovelType.getName(type);
 	}
 
 }

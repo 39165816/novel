@@ -14,6 +14,8 @@ public class ConfigConstants {
 
 	private static String PROJECT_BASE_HOME_KEY = "project_base_home_key";
 
+	private static String PICTURE_ACCESS_PATH_KEY = "picture_access_path_key";
+
 	public ConfigConstants() {
 	}
 
@@ -31,6 +33,10 @@ public class ConfigConstants {
 
 	public String getProjectBaseHome() {
 		return getValue(PROJECT_BASE_HOME_KEY);
+	}
+
+	public String getPictureAccessPath() {
+		return getValue(PICTURE_ACCESS_PATH_KEY);
 	}
 
 }

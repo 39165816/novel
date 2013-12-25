@@ -16,6 +16,7 @@ import com.mike.novel.dto.NovelVolumDo;
 import com.mike.novel.dto.TasksDo;
 import com.mike.novel.dto.vo.NovelStatusVo;
 import com.mike.novel.spider.biqege.BqgChapterTask;
+import com.mike.novel.util.ConfigConstants;
 
 public class NovelCombServcieImpl implements NovelCombServcie {
 
@@ -30,20 +31,39 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 
 	@Resource
 	private BqgChapterTask bqgChapterTask;
-
 	@Resource
 	private NovelBasicService novelBasicService;
 
+	@Resource
+	private ConfigConstants configConstants;
+
 	@Override
 	public NovelStatusVo queryNovelStatus(long nid) {
+		NovelStatusVo result = queryNovelInfo(nid);
+
+		// 任务信息
+		List<TasksDo> tasks = tasksService.queryByNid(nid);
+		result.setTasks(tasks);
+
+		return result;
+	}
+
+	@Override
+	public NovelStatusVo queryNovelInfo(long nid) {
 		NovelStatusVo result = new NovelStatusVo();
 		// 基本信息
 		NovelBasicDo novelBasicDo = novelBasicService.queryByNid(nid);
 		if (novelBasicDo == null) {
 			result.setExists(false);
+			return result;
 		} else {
 			result.setExists(true);
 		}
+
+		// 转化pic路径
+		novelBasicDo.setPicturePath(configConstants.getPictureAccessPath()
+				+ novelBasicDo.getPicturePath());
+
 		result.setNovelBasicDo(novelBasicDo);
 
 		// 卷信息
@@ -56,10 +76,6 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 				oneVolum.setChapters(novelChapterDao.getbyVid(oneVolum.getVid()));
 			}
 		}
-
-		// 任务信息
-		List<TasksDo> tasks = tasksService.queryByNid(nid);
-		result.setTasks(tasks);
 
 		return result;
 	}

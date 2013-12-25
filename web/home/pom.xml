@@ -39,6 +39,14 @@
 			<artifactId>toolkit-webx-all-in-one</artifactId>
 	</dependency>
 		
+	 	<dependency>
+			<groupId>com.sesame.novel.web</groupId>
+			<artifactId>novel-biz-common</artifactId>
+		</dependency>
+	 	<dependency>
+			<groupId>com.sesame.novel.web</groupId>
+			<artifactId>novel-biz-content</artifactId>
+		</dependency>			
 		
 		<!--webx rpc begin -->
 		<dependency>

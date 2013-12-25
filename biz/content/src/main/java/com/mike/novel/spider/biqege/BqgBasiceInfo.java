@@ -52,17 +52,18 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 				configConstants.getProjectBaseHome()
 						+ BqgConstants.HARVEST_WORKING_DIR);
 
-		String pictureSavePath = getAPictureUrl();
+		String picName = getPictureName();
 		NovelStatusVo result = new NovelStatusVo();
 
 		// 设置spider的变量
 		indexScraper.getContext().setVar("IndexPage", indexPage);
-		indexScraper.getContext().setVar("pictureSavePath", pictureSavePath);
+		indexScraper.getContext().setVar("pictureSavePath",
+				configConstants.getPictureSavePath() + picName);
 		indexScraper.execute();
 
 		// 分析并保存基本信息
 		NovelBasicDo novelBasicDo = curlBasicInfo(indexScraper,
-				pictureSavePath, indexPage);
+				picName, indexPage);
 		result.setNovelBasicDo(novelBasicDo);
 		novelBasicService.insert(novelBasicDo);
 
@@ -113,10 +114,9 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		return novelBasicDo;
 	}
 
-	public String getAPictureUrl() {
-		StringBuffer sb = new StringBuffer(configConstants.getPictureSavePath());
-		sb.append(System.nanoTime());
-		sb.append(".jpg");
+	public String getPictureName() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(System.nanoTime()).append(".jpg");
 		return sb.toString();
 	}
 

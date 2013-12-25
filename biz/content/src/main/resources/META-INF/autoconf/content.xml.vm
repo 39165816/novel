@@ -15,6 +15,9 @@
 		                 <entry  key ="picture_save_path_key"> 
 		                     <value>${novel_picpath}</value> 
 		                 </entry> 
+		                 <entry  key ="picture_access_path_key"> 
+		                     <value>${picture_access_path}</value> 
+		                 </entry> 
 		                 <entry  key ="project_base_home_key"> 
 		                     <value>${novel_project_base_home}</value> 
 		                 </entry> 

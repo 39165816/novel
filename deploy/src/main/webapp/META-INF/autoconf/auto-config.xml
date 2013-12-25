@@ -15,10 +15,11 @@
 			description="日志的输出目录" />
 		<property name="neoportal.loggingLevel" defaultValue="INFO"
 			description="日志的输出级别" />
-		<property name="novel.picpath" defaultValue="/home/mike/pics/"
+		<property name="novel.picpath" defaultValue="/home/mike/data/githome/novel/deploy/src/main/webapp/pics/"
 			description="图片的默认存储路径" />
+		<property name="picture.access.path" defaultValue="/pics/"
+			description="前台图片的访问路径" />
 	</group>
-
 	
 	<script>
 		<generate template="webx.xml.vm" destfile="WEB-INF/webx.xml"

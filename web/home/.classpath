@@ -53,6 +53,13 @@
   <classpathentry kind="var" path="M2_REPO/junit/junit/4.5/junit-4.5.jar" sourcepath="M2_REPO/junit/junit/4.5/junit-4.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/forehead/forehead/1.0-beta-5/forehead-1.0-beta-5.jar"/>
   <classpathentry kind="var" path="M2_REPO/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar"/>
+  <classpathentry kind="src" path="/novel-biz-common"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring/2.5.6.SEC03/spring-2.5.6.SEC03.jar" sourcepath="M2_REPO/org/springframework/spring/2.5.6.SEC03/spring-2.5.6.SEC03-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/webharvest/webharvest/2.tinglei/webharvest-2.tinglei.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/alibaba/druid/1.0.1/druid-1.0.1.jar" sourcepath="M2_REPO/com/alibaba/druid/1.0.1/druid-1.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/alibaba/external/sourceforge.ibatis/2.3.4.726-patch/sourceforge.ibatis-2.3.4.726-patch.jar" sourcepath="M2_REPO/com/alibaba/external/sourceforge.ibatis/2.3.4.726-patch/sourceforge.ibatis-2.3.4.726-patch-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/alibaba/external/jdbc.mysql.mysql-connector/5.1.12/jdbc.mysql.mysql-connector-5.1.12.jar" sourcepath="M2_REPO/com/alibaba/external/jdbc.mysql.mysql-connector/5.1.12/jdbc.mysql.mysql-connector-5.1.12-sources.jar"/>
+  <classpathentry kind="src" path="/novel-biz-content"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/platform/shared/webx3.extension.rpc/0.2.6/webx3.extension.rpc-0.2.6.jar" sourcepath="M2_REPO/com/alibaba/platform/shared/webx3.extension.rpc/0.2.6/webx3.extension.rpc-0.2.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/platform/shared/nonda.validation-webx3/0.1.2/nonda.validation-webx3-0.1.2.jar" sourcepath="M2_REPO/com/alibaba/platform/shared/nonda.validation-webx3/0.1.2/nonda.validation-webx3-0.1.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/platform/shared/nonda.validation/0.1.2/nonda.validation-0.1.2.jar" sourcepath="M2_REPO/com/alibaba/platform/shared/nonda.validation/0.1.2/nonda.validation-0.1.2-sources.jar"/>
