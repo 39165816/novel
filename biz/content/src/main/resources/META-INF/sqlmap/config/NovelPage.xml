@@ -47,4 +47,11 @@
 	    ]]>
 	</select>
 	
+	 <select id="novelPage.getByCid" resultMap="novelPage.rm">
+		SELECT <include refid="novelPage.columns" />
+	    <![CDATA[
+		    FROM NovelPage WHERE CID = #cid#
+	    ]]>
+	</select>
+	
 </sqlMap>

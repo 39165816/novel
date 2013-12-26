@@ -35,7 +35,7 @@ public class TasksDaoImpl extends PageSqlMapClientDaoSupport<TasksDo> implements
 	}
 
 	@Override
-	public List<TasksDo> getByNid(long nid) {
+	public List<TasksDo> getByNid(int nid) {
 		@SuppressWarnings("unchecked")
 		List<TasksDo> TasksDo = getSqlMapClientTemplate().queryForList(
 				getSqlMapNamesapce() + "getByNid", nid);

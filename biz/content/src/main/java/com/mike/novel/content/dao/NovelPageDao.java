@@ -12,6 +12,6 @@ public interface NovelPageDao {
 
 	public void deleteById(Serializable id);
 
-	public NovelPageDo getById(Serializable id);
+	public NovelPageDo getByCid(long cid);
 
 }

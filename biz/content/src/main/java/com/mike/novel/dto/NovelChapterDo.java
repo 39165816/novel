@@ -139,4 +139,19 @@ public class NovelChapterDo {
 		this.info2 = info2;
 	}
 
+	public String getUpUrl(long nid) {
+		if (upid == 0l) {
+			return "/n.htm?nid=" + nid;
+		}
+
+		return "/p.htm?nid=" + nid + "&" + "cid=" + upid;
+	}
+
+	public String getNextUrl(long nid) {
+		if (nextid == 0l) {
+			return "/n.htm?nid=" + nid;
+		}
+
+		return "/p.htm?nid=" + nid + "&" + "cid=" + nextid;
+	}
 }

@@ -31,10 +31,14 @@
     
     <bean id="novelBasicService" class="com.mike.novel.content.service.impl.NovelBasicServiceImpl"/>
     <bean id="novelCombServcie" class="com.mike.novel.content.service.impl.NovelCombServcieImpl"/>
+    <bean id="novelChapterService" class="com.mike.novel.content.service.impl.NovelChapterServiceImpl"/>
+    <bean id="novelPageService" class="com.mike.novel.content.service.impl.NovelPageServiceImpl"/>
+
 
     <bean id="tasksService" class="com.mike.novel.content.service.impl.TasksServiceImpl"/>
 
     <bean id="bqgChapterTask" class="com.mike.novel.spider.biqege.BqgChapterTask"/>
+    
     
     
  

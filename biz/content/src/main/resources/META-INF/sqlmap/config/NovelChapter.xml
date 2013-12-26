@@ -60,4 +60,12 @@
 	    ]]>
 	</select>	
 	
+	<select id="novelChapter.getbyCid" resultMap="novelChapter.rm">
+		SELECT <include refid="novelChapter.columns" />
+	    <![CDATA[
+		    FROM NovelChapter WHERE CID = #cid#
+	    ]]>
+	</select>
+	
+	
 </sqlMap>

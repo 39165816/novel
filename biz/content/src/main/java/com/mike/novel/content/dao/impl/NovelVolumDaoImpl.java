@@ -42,7 +42,7 @@ public class NovelVolumDaoImpl extends PageSqlMapClientDaoSupport<NovelVolumDo>
 	}
 
 	@Override
-	public List<NovelVolumDo> queryByNid(long nid) {
+	public List<NovelVolumDo> queryByNid(int nid) {
 		@SuppressWarnings("unchecked")
 		List<NovelVolumDo> flowList = getSqlMapClientTemplate().queryForList(
 				getSqlMapNamesapce() + "queryByNid", nid);

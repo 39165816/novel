@@ -13,7 +13,7 @@ public interface NovelCombServcie {
 	/**
 	 * 查询小说的信息（包括任务执行状态）
 	 */
-	NovelStatusVo queryNovelStatus(long nid);
+	NovelStatusVo queryNovelStatus(int nid);
 
 	/**
 	 * 保存卷、章、任务信息
@@ -23,10 +23,10 @@ public interface NovelCombServcie {
 	/**
 	 * 执行一个小说的爬行
 	 */
-	void processTask(long nid);
+	void processTask(int nid);
 
 	/**
 	 * 查询小说的信息（不包括任务）
 	 */
-	NovelStatusVo queryNovelInfo(long nid);
+	NovelStatusVo queryNovelInfo(int nid);
 }

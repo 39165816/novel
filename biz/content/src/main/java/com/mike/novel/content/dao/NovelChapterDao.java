@@ -13,7 +13,7 @@ public interface NovelChapterDao {
 
 	public void deleteById(Serializable id);
 
-	public NovelChapterDo getById(Serializable id);
+	public NovelChapterDo getbyCid(long cid);
 
 	public List<NovelChapterDo> getbyVid(int vid);
 

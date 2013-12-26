@@ -1,0 +1,52 @@
+<head>
+<title>正文 $!{chapter.cname}_$!{novelBasicDo.title}_$!{novelBasicDo.typeName}_清风楼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta name="keywords" content="$!{novelBasicDo.title},正文 $!{chapter.cname}" />
+<meta name="description" content="清风楼提供了$!{novelBasicDo.author}创作的$!{novelBasicDo.typeName}《$!{novelBasicDo.title}》干净清爽无错字的文字章节：正文 $!{chapter.cname}在线阅读。" />
+<link rel="stylesheet" type="text/css" href="/css/aa.css"/>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bb.js"></script>
+<script language="javascript" type="text/javascript">
+var preview_page = "#esc_noesc($!chapter.getUpUrl($!{novelBasicDo.nid}))";
+var next_page = "#esc_noesc($!chapter.getNextUrl($!{novelBasicDo.nid}))";  
+var index_page = "/n.htm?nid=$!{novelBasicDo.nid}";  
+var bookid = "$!{novelBasicDo.nid}"; 
+var readid = "$!chapter.cid"; 
+var booktitle = "$!{novelBasicDo.title}";
+var readtitle = "正文  $!{novelBasicDo.title}";
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<script>login();</script>
+		<div class="header">
+			<div class="header_logo">
+				<a href="http://www.biquge.com/">清风楼</a>
+			</div>
+		</div>
+		$!control.setTemplate("menu.vm")
+		<div class="content_read">
+			<div class="box_con">
+				<div class="con_top">
+					<script>textselect();</script>
+					<a href="/">清风楼</a> &gt; <a href="/xiuzhenxiaoshuo/">$!{novelBasicDo.typeName}</a>  &gt; <a href="/n.htm?nid=$!{novelBasicDo.nid}">$!{novelBasicDo.title}</a> &gt; 正文 $!{chapter.cname}
+				</div>
+				<div class="bookname">
+					<h1>正文 $!{chapter.cname}</h1>
+					<div class="bottem2">
+						 <a href="$!chapter.getUpUrl(${novelBasicDo.nid})">上一章</a> &larr; <a href="/n.htm?nid=$!{novelBasicDo.nid}">全文列表</a> &rarr; <a href="$!chapter.getNextUrl($!{novelBasicDo.nid})">下一章</a> 
+					</div>
+				</div>
+				<div id="content">#esc_noesc($!page.formatContent)</div>
+				<div class="bottem2">
+					 <a href="$!chapter.getUpUrl(${novelBasicDo.nid})">上一章</a> &larr; <a href="/n.htm?nid=$!{novelBasicDo.nid}">全文列表</a> &rarr; <a href="$!chapter.getNextUrl($!{novelBasicDo.nid})">下一章</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer_cont">
+				<script>footer();</script>
+			</div>
+		</div>
+	</div>
+</body>

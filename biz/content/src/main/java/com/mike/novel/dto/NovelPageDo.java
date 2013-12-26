@@ -69,4 +69,20 @@ public class NovelPageDo {
 		this.cid = cid;
 	}
 
+	public String getFormatContent() {
+		if (content == null || content.equals("")) {
+			return "";
+		}
+		String newContent = content.replace("    ", "&nbsp;&nbsp;&nbsp;&nbsp;");
+		String result = newContent.replace("\n", "<br/><br/>");
+		result = result + "<br/><br/>";// 最后补上两个换行
+		return result;
+	}
+
+	public static void main(String[] args) {
+		String test = "abc\n" + "dd";
+		System.out.println(test);
+		System.out.println(test.replace("\n", "<br/>"));
+	}
+
 }

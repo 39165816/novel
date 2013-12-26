@@ -30,13 +30,13 @@ public class NovelPageDaoImpl extends PageSqlMapClientDaoSupport<NovelPageDo>
 
 	}
 
-	@Override
-	public NovelPageDo getById(Serializable id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	private String getSqlMapNamesapce() {
 		return "novelPage.";
+	}
+
+	@Override
+	public NovelPageDo getByCid(long cid) {
+		return (NovelPageDo) getSqlMapClientTemplate().queryForObject(
+				getSqlMapNamesapce() + "getByCid", cid);
 	}
 }

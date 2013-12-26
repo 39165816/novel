@@ -32,9 +32,9 @@ public class NovelChapterDaoImpl extends
 	}
 
 	@Override
-	public NovelChapterDo getById(Serializable id) {
-		// TODO Auto-generated method stub
-		return null;
+	public NovelChapterDo getbyCid(long cid) {
+		return (NovelChapterDo) getSqlMapClientTemplate().queryForObject(
+				getSqlMapNamesapce() + "getbyCid", cid);
 	}
 
 	private String getSqlMapNamesapce() {

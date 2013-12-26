@@ -38,7 +38,7 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 	private ConfigConstants configConstants;
 
 	@Override
-	public NovelStatusVo queryNovelStatus(long nid) {
+	public NovelStatusVo queryNovelStatus(int nid) {
 		NovelStatusVo result = queryNovelInfo(nid);
 
 		// 任务信息
@@ -49,7 +49,7 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 	}
 
 	@Override
-	public NovelStatusVo queryNovelInfo(long nid) {
+	public NovelStatusVo queryNovelInfo(int nid) {
 		NovelStatusVo result = new NovelStatusVo();
 		// 基本信息
 		NovelBasicDo novelBasicDo = novelBasicService.queryByNid(nid);
@@ -135,7 +135,7 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 	}
 
 	@Override
-	public void processTask(long nid) {
+	public void processTask(int nid) {
 		List<TasksDo> tasksDo = tasksService.queryByNid(nid);
 		if (tasksDo == null || tasksDo.size() == 0) {
 			return;

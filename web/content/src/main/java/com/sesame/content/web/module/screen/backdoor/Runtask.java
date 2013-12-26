@@ -29,9 +29,9 @@ public class Runtask {
 			nav.forwardTo("/backdoor/error.vm");
 			return;
 		}
-		long longnid = Long.parseLong(nid);
-		novelCombServcie.processTask(longnid);
-		NovelStatusVo novelStatus = novelCombServcie.queryNovelStatus(longnid);
+		int intNid = Integer.parseInt(nid);
+		novelCombServcie.processTask(intNid);
+		NovelStatusVo novelStatus = novelCombServcie.queryNovelStatus(intNid);
 		context.put("novelStatus", novelStatus);
 		nav.forwardTo("/backdoor/status.vm");
 	}

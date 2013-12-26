@@ -1,0 +1,63 @@
+<head>
+<title>$!novelStatus.novelBasicDo.title全文阅读_$!novelStatus.novelBasicDo.title全文免费阅读_清风楼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta name="keywords" content="$!novelStatus.novelBasicDo.title,$!novelStatus.novelBasicDo.title全文阅读, $!{novelStatus.novelBasicDo.title}txt" />
+<meta name="description" content="$!novelStatus.novelBasicDo.title全文阅读由网友提供，《$!novelStatus.novelBasicDo.title》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的$!novelStatus.novelBasicDo.typeName，清风楼免费提供$!novelStatus.novelBasicDo.title最新清爽干净的TXT全文免费在线阅读。" />
+<link rel="stylesheet" type="text/css" href="/css/aa.css"/>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bb.js"></script>
+<script language="javascript" type="text/javascript">var bookid = "$!novelStatus.novelBasicDo.nid"; var booktitle = "$!novelStatus.novelBasicDo.title";</script>
+</head>
+<body>
+	<div id="wrapper">
+		<script type="text/javascript">login();</script>
+		<div class="header">
+			<div class="header_logo">
+				<a href="http://www.biquge.com/">清风楼</a>
+			</div>
+		</div>
+		$!control.setTemplate("menu.vm")
+		<div class="box_con">
+			<div class="con_top">
+				<a href="/">清风楼</a> &gt; <a href="/xiuzhenxiaoshuo/">$!novelStatus.novelBasicDo.typeName</a>  &gt; $!{novelStatus.novelBasicDo.title}全文阅读
+			</div>
+			<div id="maininfo">
+				<div id="info">
+					<h1>$!novelStatus.novelBasicDo.title</h1>
+					<p>作&nbsp;&nbsp;&nbsp;&nbsp;者：$!novelStatus.novelBasicDo.author </p>
+					<p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="#footer">直达底部</a></p>
+					<p>最后更新：$!novelStatus.novelBasicDo.lastUpdateTime </p>
+					<p>是否完结:#if($novelStatus.novelBasicDo.isFinished()) 完结 #else 未完结 #end </p>
+				</div>
+				<div id="intro">
+					<p>$!novelStatus.novelBasicDo.introduce</p>
+					<p>各位书友要是觉得《$!novelStatus.novelBasicDo.title》还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦！</p>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div id="fmimg"><img alt="$!novelStatus.novelBasicDo.title" src="$!novelStatus.novelBasicDo.picturePath" width="120" height="150" /></div>
+			</div> 
+		</div>
+		
+		<div class="box_con">
+			<div id="list">
+				<dl>
+				
+					#foreach( $volum in $novelStatus.volums) 
+						<dt>《$!novelStatus.novelBasicDo.title》$!volum.vname</dt>
+							#foreach( $chapter in $volum.chapters)
+								<dd><a href="/p.htm?nid=$!novelStatus.novelBasicDo.nid&cid=$!chapter.cid">$!chapter.cname</a></dd>	
+						    #end				
+					#end
+					　
+				</dl>
+			</div>
+		</div>
+		<div id="footer" name="footer">
+			<div class="footer_cont">
+				<p>《$!novelStatus.novelBasicDo.title》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的$!novelStatus.novelBasicDo.typeName，清风楼转载收集$!novelStatus.novelBasicDo.title全文免费阅读。</p>
+				<script type="text/javascript">footer();</script>
+			</div>
+		</div>
+	</div>
+</body>

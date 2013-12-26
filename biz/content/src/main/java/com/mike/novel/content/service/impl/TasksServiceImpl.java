@@ -13,7 +13,7 @@ public class TasksServiceImpl implements TasksService {
 	private TasksDao tasksDao;
 
 	@Override
-	public List<TasksDo> queryByNid(long nid) {
+	public List<TasksDo> queryByNid(int nid) {
 		return tasksDao.getByNid(nid);
 	}
 

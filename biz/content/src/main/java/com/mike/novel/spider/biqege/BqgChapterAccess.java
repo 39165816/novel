@@ -27,13 +27,13 @@ public class BqgChapterAccess implements ChapterAccess {
 		ScraperConfiguration pageConfig;
 		try {
 			pageConfig = new ScraperConfiguration(
-					configConstants.getProjectBaseHome()
+					"/home/mike/data/githome/novel/"
 							+ BqgConstants.HARVEST_PAGE_CONFIG);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException("找不到 Page harvest配置文件路径.", e);
 		}
 		Scraper pageScraper = new Scraper(pageConfig,
-				configConstants.getProjectBaseHome()
+				"/home/mike/data/githome/novel/"
 						+ BqgConstants.HARVEST_WORKING_DIR);
 		pageScraper.getContext().setVar("chapter", detailUrl);
 		pageScraper.execute();
@@ -54,8 +54,13 @@ public class BqgChapterAccess implements ChapterAccess {
 	}
 
 	public static void main(String[] args) throws IOException {
-		System.out.println(new BqgChapterAccess()
-				.accessChapter("http://www.biquge.com/0_494/205922.html"));
-	}
+		String content = new BqgChapterAccess()
+				.accessChapter("http://www.biquge.com/0_494/205922.html");
+		System.out.println("1 content=" + content);
+		String replace = content.replace("    ", "&nbsp;&nbsp;&nbsp;&nbsp;");
+		System.out.println("2 content=" + replace);
+		String replaceAll = replace.replaceAll("\\n", "<br/>");
+		System.out.println("3 content=" + replaceAll);
 
+	}
 }

@@ -15,6 +15,6 @@ public interface NovelVolumDao {
 
 	public NovelVolumDo getById(Serializable id);
 
-	public List<NovelVolumDo> queryByNid(long nid);
+	public List<NovelVolumDo> queryByNid(int nid);
 
 }

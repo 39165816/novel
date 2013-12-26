@@ -13,5 +13,5 @@ public interface TasksDao {
 
 	public void deleteById(Serializable id);
 
-	public List<TasksDo> getByNid(long nid);
+	public List<TasksDo> getByNid(int nid);
 }
