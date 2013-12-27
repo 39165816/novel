@@ -5,4 +5,6 @@ package com.mike.novel.common.util;
  */
 public interface SiteConstants {
 	String SITE_NAME = "清风看书";
+
+	String INDEX_RECOMMEND_ID = "t1";
 }

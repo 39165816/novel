@@ -42,4 +42,9 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 		return novelBasicDao.findAll();
 	}
 
+	@Override
+	public List<NovelBasicDo> findNewest() {
+		return novelBasicDao.findNewest();
+	}
+
 }

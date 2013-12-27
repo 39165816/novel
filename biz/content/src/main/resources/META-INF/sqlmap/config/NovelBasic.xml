@@ -170,5 +170,15 @@
     	ORDER BY ID desc
 	</select>
 	
+	<select id="novelBasic.findNewest" resultMap="novelBasic.less">
+		SELECT	ID,	NID,AUTHOR,ISFINISHED,TYPE, TITLE  
+	    <![CDATA[
+		    FROM NovelBasic
+	    ]]>
+	    limit 0, 50
+    	ORDER BY ID desc
+	</select>
+	
+	
 	
 </sqlMap>

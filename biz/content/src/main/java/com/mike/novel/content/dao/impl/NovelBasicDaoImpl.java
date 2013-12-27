@@ -100,4 +100,12 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 		return flowList;
 	}
 
+	@Override
+	public List<NovelBasicDo> findNewest() {
+		@SuppressWarnings("unchecked")
+		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "findNewest");
+		return flowList;
+	}
+
 }

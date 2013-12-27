@@ -39,4 +39,9 @@ public interface NovelBasicService {
 	 * 返回所有小说列表
 	 */
 	public List<NovelBasicDo> findAll();
+
+	/**
+	 * 返回最新入库的小说
+	 */
+	public List<NovelBasicDo> findNewest();
 }
