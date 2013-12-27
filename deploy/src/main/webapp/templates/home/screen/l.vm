@@ -15,6 +15,7 @@
 				<a href="/">Çå·çÂ¥</a>
 			</div>
 		</div>
+		</div>
 $!control.setTemplate("menu.vm")
 <div id="main">
 <div id="hotcontent"><div class="ll">
@@ -31,6 +32,7 @@ $!control.setTemplate("menu.vm")
         <div class="clear"></div></div>
 				#end
 	</div>
+</div>
 </div>
 
 <div id="main">

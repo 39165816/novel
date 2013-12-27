@@ -175,8 +175,7 @@
 	    <![CDATA[
 		    FROM NovelBasic
 	    ]]>
-	    limit 0, 50
-    	ORDER BY ID desc
+    	ORDER BY ID desc    limit 0, 50
 	</select>
 	
 	

@@ -18,12 +18,11 @@
 			        </div>
 				#end
 			#end
-
+<h1>你应该知道干什么，如果不知道，请立即离开！</h1>
     		<table width="100%" >
-    		<!--	<col width="25%"/> -->
     			<tr>
-    				<td class="presell-tab-t">笔趣阁小说URL：</td>
-    				<td><input type="text" name="inputUrl" value="" msg="笔趣阁小说UR"/></td>
+    				<td>笔趣阁小说URL：</td>
+    				<td><input type="text" name="inputUrl" style="height:51px;width:449px" value="" msg="笔趣阁小说UR"/></td>
     			</tr>
 	
     			<tr class="presell-tab-btn">

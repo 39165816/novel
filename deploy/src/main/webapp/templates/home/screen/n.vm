@@ -19,7 +19,7 @@
 		$!control.setTemplate("menu.vm")
 		<div class="box_con">
 			<div class="con_top">
-				<a href="/">清风楼</a> &gt; <a href="/xiuzhenxiaoshuo/">$!novelStatus.novelBasicDo.typeName</a>  &gt; $!{novelStatus.novelBasicDo.title}全文阅读
+				<a href="/">清风楼</a> &gt; <a href="/l.htm?type=$!novelStatus.novelBasicDo.type">$!novelStatus.novelBasicDo.typeName</a>  &gt; $!{novelStatus.novelBasicDo.title}全文阅读
 			</div>
 			<div id="maininfo">
 				<div id="info">

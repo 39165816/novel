@@ -1,8 +1,6 @@
 package com.tmall.neo.home.web.module.screen;
 
 import java.util.List;
-import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
 
 import javax.annotation.Resource;
@@ -33,12 +31,12 @@ public class Index {
 	public void execute(Context context, Navigator nav) {
 		// 获得首页推荐的小说列表 6篇
 		Integer pid = configConstants.getPid(SiteConstants.INDEX_RECOMMEND_ID);
-		List<Integer> recommondIds = recommondService.queryByType(pid);
+		List<Integer> recommondIds = recommondService.queryByTypeDirect(pid);
 		List<NovelBasicDo> recommend = null;
 		if (recommondIds != null && !recommondIds.isEmpty()) {
 			recommend = novelBasicService.findByNids(recommondIds);
 			conventPicPath(recommend);
-			conventIntroduce(recommend);
+			conventIntroduce(recommend, 80);
 			limitSize(recommend, 6);
 		}
 		context.put("strongRecommend", recommend);
@@ -52,8 +50,8 @@ public class Index {
 			if (recommondIds != null && !recommondIds.isEmpty()) {
 				pidrecommend = novelBasicService.findByNids(recommondIds);
 				conventPicPath(pidrecommend);
-				conventIntroduce(pidrecommend);
-				limitSize(pidrecommend, 10);
+				conventIntroduce(pidrecommend, 40);
+				limitSize(pidrecommend, 9);
 			}
 			pidRecommend.put(one.name, pidrecommend);
 		}
@@ -62,12 +60,6 @@ public class Index {
 		// 获得最新入库的50本小说列表
 		List<NovelBasicDo> newest = novelBasicService.findNewest();
 		context.put("newestDos", newest);
-		Set<Entry<String, List<NovelBasicDo>>> entrySet = pidRecommend
-				.entrySet();
-		for (Entry<String, List<NovelBasicDo>> one : entrySet) {
-			one.getKey();
-			one.getValue();
-		}
 
 	}
 
@@ -75,20 +67,19 @@ public class Index {
 		if (recommend != null) {
 			for (NovelBasicDo one : recommend) {
 				// 转化pic路径
-				one.setPicturePath(configConstants.getPictureAccessPath()
-						+ one.getPicturePath());
+				one.setPicturePath(configConstants.getPictureAccessPath() + one.getPicturePath());
 			}
 		}
 	}
 
-	private void conventIntroduce(List<NovelBasicDo> recommend) {
+	private void conventIntroduce(List<NovelBasicDo> recommend, int size) {
 		if (recommend != null) {
 			for (NovelBasicDo one : recommend) {
 				String intro = one.getIntroduce();
 
-				if (intro.length() > 80)
+				if (intro.length() > size)
 					// 转化pic路径
-					one.setIntroduce(intro.substring(0, 77) + "...");
+					one.setIntroduce(intro.substring(0, size - 3) + "...");
 			}
 		}
 	}

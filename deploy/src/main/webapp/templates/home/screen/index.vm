@@ -14,6 +14,8 @@
 				<a href="/">清风楼</a>
 			</div>
 		</div>
+		</div>
+
 		$!control.setTemplate("menu.vm")
 
 <div id="main">
@@ -32,33 +34,46 @@
 				#end
 	</div>
 </div>
+</div>
 
  
 
-<div class="novelslist">
-
-
-			#foreach( $oneEntry in $pidRecommend.entrySet())  
-<div class="content">
-  <h2>oneEntry.key</h2>
-  
-<div class="top">
-<div class="image"><img src="http://www.biquge.com/image/4/4606/4606s.jpg" alt="大主宰"  width="67" height="82" /></div>
-<dl><dt><a href="http://www.biquge.com/4_4606/">大主宰</a></dt><dd>    大千世界，位面交汇，万族林立，群雄荟萃，一位位来自下位面的天之至尊，在这无尽世界，演绎着令人向...</dd></dl>
-<div class="clear"></div></div>
-<ul>
-<li><a href="http://www.biquge.com/5_5249/">完美世界</a>/辰东</li><li><a href="http://www.biquge.com/0_171/">傲世九重天</a>/风凌天下</li><li><a href="http://www.biquge.com/0_131/">武神空间</a>/傅啸尘</li><li><a href="http://www.biquge.com/0_2/">绝世唐门</a>/唐家三少</li><li><a href="http://www.biquge.com/4_4361/">九星天辰诀</a>/发飙的蜗牛</li><li><a href="http://www.biquge.com/0_266/">武极天下</a>/蚕茧里的牛</li><li><a href="http://www.biquge.com/0_173/">武炼巅峰</a>/莫默</li><li><a href="http://www.biquge.com/4_4900/">星河大帝</a>/梦入神机</li><li><a href="http://www.biquge.com/0_188/">剑道独神</a>/六道沉沦</li><li><a href="http://www.biquge.com/0_148/">剑道独尊</a>/剑游太虚</li><li><a href="http://www.biquge.com/4_4388/">奥术神座</a>/爱潜水的乌贼</li><li><a href="http://www.biquge.com/4_4386/">人皇</a>/十步行</li>
-</ul>
-  </div>
-				#end
-
+	#set ($i=0)
+	#foreach( $oneEntry in $pidRecommend.entrySet())
+		#set($i=$i+1)
+		#if($i%3==1) <div class="novelslist"> #end
+		#if($i%3==0)
+			<div class="content border">
+		#else
+		<div class="content">
+		#end
+	
+          <h2>$!oneEntry.key</h2>
+			#if($!oneEntry.value && $!oneEntry.value.size()>0)
+                	#set ($onebasic = $!oneEntry.value.get(0))
+                <div class="top">
+                <div class="image"><img src="$!onebasic.picturePath" alt="$!onebasic.title"  width="67" height="82" /></div>
+                <dl><dt><a href="/n.htm?nid=$!{onebasic.nid}">$!onebasic.title</a></dt><dd>$!onebasic.introduce</dd></dl>
+                <div class="clear"></div></div>
+                <ul>
+            			#foreach( $basicDo in $!oneEntry.value)
+        					#if ($basicDo != $onebasic)
+        					<li><a href="/n.htm?nid=$!{basicDo.nid}">$!basicDo.title</a>/$basicDo.author</li>
+        					 #end
+            		   #end
+        		</ul>
+                  #end
+          </div>
+		  #if($i%3==0) <div class="clear"></div> </div> #end
+	#end
+ </div>
 
 <div id="main">
 
 <div class="novellist">
 <h2>最新入库</h2>
 <ul>
-#foreach( $novelBasicDo in $alldos) 
+#foreach( $novelBasicDo in $newestDos) 
 <li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>(完)/$!novelBasicDo.author</li>
 	#end
 </ul></div>

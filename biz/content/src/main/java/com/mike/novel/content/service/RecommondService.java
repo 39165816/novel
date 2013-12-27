@@ -8,4 +8,7 @@ public interface RecommondService {
 	 * 根据小说的类型，返回该推荐类目的nid List
 	 */
 	List<Integer> queryByType(int type);
+
+	List<Integer> queryByTypeDirect(int type);
+
 }

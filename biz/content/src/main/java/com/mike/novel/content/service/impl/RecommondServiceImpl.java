@@ -25,6 +25,10 @@ public class RecommondServiceImpl implements RecommondService {
 			return null;
 		}
 
+		return cll(pid);
+	}
+
+	private List<Integer> cll(Integer pid) {
 		List<Integer> result = new ArrayList<Integer>();
 		List<RecommondDo> recommonds = recommondDao.getByPid(pid);
 		if (recommonds == null) {
@@ -35,5 +39,10 @@ public class RecommondServiceImpl implements RecommondService {
 		}
 
 		return result;
+	}
+
+	@Override
+	public List<Integer> queryByTypeDirect(int pid) {
+		return cll(pid);
 	}
 }

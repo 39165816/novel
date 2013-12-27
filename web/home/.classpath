@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
@@ -56,7 +55,7 @@
   <classpathentry kind="src" path="/novel-biz-common"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring/2.5.6.SEC03/spring-2.5.6.SEC03.jar" sourcepath="M2_REPO/org/springframework/spring/2.5.6.SEC03/spring-2.5.6.SEC03-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/webharvest/webharvest/2.tinglei/webharvest-2.tinglei.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/alibaba/druid/1.0.1/druid-1.0.1.jar" sourcepath="M2_REPO/com/alibaba/druid/1.0.1/druid-1.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/alibaba/druid/1.0.1/druid-1.0.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/external/sourceforge.ibatis/2.3.4.726-patch/sourceforge.ibatis-2.3.4.726-patch.jar" sourcepath="M2_REPO/com/alibaba/external/sourceforge.ibatis/2.3.4.726-patch/sourceforge.ibatis-2.3.4.726-patch-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/external/jdbc.mysql.mysql-connector/5.1.12/jdbc.mysql.mysql-connector-5.1.12.jar" sourcepath="M2_REPO/com/alibaba/external/jdbc.mysql.mysql-connector/5.1.12/jdbc.mysql.mysql-connector-5.1.12-sources.jar"/>
   <classpathentry kind="src" path="/novel-biz-content"/>
@@ -68,5 +67,4 @@
   <classpathentry kind="var" path="M2_REPO/com/alibaba/platform/shared/nonda.databind-webx3/0.1.2/nonda.databind-webx3-0.1.2.jar" sourcepath="M2_REPO/com/alibaba/platform/shared/nonda.databind-webx3/0.1.2/nonda.databind-webx3-0.1.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/platform/shared/nonda.databind/0.1.2/nonda.databind-0.1.2.jar" sourcepath="M2_REPO/com/alibaba/platform/shared/nonda.databind/0.1.2/nonda.databind-0.1.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/platform/shared/fastjson/1.1.22/fastjson-1.1.22.jar" sourcepath="M2_REPO/com/alibaba/platform/shared/fastjson/1.1.22/fastjson-1.1.22-sources.jar"/>
-  <classpathentry kind="lib" path="/usr/java/jdk1.6.0_45/lib/tools.jar"/>
 </classpath>
