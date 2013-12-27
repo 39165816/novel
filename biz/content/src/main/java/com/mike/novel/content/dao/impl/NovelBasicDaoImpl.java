@@ -45,10 +45,10 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 	}
 
 	@Override
-	public List<NovelBasicDo> findByIds(List<Serializable> ids) {
+	public List<NovelBasicDo> findByNids(List<Integer> ids) {
 		@SuppressWarnings("unchecked")
 		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
-				getSqlMapNamesapce() + "findByIds", ids);
+				getSqlMapNamesapce() + "findByNids", ids);
 		return flowList;
 	}
 
@@ -82,6 +82,22 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 	public NovelBasicDo getByNid(long nid) {
 		return (NovelBasicDo) getSqlMapClientTemplate().queryForObject(
 				getSqlMapNamesapce() + "getByNid", nid);
+	}
+
+	@Override
+	public List<NovelBasicDo> findByType(int type) {
+		@SuppressWarnings("unchecked")
+		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "findByType", type);
+		return flowList;
+	}
+
+	@Override
+	public List<NovelBasicDo> findAll() {
+		@SuppressWarnings("unchecked")
+		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "findAll");
+		return flowList;
 	}
 
 }

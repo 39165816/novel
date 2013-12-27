@@ -1,5 +1,7 @@
 package com.mike.novel.content.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import com.mike.novel.content.dao.NovelBasicDao;
@@ -23,6 +25,21 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 	@Override
 	public NovelBasicDo queryByNid(long nid) {
 		return novelBasicDao.getByNid(nid);
+	}
+
+	@Override
+	public List<NovelBasicDo> findByNids(List<Integer> nids) {
+		return novelBasicDao.findByNids(nids);
+	}
+
+	@Override
+	public List<NovelBasicDo> findByType(int type) {
+		return novelBasicDao.findByType(type);
+	}
+
+	@Override
+	public List<NovelBasicDo> findAll() {
+		return novelBasicDao.findAll();
 	}
 
 }

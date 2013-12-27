@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="recommond">
+
+	<typeAlias alias="RecommondDo" type="com.mike.novel.dto.RecommondDo" />
+	<resultMap id="recommond.rm" class="RecommondDo">
+        <result property="id" column="ID"/>
+        <result property="nid" column="NID"/>
+        <result property="pid" column="PID"/>
+        <result property="info1" column="INFO1"/>
+        <result property="info2" column="INFO2"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+	</resultMap>
+	
+	<sql id="recommond.columns">
+	    <![CDATA[
+	    	ID,NID,PID,INFO1,INFO2,GMTCREATE,GMTMODIFY  
+	    ]]>
+	</sql>
+	
+	<insert id="recommond.insert" parameterClass="RecommondDo">
+    <![CDATA[
+        INSERT INTO Recommond (
+				ID,NID,PID,INFO1,INFO2,GMTCREATE,GMTMODIFY 
+        ) VALUES (
+        		#id#,#nid#,#pid#,#info1#,#info2#,now(), now()
+        )
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+	
+	
+	<select id="recommond.getByPid" resultMap="recommond.rm">
+		SELECT <include refid="recommond.columns" />
+	    <![CDATA[
+		    FROM Recommond WHERE 1=1 and PID=#pid#
+	    ]]>
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,37 @@
+<head>
+<title>$!{name}好看的$!{name}_$!{name}排行榜_清风楼</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta name="keywords" content="$!{name},好看的$!{name},$!{name}排行榜" />
+<meta name="description" content="清风楼是广大书友最值得收藏的$!{name}阅读网，网站收录了当前最好看的$!{name}，免费提供高质量的$!{name}排行榜，是广大$!{name}爱好者必备的小说阅读网。" />
+<link rel="stylesheet" type="text/css" href="/css/aa.css"/>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bb.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<script>login();</script>
+		<div class="header">
+			<div class="header_logo">
+				<a href="/">清风楼</a>
+			</div>
+		</div>
+$!control.setTemplate("menu.vm")
+
+<div id="main">
+<div class="novellist">
+<h2>$!{name}大全列表</h2>
+<ul>
+#foreach( $novelBasicDo in $alldos) 
+<li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>(完)/$!novelBasicDo.author</li>
+	#end
+</ul></div>
+<div class="clear"></div>
+
+		<div class="footer">
+			<div class="footer_link"></div>
+			<div class="footer_cont">
+				<script>footer();</script>
+			</div>
+		</div>
+	</div>
+</body>

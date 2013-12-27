@@ -20,11 +20,15 @@ public interface NovelBasicDao {
 
 	public NovelBasicDo getByNid(long nid);
 
-	public List<NovelBasicDo> findByIds(List<Serializable> ids);
+	public List<NovelBasicDo> findByNids(List<Integer> nids);
 
 	public List<NovelBasicDo> find(NovelBasicDo novelBasicDo);
 
 	public Page<NovelBasicDo> queryPage(Integer pageIndex, Integer sizePerPage,
 			NovelBasicDo novelBasicDo);
+
+	public List<NovelBasicDo> findByType(int type);
+
+	public List<NovelBasicDo> findAll();
 
 }

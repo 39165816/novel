@@ -9,3 +9,4 @@ web/content/.classpath
 web/home/target/
 web/home/.classpath
 antx.properties
+deploy/src/main/webapp/pics/

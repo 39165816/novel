@@ -110,10 +110,10 @@
 	    ]]>
 	</select>
 	
-	<select id="novelBasic.findByIds" parameterClass="list" resultMap="novelBasic.rm">
+	<select id="novelBasic.findByNids" parameterClass="list" resultMap="novelBasic.rm">
 		SELECT <include refid="novelBasic.columns" />
 	    <![CDATA[
-		    FROM NovelBasic WHERE ID 
+		    FROM NovelBasic WHERE NID 
 	    ]]>
 		<dynamic prepend=" in ">
 			<iterate open="(" close=")" conjunction=", ">
@@ -144,5 +144,31 @@
 	    <include refid="novelBasic.queryCondition"/>
     ORDER BY ID desc
 	</select>
+		
+	<select id="novelBasic.findByType" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic WHERE TYPE=#type#
+	    ]]>
+    	ORDER BY ID desc
+	</select>
+	
+	<resultMap id="novelBasic.less" class="NovelBasicDo">
+        <result property="id" column="ID"/>
+        <result property="nid" column="NID"/>
+        <result property="author" column="AUTHOR"/>
+        <result property="isFinished" column="ISFINISHED"/>
+        <result property="type" column="TYPE"/>
+        <result property="title" column="TITLE"/>
+	</resultMap>
+	
+	<select id="novelBasic.findAll" resultMap="novelBasic.less">
+		SELECT	ID,	NID,AUTHOR,ISFINISHED,TYPE, TITLE  
+	    <![CDATA[
+		    FROM NovelBasic
+	    ]]>
+    	ORDER BY ID desc
+	</select>
+	
 	
 </sqlMap>

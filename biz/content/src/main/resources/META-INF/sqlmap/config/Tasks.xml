@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="">
+<sqlMap namespace="tasks">
 
 	<typeAlias alias="TasksDo" type="com.mike.novel.dto.TasksDo" />
 	<resultMap id="tasks.rm" class="TasksDo">

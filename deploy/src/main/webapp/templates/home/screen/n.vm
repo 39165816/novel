@@ -13,7 +13,7 @@
 		<script type="text/javascript">login();</script>
 		<div class="header">
 			<div class="header_logo">
-				<a href="http://www.biquge.com/">清风楼</a>
+				<a href="/">清风楼</a>
 			</div>
 		</div>
 		$!control.setTemplate("menu.vm")

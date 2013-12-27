@@ -23,6 +23,34 @@
 		                 </entry> 
 		             </map> 
 				</property>
+				 <property name="recommends"> 
+		             <map> 
+		                 <entry key ="p1"> 
+		                     <value>101</value> 
+		                 </entry> 
+		                 <entry  key ="p2"> 
+		                     <value>102</value> 
+		                 </entry>
+		                 <entry  key ="p3"> 
+		                     <value>103</value> 
+		                 </entry> 
+		                 <entry  key ="p4"> 
+		                     <value>104</value> 
+		                 </entry> 
+		                 <entry  key ="p5"> 
+		                     <value>105</value> 
+		                 </entry> 
+		                 <entry  key ="p6"> 
+		                     <value>106</value> 
+		                 </entry> 
+		                 <entry  key ="t1"> 
+		                     <value>201</value> 
+		                 </entry> 
+		                 <entry  key ="t2"> 
+		                     <value>202</value> 
+		                 </entry> 
+		             </map> 
+				</property>				
 	 </bean>
 
 
@@ -33,6 +61,7 @@
     <bean id="novelCombServcie" class="com.mike.novel.content.service.impl.NovelCombServcieImpl"/>
     <bean id="novelChapterService" class="com.mike.novel.content.service.impl.NovelChapterServiceImpl"/>
     <bean id="novelPageService" class="com.mike.novel.content.service.impl.NovelPageServiceImpl"/>
+    <bean id="recommondService" class="com.mike.novel.content.service.impl.RecommondServiceImpl"/>
 
 
     <bean id="tasksService" class="com.mike.novel.content.service.impl.TasksServiceImpl"/>
@@ -48,6 +77,8 @@
 	 <bean id="novelPageDao" class="com.mike.novel.content.dao.impl.NovelPageDaoImpl"/>
 	 <bean id="novelVolumDao" class="com.mike.novel.content.dao.impl.NovelVolumDaoImpl"/>
 	 <bean id="tasksDao" class="com.mike.novel.content.dao.impl.TasksDaoImpl"/>
+	 <bean id="recommondDaoImpl" class="com.mike.novel.content.dao.impl.RecommondDaoImpl"/>
+	 
 
    	
 </beans>

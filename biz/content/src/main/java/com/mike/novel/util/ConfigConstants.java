@@ -39,4 +39,17 @@ public class ConfigConstants {
 		return getValue(PICTURE_ACCESS_PATH_KEY);
 	}
 
+	private Map<String, Integer> recommends = new HashMap<String, Integer>();
+
+	/**
+	 * »ñµÃÆµµÀpid
+	 */
+	public Integer getPid(String key) {
+		return recommends.get(key);
+	}
+
+	public void setRecommends(Map<String, Integer> recommends) {
+		this.recommends = recommends;
+	}
+
 }
