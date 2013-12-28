@@ -7,15 +7,6 @@
 <script type="text/javascript" src="/js/bb.js"></script>
 </head>
 <body>
-	<div id="wrapper">
-		<script>login();</script>
-		<div class="header">
-			<div class="image">
-				<a href="/"><img src="/css/logon.gif" alt="ÊéÖÐÊé" width="140" height="70"></a>
-			</div>
-		</div>
-		</div>
-
 		$!control.setTemplate("menu.vm")
 
 <div id="main">

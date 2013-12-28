@@ -1,3 +1,11 @@
+<div id="wrapper">
+		<script>login();</script>
+		<div class="header">
+			<div class="image">
+				<a href="/"><img src="/css/logon.gif" alt="书中书" width="140" height="70"></a>
+			</div>
+		</div>
+		</div>
 		<div class="nav">
 			<ul>
 				<li><a href="/">首页</a></li>

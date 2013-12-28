@@ -17,13 +17,6 @@ var readtitle = "正文  $!{novelBasicDo.title}";
 </script>
 </head>
 <body>
-	<div id="wrapper">
-		<script>login();</script>
-		<div class="header">
-			<div class="header_logo">
-				<a href="/">书中书</a>
-			</div>
-		</div>
 		$!control.setTemplate("menu.vm")
 		<div class="content_read">
 			<div class="box_con">

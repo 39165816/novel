@@ -9,13 +9,6 @@
 <script language="javascript" type="text/javascript">var bookid = "$!novelStatus.novelBasicDo.nid"; var booktitle = "$!novelStatus.novelBasicDo.title";</script>
 </head>
 <body>
-	<div id="wrapper">
-		<script type="text/javascript">login();</script>
-		<div class="header">
-			<div class="header_logo">
-				<a href="/"> È÷– È</a>
-			</div>
-		</div>
 		$!control.setTemplate("menu.vm")
 		<div class="box_con">
 			<div class="con_top">

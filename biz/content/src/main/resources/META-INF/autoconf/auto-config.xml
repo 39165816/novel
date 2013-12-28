@@ -5,5 +5,8 @@
 	<script>
 		<generate template="content.xml.vm" destfile="spring/content.xml"
 			charset="UTF-8" />
+		<generate template="biz-datasource.xml.vm" destfile="spring/biz-datasource.xml"
+			charset="UTF-8" />
 	</script>
+
 </config>
