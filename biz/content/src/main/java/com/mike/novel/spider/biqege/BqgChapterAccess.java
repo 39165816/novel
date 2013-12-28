@@ -26,21 +26,18 @@ public class BqgChapterAccess implements ChapterAccess {
 	public String accessChapter(String detailUrl) {
 		ScraperConfiguration pageConfig;
 		try {
-			pageConfig = new ScraperConfiguration(
-					"/home/mike/data/githome/novel/"
-							+ BqgConstants.HARVEST_PAGE_CONFIG);
+			pageConfig = new ScraperConfiguration(configConstants.getProjectBaseHome()
+					+ BqgConstants.HARVEST_PAGE_CONFIG);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException("找不到 Page harvest配置文件路径.", e);
 		}
-		Scraper pageScraper = new Scraper(pageConfig,
-				"/home/mike/data/githome/novel/"
-						+ BqgConstants.HARVEST_WORKING_DIR);
+		Scraper pageScraper = new Scraper(pageConfig, configConstants.getProjectBaseHome()
+				+ BqgConstants.HARVEST_WORKING_DIR);
 		pageScraper.getContext().setVar("chapter", detailUrl);
 		pageScraper.execute();
 		Variable content = (Variable) pageScraper.getContext().get("content");
 		// 搞不定编码，&nbsp;&nbsp;会被替换成牋，这里在替换回来
-		StringBuffer curlResult = new StringBuffer(new String(
-				content.toBinary("iso-8859-1")));
+		StringBuffer curlResult = new StringBuffer(new String(content.toBinary("iso-8859-1")));
 		StringBuffer finalResult = new StringBuffer();
 		for (int i = 0; i < curlResult.length(); i++) {
 			char charAt = curlResult.charAt(i);
@@ -54,8 +51,7 @@ public class BqgChapterAccess implements ChapterAccess {
 	}
 
 	public static void main(String[] args) throws IOException {
-		String content = new BqgChapterAccess()
-				.accessChapter("http://www.biquge.com/0_494/205922.html");
+		String content = new BqgChapterAccess().accessChapter("http://www.biquge.com/0_494/205922.html");
 		System.out.println("1 content=" + content);
 		String replace = content.replace("    ", "&nbsp;&nbsp;&nbsp;&nbsp;");
 		System.out.println("2 content=" + replace);

@@ -253,7 +253,7 @@ document.onkeydown = function(e){
 	}
 /*	if(e.keyCode==13 && kw.value!="") {
 		if($.browser.is == 'msie') {
-			kw.value = kw.value + ' 清风楼'; 
+			kw.value = kw.value + ' 书中书'; 
 		}
 		document.getElementById('sform').submit.click();
 	}
@@ -570,7 +570,7 @@ function get_cookie_value(Name) {
 document.writeln("<script type=\"text/javascript\">BAIDU_CLB_preloadSlots(\"680594\",\"680590\",\"680566\",\"680562\",\"680561\",\"680560\");</script>");
 function login(){
 document.writeln("<div class=\"ywtop\"><div class=\"ywtop_con\"");
-document.writeln("		<div class=\"ywtop_addfavorite\"><a href=\"javascript:AddFavorite(\'http://www.biquge.com\',\'清风楼_书友最值得收藏的网络小说阅读网\')\">收藏清风楼</a></div>");
+document.writeln("		<div class=\"ywtop_addfavorite\"><a href=\"javascript:AddFavorite(\'http://www.biquge.com\',\'书中书_书友最值得收藏的网络小说阅读网\')\">收藏书中书</a></div>");
 document.write('</div></div></div>');
 }
 
@@ -587,7 +587,7 @@ document.writeln("</select>翻页<input type=checkbox name=autopage id=autopage on
 
 function footer(){
 document.writeln("<p>本站所有小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</p>");
-document.writeln("<p>Copyright &copy; 2014 清风楼 All Rights Reserved.</p>");
+document.writeln("<p>Copyright &copy; 2014 书中书 All Rights Reserved.</p>");
 document.writeln("<p></p>");
 }
 function read_panel(){

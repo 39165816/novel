@@ -1,7 +1,7 @@
-<title>清风楼_书友最值得收藏的网络小说阅读网</title>
+<title>书中书_书友最值得收藏的网络小说阅读网</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
-<meta name="keywords" content="清风楼,网络小说,小说阅读网,小说" />
-<meta name="description" content="清风楼是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
+<meta name="keywords" content="书中书,网络小说,小说阅读网,小说" />
+<meta name="description" content="书中书是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。" />
 <link rel="stylesheet" type="text/css" href="/css/aa.css"/>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bb.js"></script>
@@ -10,8 +10,8 @@
 	<div id="wrapper">
 		<script>login();</script>
 		<div class="header">
-			<div class="header_logo">
-				<a href="/">清风楼</a>
+			<div class="image">
+				<a href="/"><img src="/css/logon.gif" alt="书中书" width="140" height="70"></a>
 			</div>
 		</div>
 		</div>

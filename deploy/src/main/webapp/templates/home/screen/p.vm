@@ -1,8 +1,8 @@
 <head>
-<title>正文 $!{chapter.cname}_$!{novelBasicDo.title}_$!{novelBasicDo.typeName}_清风楼</title>
+<title>正文 $!{chapter.cname}_$!{novelBasicDo.title}_$!{novelBasicDo.typeName}_书中书</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
 <meta name="keywords" content="$!{novelBasicDo.title},正文 $!{chapter.cname}" />
-<meta name="description" content="清风楼提供了$!{novelBasicDo.author}创作的$!{novelBasicDo.typeName}《$!{novelBasicDo.title}》干净清爽无错字的文字章节：正文 $!{chapter.cname}在线阅读。" />
+<meta name="description" content="书中书提供了$!{novelBasicDo.author}创作的$!{novelBasicDo.typeName}《$!{novelBasicDo.title}》干净清爽无错字的文字章节：正文 $!{chapter.cname}在线阅读。" />
 <link rel="stylesheet" type="text/css" href="/css/aa.css"/>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bb.js"></script>
@@ -21,7 +21,7 @@ var readtitle = "正文  $!{novelBasicDo.title}";
 		<script>login();</script>
 		<div class="header">
 			<div class="header_logo">
-				<a href="/">清风楼</a>
+				<a href="/">书中书</a>
 			</div>
 		</div>
 		$!control.setTemplate("menu.vm")
@@ -29,7 +29,7 @@ var readtitle = "正文  $!{novelBasicDo.title}";
 			<div class="box_con">
 				<div class="con_top">
 					<script>textselect();</script>
-					<a href="/">清风楼</a> &gt; <a href="/xiuzhenxiaoshuo/">$!{novelBasicDo.typeName}</a>  &gt; <a href="/n.htm?nid=$!{novelBasicDo.nid}">$!{novelBasicDo.title}</a> &gt; 正文 $!{chapter.cname}
+					<a href="/">书中书</a> &gt; <a href="/xiuzhenxiaoshuo/">$!{novelBasicDo.typeName}</a>  &gt; <a href="/n.htm?nid=$!{novelBasicDo.nid}">$!{novelBasicDo.title}</a> &gt; 正文 $!{chapter.cname}
 				</div>
 				<div class="bookname">
 					<h1>正文 $!{chapter.cname}</h1>
