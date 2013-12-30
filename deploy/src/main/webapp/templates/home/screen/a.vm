@@ -8,13 +8,6 @@
 <script type="text/javascript" src="/js/bb.js"></script>
 </head>
 <body>
-	<div id="wrapper">
-		<script>login();</script>
-		<div class="header">
-			<div class="header_logo">
-				<a href="/"> È÷– È</a>
-			</div>
-		</div>
 $!control.setTemplate("menu.vm")
 		</div>
 
