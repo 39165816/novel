@@ -567,11 +567,11 @@ function get_cookie_value(Name) {
 			}
 		}
 		
-document.writeln("<script type=\"text/javascript\">BAIDU_CLB_preloadSlots(\"680594\",\"680590\",\"680566\",\"680562\",\"680561\",\"680560\");</script>");
 function login(){
-document.writeln("<div class=\"ywtop\"><div class=\"ywtop_con\"");
-document.writeln("		<div class=\"ywtop_addfavorite\"><a href=\"javascript:AddFavorite(\'http://www.biquge.com\',\'书中书_书友最值得收藏的网络小说阅读网\')\">收藏书中书</a></div>");
-document.write('</div></div></div>');
+document.writeln("<div class=\"ywtop\"><div class=\"ywtop_con\">");
+document.writeln("<div class=\"ywtop_sethome\"><a href=\"/saveLocalFile.htm\">将书中书下载到桌面</a></div>");
+document.writeln("	<div class=\"ywtop_addfavorite\"><a href=\"javascript:window.external.addFavorite(\'http://www.shuzhongshu.com\',\'书中书_书友最值得收藏的网络小说阅读网\')\">收藏书中书</a></div>");
+document.write('</div></div>');
 }
 
 function textselect(){
@@ -623,18 +623,4 @@ document.writeln("<div id=\"bdshare\" class=\"bdshare_t bds_tools get-codes-bdsh
 }
 function read4(){
 	if(timestamp>flag_overtime) document.writeln("<script type=\"text/javascript\">BAIDU_CLB_fillSlot(\"680594\");</script>");
-}
-
-function AddFavorite(title, url) {
-    try {
-        window.external.addFavorite(url, title);
-    }
-    catch (e) {
-        try {
-            window.sidebar.addPanel(title, url, "");
-        }
-        catch (e) {
-            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
-        }
-    }
 }
