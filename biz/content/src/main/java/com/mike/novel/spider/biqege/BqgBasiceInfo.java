@@ -62,8 +62,8 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		indexScraper.execute();
 
 		// 分析并保存基本信息
-		NovelBasicDo novelBasicDo = curlBasicInfo(indexScraper,
-				picName, indexPage);
+		NovelBasicDo novelBasicDo = curlBasicInfo(indexScraper, picName,
+				indexPage);
 		result.setNovelBasicDo(novelBasicDo);
 		novelBasicService.insert(novelBasicDo);
 
@@ -73,7 +73,7 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		List<NovelVolumDo> volums = BggIndexParseHelper.parse(
 				allinfo.toString(), novelBasicDo.getTitle().length(), nid);
 		result.setVolums(volums);
-		// TODO: 把volum和task存到db中
+		// 把volum和task存到db中
 		novelCombServcie.saveVolumAndTask(volums);
 
 		return result;
@@ -98,7 +98,12 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		// 简介
 		Variable introduce = (Variable) indexScraper.getContext().get(
 				"introduce");
-		novelBasicDo.setIntroduce(introduce.toString());
+		String intro = introduce.toString();
+		if (intro != null && intro.length() > 2000) {
+			intro = intro.substring(0, 1999);
+		}
+
+		novelBasicDo.setIntroduce(intro);
 		// 图片地址
 		novelBasicDo.setPicturePath(pictureSavePath);
 		// 类型
