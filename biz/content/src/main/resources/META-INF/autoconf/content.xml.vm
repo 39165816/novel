@@ -63,6 +63,7 @@
     <bean id="novelPageService" class="com.mike.novel.content.service.impl.NovelPageServiceImpl"/>
     <bean id="recommondService" class="com.mike.novel.content.service.impl.RecommondServiceImpl"/>
 
+    <bean id="searchService" class="com.mike.novel.content.service.impl.SearchServiceImpl"/>
 
     <bean id="tasksService" class="com.mike.novel.content.service.impl.TasksServiceImpl"/>
 

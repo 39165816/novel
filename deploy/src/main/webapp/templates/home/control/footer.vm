@@ -1,0 +1,5 @@
+		<div class="footer">
+			<div class="footer_cont">
+				<script>footer();</script>
+			</div>
+		</div>

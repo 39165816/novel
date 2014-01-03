@@ -1,9 +1,10 @@
 <div id="wrapper">
 		<script>login();</script>
 		<div class="header">
-			<div class="image">
+			<div class="header_search">
 				<a href="/"><img src="/css/logon.gif" alt="ÊéÖÐÊé" width="140" height="70"></a>
 			</div>
+			<script>search_panel();</script>
 		</div>
 		</div>
 		<div class="nav">

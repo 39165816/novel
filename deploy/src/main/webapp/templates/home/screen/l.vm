@@ -38,11 +38,6 @@ $!control.setTemplate("menu.vm")
 </ul></div>
 <div class="clear"></div>
 
-		<div class="footer">
-			<div class="footer_link"></div>
-			<div class="footer_cont">
-				<script>footer();</script>
-			</div>
-		</div>
+		$!control.setTemplate("footer.vm")
 	</div>
 </body>

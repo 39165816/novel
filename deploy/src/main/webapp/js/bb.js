@@ -273,7 +273,7 @@ $(document).ready(function(){
 	// stat
 	//$.get("/stat.php?rnd="+new Date().getTime(), function(){});
 	wd.focusin(function() {
-	if($(this).val()=="¿ÉËÑÊéÃûºÍ×÷Õß£¬ÇëÄúÉÙ×ÖÒ²±ğÊä´í×Ö¡£") $(this).val("");
+	if($(this).val()=="¿ÉËÑÊéÃûºÍ×÷ÕßµÄÖĞÎÄ»òÆ´Òô") $(this).val("");
 	});
 	// down
 	
@@ -288,7 +288,7 @@ $(document).ready(function(){
 	}
 
 	wd.focusout(function() {
-	if($(this).val()=='') $(this).val("¿ÉËÑÊéÃûºÍ×÷Õß£¬ÇëÄúÉÙ×ÖÒ²±ğÊä´í×Ö¡£");
+	if($(this).val()=='') $(this).val("¿ÉËÑÊéÃûºÍ×÷ÕßµÄÖĞÎÄ»òÆ´Òô");
 	}); 
 	if( typeof(next_page) != "undefined" ) {
 		next_page = next_page;
@@ -590,17 +590,8 @@ document.writeln("<p>±¾Õ¾ËùÓĞĞ¡ËµÎª×ªÔØ×÷Æ·£¬ËùÓĞÕÂ½Ú¾ùÓÉÍøÓÑÉÏ´«£¬×ªÔØÖÁ±¾Õ¾Ö»Ê
 document.writeln("<p>Copyright &copy; 2014 ÊéÖĞÊé All Rights Reserved.</p>");
 document.writeln("<p></p>");
 }
-function read_panel(){
-document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"http://www.biquge.com/modules/article/search.php\" id=\"sform\" target=\"_blank\"><input type=\"text\" value=\"¿ÉËÑÊéÃûºÍ×÷Õß£¬ÇëÄúÉÙ×ÖÒ²±ğÊä´í×Ö¡£\" name=\"searchkey\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> ËÑ Ë÷ </button></form></div>"); 
-document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">±¨´í£º</font><a target=\"_blank\" href=\"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=biqugecom@%67%6D%61%69%6C%2E%63%6F%6D\">Í¨¹ıÓÊ¼ş</a>¡¢<a href=\"http://www.biquge.com/newmessage.php?tosys=1&title="+booktitle+"-ÕÂ½Ú´íÎó&content=´íÎóÕÂ½ÚÎª:"+readtitle+"\" >Õ¾ÄÚ¶ÌĞÅ</a><br /><a target=\"_blank\" href=\"/ziti.html\"><b>Ô­Í¼Æ¬°æ</b></a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/jifen.html\">»ı·Ö¹æÔò</a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/dns.html\">½â¾öÌøµ½±ğµÄÕ¾</a></div>");
-}
-function list_panel(){
-document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"http://www.biquge.com/modules/article/search.php\" id=\"sform\" target=\"_blank\"><input type=\"text\" value=\"¿ÉËÑÊéÃûºÍ×÷Õß£¬ÇëÄúÉÙ×ÖÒ²±ğÊä´í×Ö¡£\" name=\"searchkey\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> ËÑ Ë÷ </button></form></div>"); 
-document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">±¨´í£º</font><a target=\"_blank\" href=\"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=biqugecom@%67%6D%61%69%6C%2E%63%6F%6D\">Í¨¹ıÓÊ¼ş</a>¡¢<a href=\"http://www.biquge.com/newmessage.php?tosys=1&title="+booktitle+"-ÕÂ½Ú´íÎó&content=´íÎóÎª:\" >Õ¾ÄÚ¶ÌĞÅ</a><br /><a target=\"_blank\" href=\"/ziti.html\"><b>Ô­Í¼Æ¬°æ</b></a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/jifen.html\">»ı·Ö¹æÔò</a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/dns.html\">½â¾öÌøµ½±ğµÄÕ¾</a></div>");
-}
-function bqg_panel(){
-document.writeln("<div class=\"header_search\"><form name=\"form\" action=\"http://www.biquge.com/modules/article/search.php\" id=\"sform\" target=\"_blank\"><input type=\"text\" value=\"¿ÉËÑÊéÃûºÍ×÷Õß£¬ÇëÄúÉÙ×ÖÒ²±ğÊä´í×Ö¡£\" name=\"searchkey\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> ËÑ Ë÷ </button></form></div>"); 
-document.writeln("<div class=\"userpanel\">&nbsp;<font color=\"red\">ÁôÑÔ£º</font><a target=\"_blank\" href=\"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=biqugecom@%67%6D%61%69%6C%2E%63%6F%6D\">Í¨¹ıÓÊ¼ş</a>¡¢<a href=\"http://www.biquge.com/newmessage.php?tosys=1\" >Õ¾ÄÚ¶ÌĞÅ</a><br /><a target=\"_blank\" href=\"/ziti.html\"><b>Ô­Í¼Æ¬°æ</b></a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/jifen.html\">»ı·Ö¹æÔò</a>&nbsp;&nbsp;<a target=\"_blank\" href=\"/dns.html\">½â¾öÌøµ½±ğµÄÕ¾</a></div>");
+function search_panel(){
+document.writeln("<div class=\"header_search\"><form name=\"form\" method=\"post\"  action=\"\" id=\"sform\" ><input type=\"hidden\" name=\"action\" value=\"normal/CommonAction\"/><input type=\"hidden\" name=\"event_submit_do_commit\" value=\"submit\"/><input type=\"text\" value=\"¿ÉËÑÊéÃûºÍ×÷ÕßµÄÖĞÎÄ»òÆ´Òô\" name=\"keyword\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> ËÑ Ë÷ </button></form></div>"); 
 }
 function mark(){
 document.writeln("<div class=\"reader_mark1\"><a href=\"javascript:;\" onclick=\"showpop('/modules/article/addbookcase.php?id="+bookid+"&cid="+readid+"&ajax_request=1');\"></a></div>");

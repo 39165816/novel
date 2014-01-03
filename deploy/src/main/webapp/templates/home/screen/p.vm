@@ -36,10 +36,6 @@ var readtitle = "ÕýÎÄ  $!{novelBasicDo.title}";
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<div class="footer_cont">
-				<script>footer();</script>
-			</div>
-		</div>
+		$!control.setTemplate("footer.vm")
 	</div>
 </body>
