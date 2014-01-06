@@ -65,7 +65,7 @@
 <h2>最新入库</h2>
 <ul>
 #foreach( $novelBasicDo in $newestDos) 
-<li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>(完)/$!novelBasicDo.author</li>
+<li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>#if($novelBasicDo.isFinished())(完)#end/$!novelBasicDo.author</li>
 	#end
 </ul></div>
 <div class="clear"></div>

@@ -40,6 +40,14 @@
 			</xpath>
 	</var-def>
 	
+	<var-def name="isFinishedFlag">
+			<xpath expression='//div[@id="sidebar"]/div[1]/span/@class'>
+				<html-to-xml>
+					<http url="${IndexPage}" charset="gbk"/>
+				</html-to-xml>
+			</xpath>
+	</var-def>
+	
     <file action="write" type="binary"
 		 path="${pictureSavePath}">
 		 <http url="http://www.biquge.com${pictureUrl}"/>

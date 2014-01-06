@@ -109,8 +109,15 @@ public class BqgBasiceInfo implements BasicInfoAccess {
 		// 类型
 		Variable type = (Variable) indexScraper.getContext().get("type");
 		novelBasicDo.setType(NovelType.getType(type.toString()).type);
+		// 是否完结
+		Variable isFinishedFlag = (Variable) indexScraper.getContext().get(
+				"isFinishedFlag");
+		if ("b".equals(isFinishedFlag.toString())) {
+			novelBasicDo.setFinished(false);
+		} else {
+			novelBasicDo.setFinished(true);
+		}
 		// 设置其它基本信息的默认值
-		novelBasicDo.setFinished(true);// 当前只爬取完结版本
 		novelBasicDo.setIsForDownload(0);// 默认不提供下载
 		novelBasicDo.setReadyPublic(false);// 默认不公开
 		novelBasicDo.setGenerateHtml(false);// 默认走db,不生成html

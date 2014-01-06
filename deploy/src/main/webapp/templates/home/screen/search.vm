@@ -14,7 +14,7 @@ $!control.setTemplate("menu.vm")
 <h2>$!{keyword} 的搜索结果如下</h2>
 <ul>
 #foreach( $novelBasicDo in $novelDos) 
-<li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>(完)/$!novelBasicDo.author</li>
+<li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>#if($novelBasicDo.isFinished())(完)#end/$!novelBasicDo.author</li>
 	#end
 </ul></div>
 <div class="clear"></div>
