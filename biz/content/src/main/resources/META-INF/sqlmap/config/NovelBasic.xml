@@ -178,6 +178,12 @@
     	ORDER BY ID desc    limit 0, 50
 	</select>
 	
-	
+	<select id="novelBasic.findByFinish" resultMap="novelBasic.less">
+		SELECT	ID,	NID,AUTHOR,ISFINISHED,TYPE, TITLE  
+	    <![CDATA[
+		    FROM NovelBasic where ISFINISHED=1
+	    ]]>
+    	ORDER BY ID desc
+	</select>
 	
 </sqlMap>

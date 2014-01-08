@@ -33,4 +33,6 @@ public interface NovelBasicDao {
 
 	public List<NovelBasicDo> findNewest();
 
+	public List<NovelBasicDo> findByFinish();
+
 }

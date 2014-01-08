@@ -51,19 +51,43 @@ public class BqgChapterTask {
 		}
 
 		public void run() {
-			String content = hapterAccess.accessChapter(tasksDo.getUrl());
-			NovelPageDo novelPageDo = new NovelPageDo();
-			novelPageDo.setContent(content);
-			novelPageDo.setCid(tasksDo.getCid());
-			// 存page table、修改任务状态
-			novelPageDao.save(novelPageDo);
-			tasksDo.setFinished(true);
-			tasksService.finishTask(tasksDo);
+			if (tasksDo.isFinished()) {
+				loggor.info("task is already finished!" + tasksDo.getUrl());
+				return;
+			}
 
-			loggor.info("curl one chapter suceesss! url" + tasksDo.getUrl());
 			try {
-				Thread.sleep(SLEEP_TIME);
-			} catch (InterruptedException e) {
+				// 重试5次
+				String content = null;
+				for (int i = 0; i < 5; i++) {
+					try {
+						content = hapterAccess.accessChapter(tasksDo.getUrl());
+						if (content != null) {
+							break;
+						}
+					} catch (Exception e1) {
+						if (i == 4) {
+							throw e1;
+						}
+						Thread.sleep(SLEEP_TIME);
+					}
+				}
+
+				NovelPageDo novelPageDo = new NovelPageDo();
+				novelPageDo.setContent(content);
+				novelPageDo.setCid(tasksDo.getCid());
+				// 存page table、修改任务状态
+				novelPageDao.save(novelPageDo);
+				tasksDo.setFinished(true);
+				tasksService.finishTask(tasksDo);
+
+				loggor.info("curl one chapter suceesss! url" + tasksDo.getUrl());
+				try {
+					Thread.sleep(SLEEP_TIME);
+				} catch (InterruptedException e) {
+				}
+			} catch (Exception e) {
+				loggor.error("Url failed123: " + tasksDo.getUrl(), e);
 			}
 		}
 	}

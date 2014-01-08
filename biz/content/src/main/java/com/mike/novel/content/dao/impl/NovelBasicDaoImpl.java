@@ -108,4 +108,12 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 		return flowList;
 	}
 
+	@Override
+	public List<NovelBasicDo> findByFinish() {
+		@SuppressWarnings("unchecked")
+		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "findByFinish");
+		return flowList;
+	}
+
 }
