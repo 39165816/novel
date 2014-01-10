@@ -76,6 +76,8 @@ public class NovelPageDo {
 		String newContent = content.replace("    ", "&nbsp;&nbsp;&nbsp;&nbsp;");
 		String result = newContent.replace("\n", "<br/><br/>");
 		result = result + "<br/><br/>";// 最后补上两个换行
+		// 如果出现4个连续<br/>，替换为2个<br/>(兼容一些错误数据)
+		result = result.replace("<br/><br/><br/><br/>", "<br/><br/>");
 		return result;
 	}
 
