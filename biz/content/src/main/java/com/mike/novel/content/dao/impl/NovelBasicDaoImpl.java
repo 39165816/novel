@@ -116,4 +116,20 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 		return flowList;
 	}
 
+	@Override
+	public List<NovelBasicDo> findToGenerateTxt() {
+		@SuppressWarnings("unchecked")
+		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "findToGenerateTxt");
+		return flowList;
+
+	}
+
+	@Override
+	public void updateTxtStatus(NovelBasicDo novelBasicDo) {
+		getSqlMapClientTemplate().update(
+				getSqlMapNamesapce() + "updateTxtStatus", novelBasicDo);
+
+	}
+
 }

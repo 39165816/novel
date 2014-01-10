@@ -1,6 +1,7 @@
 package com.mike.novel.content.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.alibaba.lp.orm.ibatis.page.PageSqlMapClientDaoSupport;
 import com.mike.novel.content.dao.NovelPageDao;
@@ -38,5 +39,12 @@ public class NovelPageDaoImpl extends PageSqlMapClientDaoSupport<NovelPageDo>
 	public NovelPageDo getByCid(long cid) {
 		return (NovelPageDo) getSqlMapClientTemplate().queryForObject(
 				getSqlMapNamesapce() + "getByCid", cid);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<NovelPageDo> findByCids(List<Long> cid) {
+		return (List<NovelPageDo>) getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "findByCids", cid);
 	}
 }

@@ -52,4 +52,14 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 		return novelBasicDao.findByFinish();
 	}
 
+	@Override
+	public List<NovelBasicDo> findToGenerateTxt() {
+		return novelBasicDao.findToGenerateTxt();
+	}
+
+	@Override
+	public void updateTxtStatus(NovelBasicDo novelBasicDo) {
+		novelBasicDao.updateTxtStatus(novelBasicDo);
+	}
+
 }

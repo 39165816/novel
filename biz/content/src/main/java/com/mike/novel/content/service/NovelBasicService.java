@@ -50,4 +50,14 @@ public interface NovelBasicService {
 	 */
 	public List<NovelBasicDo> findByFinish();
 
+	/**
+	 * 返回所有待生存txt的小说
+	 */
+	public List<NovelBasicDo> findToGenerateTxt();
+
+	/**
+	 * 修改txt生成的状态
+	 */
+	public void updateTxtStatus(NovelBasicDo novelBasicDo);
+
 }

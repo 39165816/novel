@@ -54,4 +54,17 @@
 	    ]]>
 	</select>
 	
+	<select id="novelPage.findByCids" parameterClass="list" resultMap="novelPage.rm">
+		SELECT <include refid="novelPage.columns" />
+	    <![CDATA[
+		    FROM NovelPage WHERE  CID
+	    ]]>
+		<dynamic prepend=" in ">
+			<iterate open="(" close=")" conjunction=", ">
+			#idList[]#
+			</iterate>
+		</dynamic>
+	</select>
+	
+	
 </sqlMap>

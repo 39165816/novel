@@ -81,6 +81,14 @@ public class NovelPageDo {
 		return result;
 	}
 
+	public String getFormatTxtContent() {
+		if (content == null || content.equals("")) {
+			return "";
+		}
+		String newContent = content.replace("    ", "");
+		return newContent;
+	}
+
 	public static void main(String[] args) {
 		String test = "abc\n" + "dd";
 		System.out.println(test);

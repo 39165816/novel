@@ -23,12 +23,14 @@
         <result property="gmtCreate" column="GMTCREATE"/>
         <result property="gmtModify" column="GMTMODIFY"/>
         <result property="originalUrl" column="ORIGINALURL"/>
+        <result property="isGenerateTxt" column="ISGENERATETXT"/>
+        <result property="generateTxtNum" column="GENERATETXTNUM"/>
 	</resultMap>
 	
 	<sql id="novelBasic.columns">
 	    <![CDATA[
 	    	ID,	NID,PICTUREPATH,AUTHOR,ISFINISHED,	INTRODUCE,LASTUPDATETIME,ISFORDOWNLOAD, TYPE, 
-	    	INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,GMTCREATE, GMTMODIFY,ORIGINALURL  
+	    	INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,GMTCREATE, GMTMODIFY,ORIGINALURL, ISGENERATETXT, GENERATETXTNUM
 	    ]]>
 	</sql>
 	
@@ -54,10 +56,10 @@
     <![CDATA[
         INSERT INTO NovelBasic (
         ID,	NID,PICTUREPATH,AUTHOR,ISFINISHED,INTRODUCE,LASTUPDATETIME,ISFORDOWNLOAD,
-         TYPE, INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,  GMTCREATE, GMTMODIFY,ORIGINALURL  
+         TYPE, INFO1, INFO2, ISREADYPUBLIC,ISGENERATEHTML,TITLE,  GMTCREATE, GMTMODIFY,ORIGINALURL, ISGENERATETXT, GENERATETXTNUM  
         ) VALUES (
 			#id#,#nid#,#picturePath#,#author#,#isFinished#,#introduce#,#lastUpdateTime#,#isForDownload#,
-			#type#,#info1#,#info2#,#isReadyPublic#,#isGenerateHtml#,#title#, now(), now(), #originalUrl#
+			#type#,#info1#,#info2#,#isReadyPublic#,#isGenerateHtml#,#title#, now(), now(), #originalUrl#,#isGenerateTxt#,#generateTxtNum#
         )
     ]]>
     <selectKey keyProperty="id" resultClass="java.lang.Integer">  
@@ -65,21 +67,17 @@
     </selectKey>
 	</insert>
 	
-    <!--
-	<update id="novelBasic.update" parameterClass="NovelBasicDo">
+
+	<update id="novelBasic.updateTxtStatus" parameterClass="NovelBasicDo">
     <![CDATA[
         UPDATE NovelBasic SET
-	        FLOW_CODE = #flowCode# ,
-	        FLOW_NAME = #flowName# ,
-	        FLOW_XML = #flowXml# ,
-	        GROUP_ID = #groupId# ,
-	        GMT_MODIFIED = now() ,
-	        REMARK = #remark# 
+	        ISGENERATETXT = #isGenerateTxt# ,
+	        GENERATETXTNUM = #generateTxtNum# ,
+	        GMTMODIFY = now()
         WHERE 
 	        ID = #id# 
     ]]>
 	</update>
-   -->
    
    
     <delete id="novelBasic.deleteById">
@@ -185,5 +183,14 @@
 	    ]]>
     	ORDER BY ID desc
 	</select>
+	
+	<select id="novelBasic.findToGenerateTxt" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic
+	    ]]>
+	</select>
+	
+	
 	
 </sqlMap>

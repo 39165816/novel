@@ -35,4 +35,8 @@ public interface NovelBasicDao {
 
 	public List<NovelBasicDo> findByFinish();
 
+	public List<NovelBasicDo> findToGenerateTxt();
+
+	public void updateTxtStatus(NovelBasicDo novelBasicDo);
+
 }

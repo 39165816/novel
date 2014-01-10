@@ -83,6 +83,8 @@
 	 <bean id="tasksDao" class="com.mike.novel.content.dao.impl.TasksDaoImpl"/>
 	 <bean id="recommondDaoImpl" class="com.mike.novel.content.dao.impl.RecommondDaoImpl"/>
 	 
+	 <bean id="generateOneTxt" class="com.mike.novel.tools.txt.GenerateOneTxt"/>
+	 <bean id="txtGenerator" class="com.mike.novel.tools.txt.TxtGenerator"/>
 
    	
 </beans>

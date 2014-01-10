@@ -41,6 +41,10 @@ public class NovelBasicDo {
 	private String title;
 	// 原始的URL，用来去重
 	private String originalUrl;
+	// 是否生存txt
+	private boolean isGenerateTxt;
+	// 生成的txt包含的章节数
+	private int generateTxtNum;
 
 	// 卷list
 	private List<NovelVolumDo> volums;
@@ -195,6 +199,22 @@ public class NovelBasicDo {
 
 	public String getTypeName() {
 		return NovelType.getName(type);
+	}
+
+	public boolean isGenerateTxt() {
+		return isGenerateTxt;
+	}
+
+	public void setGenerateTxt(boolean isGenerateTxt) {
+		this.isGenerateTxt = isGenerateTxt;
+	}
+
+	public int getGenerateTxtNum() {
+		return generateTxtNum;
+	}
+
+	public void setGenerateTxtNum(int generateTxtNum) {
+		this.generateTxtNum = generateTxtNum;
 	}
 
 }
