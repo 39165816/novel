@@ -10,13 +10,13 @@
 		<div class="nav">
 			<ul>
 				<li><a href="/">首页</a></li>
-				<li><a href="/q.htm">全本小说</a></li>
-				<li><a href="/l.htm?type=2">玄幻小说</a></li>
-				<li><a href="/l.htm?type=1">修真小说</a></li>
-				<li><a href="/l.htm?type=3">都市小说</a></li>
-				<li><a href="/l.htm?type=4">穿越小说</a></li>
-				<li><a href="/l.htm?type=5">网游小说</a></li>
-				<li><a href="/l.htm?type=6">科幻小说</a></li>
-				<li><a href="/a.htm">全部小说</a></li>
+				<li><a href="/q.html">全本小说</a></li>
+				<li><a href="/l2.html">玄幻小说</a></li>
+				<li><a href="/l1.html">修真小说</a></li>
+				<li><a href="/l3.html">都市小说</a></li>
+				<li><a href="/l4.html">穿越小说</a></li>
+				<li><a href="/l5.html">网游小说</a></li>
+				<li><a href="/l6.html">科幻小说</a></li>
+				<li><a href="/a.html">全部小说</a></li>
 			</ul>
 		</div>

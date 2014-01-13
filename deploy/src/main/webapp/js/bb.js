@@ -600,18 +600,6 @@ document.writeln("<div class=\"reader_mark0\"><a href=\"javascript:;\" onclick=\
 function list1(){
 	if(timestamp>flag_overtime) document.writeln("<center><script type=\"text/javascript\">BAIDU_CLB_fillSlot(\"680562\");</script></center>");
 }
-function read1(){
-	if(timestamp>flag_overtime) document.writeln("<script type=\"text/javascript\">BAIDU_CLB_fillSlot(\"680562\");</script>");
-}
-function read2(){
-	if(timestamp>flag_overtime) document.writeln("<script type=\"text/javascript\">BAIDU_CLB_fillSlot(\"680566\");</script>");
-}
-function read3(){
-	if(timestamp>flag_overtime) document.writeln("<script type=\"text/javascript\">BAIDU_CLB_fillSlot(\"680590\");</script>");
-}
 function bdshare(){
 document.writeln("<div id=\"bdshare\" class=\"bdshare_t bds_tools get-codes-bdshare\"><span class=\"bds_more\">分享本书到：</span><a class=\"bds_mshare\">一键分享</a><a class=\"bds_tsina\">新浪微博</a><a class=\"bds_qzone\">QQ空间</a><a class=\"bds_sqq\">QQ好友</a><a class=\"bds_tieba\">百度贴吧</a><a class=\"bds_tqq\">腾讯微博</a><a class=\"bds_baidu\">百度搜藏</a><a class=\"bds_bdhome\">百度新首页</a><a class=\"bds_copy\">复制网址</a></div>");
-}
-function read4(){
-	if(timestamp>flag_overtime) document.writeln("<script type=\"text/javascript\">BAIDU_CLB_fillSlot(\"680594\");</script>");
 }

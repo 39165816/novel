@@ -26,13 +26,11 @@ public class TxtGenerator {
 	@Resource
 	private GenerateOneTxt generateOneTxt;
 
-	private final static Logger log = LoggerFactory
-			.getLogger(TxtGenerator.class);
+	private final static Logger log = LoggerFactory.getLogger(TxtGenerator.class);
 
 	public void generateAll() {
 		// 取需要生成的小说列表id
-		List<NovelBasicDo> findToGenerateTxt = novelBasicService
-				.findToGenerateTxt();
+		List<NovelBasicDo> findToGenerateTxt = novelBasicService.findToGenerateTxt();
 
 		List<NovelBasicDo> toGenerate = new ArrayList<NovelBasicDo>();
 		for (NovelBasicDo oneNovel : findToGenerateTxt) {
@@ -42,18 +40,15 @@ public class TxtGenerator {
 				if (oneNovel.isFinished()) {// 以完结
 					// 不用操作
 				} else { // 未完结
-					NovelStatusVo queryNovelInfo = novelCombService
-							.queryNovelInfo(oneNovel.getNid());
-					if (oneNovel.getGenerateTxtNum() != queryNovelInfo
-							.getTotalNum()) {// 比较之前生成的章节和当前的章节，如果不一致，则重新生成
+					NovelStatusVo queryNovelInfo = novelCombService.queryNovelInfo(oneNovel.getNid());
+					if (oneNovel.getGenerateTxtNum() != queryNovelInfo.getTotalNum()) {// 比较之前生成的章节和当前的章节，如果不一致，则重新生成
 						toGenerate.add(oneNovel);
 					}
 				}
 			}
 		}
 
-		ExecutorService newFixedThreadPool = Executors
-				.newFixedThreadPool(CORE_NUM);
+		ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(CORE_NUM);
 		for (NovelBasicDo oneTask : toGenerate) {
 			newFixedThreadPool.execute(new OneTask(oneTask.getNid()));
 		}

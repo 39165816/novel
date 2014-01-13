@@ -1,7 +1,7 @@
 <head>
 <title>$!novelStatus.novelBasicDo.title全文阅读_$!novelStatus.novelBasicDo.title全文免费阅读_书中书</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
-<meta name="keywords" content="$!novelStatus.novelBasicDo.title,$!novelStatus.novelBasicDo.title全文阅读, $!{novelStatus.novelBasicDo.title}txt" />
+<meta name="keywords" content="$!novelStatus.novelBasicDo.title,$!novelStatus.novelBasicDo.title全文阅读, $!{novelStatus.novelBasicDo.title}txt, $!{novelStatus.novelBasicDo.title}txt下载" />
 <meta name="description" content="$!novelStatus.novelBasicDo.title全文阅读由网友提供，《$!novelStatus.novelBasicDo.title》情节跌宕起伏、扣人心弦，是一本情节与文笔俱佳的$!novelStatus.novelBasicDo.typeName，书中书免费提供$!novelStatus.novelBasicDo.title最新清爽干净的TXT全文免费在线阅读。" />
 <link rel="stylesheet" type="text/css" href="/css/aa.css"/>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -12,7 +12,7 @@
 		$!control.setTemplate("menu.vm")
 		<div class="box_con">
 			<div class="con_top">
-				<a href="/">书中书</a> &gt; <a href="/l.htm?type=$!novelStatus.novelBasicDo.type">$!novelStatus.novelBasicDo.typeName</a>  &gt; $!{novelStatus.novelBasicDo.title}全文阅读
+				<a href="/">书中书</a> &gt; <a href="/l$!{novelStatus.novelBasicDo.type}.html">$!novelStatus.novelBasicDo.typeName</a>  &gt; $!{novelStatus.novelBasicDo.title}全文阅读
 			</div>
 			<div id="maininfo">
 				<div id="info">
@@ -21,6 +21,7 @@
 					<p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="#footer">直达底部</a></p>
 					<p>最后更新：$!novelStatus.novelBasicDo.lastUpdateTime </p>
 					<p>是否完结:#if($novelStatus.novelBasicDo.isFinished()) 完结 #else 未完结 #end </p>
+					<p>txt下载: #if($novelStatus.novelBasicDo.isGenerateTxt()) <a href="/download$!{novelStatus.novelBasicDo.nid}.html">$!{novelStatus.novelBasicDo.title}txt下载</a>   #end </p>
 				</div>
 				<div id="intro">
 					<p>$!novelStatus.novelBasicDo.introduce</p>
@@ -39,7 +40,7 @@
 					#foreach( $volum in $novelStatus.volums) 
 						<dt>《$!novelStatus.novelBasicDo.title》$!volum.vname</dt>
 							#foreach( $chapter in $volum.chapters)
-								<dd><a href="/p.htm?nid=$!novelStatus.novelBasicDo.nid&cid=$!chapter.cid">$!chapter.cname</a></dd>	
+								<dd><a href="/p$!{novelStatus.novelBasicDo.nid}_$!{chapter.cid}.html">$!chapter.cname</a></dd>	
 						    #end				
 					#end
 					　

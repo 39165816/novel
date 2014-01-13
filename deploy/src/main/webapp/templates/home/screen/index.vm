@@ -14,9 +14,9 @@
 	
 				#foreach( $novelBasicDo in $strongRecommend) 
       				<div class="item">
-      				<div class="image"><a href="/n.htm?nid=$!{novelBasicDo.nid}"><img src="$!novelBasicDo.picturePath" alt="$novelBasicDo.title"  width="120" height="150" /></a></div>
+      				<div class="image"><a href="$novelBasicDo.targetLink"><img src="$!novelBasicDo.picturePath" alt="$novelBasicDo.title"  width="120" height="150" /></a></div>
         					<dl>
-        					           <dt><span>$!novelBasicDo.author</span><a href="/n.htm?nid=$!{novelBasicDo.nid}">$novelBasicDo.title</a></dt>
+        					           <dt><span>$!novelBasicDo.author</span><a href="$novelBasicDo.targetLink">$novelBasicDo.title</a></dt>
            <dd>　
            $!novelBasicDo.introduce
            </dd>
@@ -44,12 +44,12 @@
                 	#set ($onebasic = $!oneEntry.value.get(0))
                 <div class="top">
                 <div class="image"><img src="$!onebasic.picturePath" alt="$!onebasic.title"  width="67" height="82" /></div>
-                <dl><dt><a href="/n.htm?nid=$!{onebasic.nid}">$!onebasic.title</a></dt><dd>$!onebasic.introduce</dd></dl>
+                <dl><dt><a href="onebasic.targetLink">$!onebasic.title</a></dt><dd>$!onebasic.introduce</dd></dl>
                 <div class="clear"></div></div>
                 <ul>
             			#foreach( $basicDo in $!oneEntry.value)
         					#if ($basicDo != $onebasic)
-        					<li><a href="/n.htm?nid=$!{basicDo.nid}">$!basicDo.title</a>/$basicDo.author</li>
+        					<li><a href="basicDo.targetLink">$!basicDo.title</a>/$basicDo.author</li>
         					 #end
             		   #end
         		</ul>
@@ -65,7 +65,7 @@
 <h2>最新入库</h2>
 <ul>
 #foreach( $novelBasicDo in $newestDos) 
-<li><a href="/n.htm?nid=$!{novelBasicDo.nid}"> $novelBasicDo.title</a>#if($novelBasicDo.isFinished())(完)#end/$!novelBasicDo.author</li>
+<li><a href="$novelBasicDo.targetLink"> $novelBasicDo.title</a>#if($novelBasicDo.isFinished())(完)#end/$!novelBasicDo.author</li>
 	#end
 </ul></div>
 <div class="clear"></div>

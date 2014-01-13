@@ -9,7 +9,7 @@
 <script language="javascript" type="text/javascript">
 var preview_page = "#esc_noesc($!chapter.getUpUrl($!{novelBasicDo.nid}))";
 var next_page = "#esc_noesc($!chapter.getNextUrl($!{novelBasicDo.nid}))";  
-var index_page = "/n.htm?nid=$!{novelBasicDo.nid}";  
+var index_page = "$!novelBasicDo.targetLink";  
 var bookid = "$!{novelBasicDo.nid}"; 
 var readid = "$!chapter.cid"; 
 var booktitle = "$!{novelBasicDo.title}";
@@ -22,15 +22,15 @@ var readtitle = "正文  $!{novelBasicDo.title}";
 			<div class="box_con">
 				<div class="con_top">
 					<script>textselect();</script>
-					<a href="/">书中书</a> &gt; <a href="/xiuzhenxiaoshuo/">$!{novelBasicDo.typeName}</a>  &gt; <a href="/n.htm?nid=$!{novelBasicDo.nid}">$!{novelBasicDo.title}</a> &gt; 正文 $!{chapter.cname}
+					<a href="/">书中书</a> &gt; <a href="/l$!{novelBasicDo.type}.html">$!{novelBasicDo.typeName}</a>  &gt; <a href="$!{novelBasicDo.targetLink}">$!{novelBasicDo.title}</a> &gt; 正文 $!{chapter.cname}
 				</div>
 				<div class="bookname">
 					<h1>正文 $!{chapter.cname}</h1>
 					<div class="bottem2">
-						 <a href="$!chapter.getUpUrl(${novelBasicDo.nid})">上一章</a> &larr; <a href="/n.htm?nid=$!{novelBasicDo.nid}">全文列表</a> &rarr; <a href="$!chapter.getNextUrl($!{novelBasicDo.nid})">下一章</a> 
+						 <a href="$!chapter.getUpUrl(${novelBasicDo.nid})">上一章</a> &larr; <a href="$!{novelBasicDo.targetLink}">全文列表</a> &rarr; <a href="$!chapter.getNextUrl($!{novelBasicDo.nid})">下一章</a> 
 					</div>
 				</div>
-				<div id="content">#esc_noesc($!page.formatContent)</div>
+				<div id="content">#esc_noesc($!page.formatContent) #if($!caidan)<font color="#E9FAFF">$!caidan</font>#end </div>
 				<div class="bottem2">
 					 <a href="$!chapter.getUpUrl(${novelBasicDo.nid})">上一章</a> &larr; <a href="/n.htm?nid=$!{novelBasicDo.nid}">全文列表</a> &rarr; <a href="$!chapter.getNextUrl($!{novelBasicDo.nid})">下一章</a>
 				</div>

@@ -24,8 +24,7 @@ public class P {
 	@Resource
 	private NovelPageService novelPageService;
 
-	public void execute(@Param("nid") String nid, @Param("cid") String cid,
-			Context context, Navigator nav) {
+	public void execute(@Param("nid") String nid, @Param("cid") String cid, Context context, Navigator nav) {
 		// 检测入参
 		if (null == nid || nid.equals("")) {
 			context.put("errMsg", "nid为空");
@@ -66,7 +65,12 @@ public class P {
 			nav.forwardTo("/error.vm");
 			return;
 		}
+
+		// 彩蛋信息，如果章节好对99取余==0，插入彩蛋信息。
+		if (longCid % 99 == 0) {
+			context.put("caidan", cid);
+		}
+
 		context.put("page", page);
 	}
-
 }

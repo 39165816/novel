@@ -217,4 +217,7 @@ public class NovelBasicDo {
 		this.generateTxtNum = generateTxtNum;
 	}
 
+	public String getTargetLink() {
+		return "/n" + nid + ".html";
+	}
 }

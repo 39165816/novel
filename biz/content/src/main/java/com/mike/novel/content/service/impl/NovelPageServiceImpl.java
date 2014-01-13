@@ -1,5 +1,6 @@
 package com.mike.novel.content.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -20,8 +21,10 @@ public class NovelPageServiceImpl implements NovelPageService {
 
 	@Override
 	public List<NovelPageDo> findByCids(List<Long> cid) {
+		if (cid == null || cid.size() == 0) {
+			return new ArrayList<NovelPageDo>();
+		}
 
 		return novelPageDao.findByCids(cid);
 	}
-
 }

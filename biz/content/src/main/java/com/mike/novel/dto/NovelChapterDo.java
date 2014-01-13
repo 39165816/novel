@@ -141,17 +141,17 @@ public class NovelChapterDo {
 
 	public String getUpUrl(long nid) {
 		if (upid == 0l) {
-			return "/n.htm?nid=" + nid;
+			return "/n" + nid + ".html";
 		}
 
-		return "/p.htm?nid=" + nid + "&" + "cid=" + upid;
+		return "/p" + nid + "_" + upid + ".html";
 	}
 
 	public String getNextUrl(long nid) {
 		if (nextid == 0l) {
-			return "/n.htm?nid=" + nid;
+			return "/n" + nid + ".html";
 		}
 
-		return "/p.htm?nid=" + nid + "&" + "cid=" + nextid;
+		return "/p" + nid + "_" + nextid + ".html";
 	}
 }
