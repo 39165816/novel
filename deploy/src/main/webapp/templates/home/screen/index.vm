@@ -44,12 +44,12 @@
                 	#set ($onebasic = $!oneEntry.value.get(0))
                 <div class="top">
                 <div class="image"><img src="$!onebasic.picturePath" alt="$!onebasic.title"  width="67" height="82" /></div>
-                <dl><dt><a href="onebasic.targetLink">$!onebasic.title</a></dt><dd>$!onebasic.introduce</dd></dl>
+                <dl><dt><a href="$onebasic.targetLink">$!onebasic.title</a></dt><dd>$!onebasic.introduce</dd></dl>
                 <div class="clear"></div></div>
                 <ul>
             			#foreach( $basicDo in $!oneEntry.value)
         					#if ($basicDo != $onebasic)
-        					<li><a href="basicDo.targetLink">$!basicDo.title</a>/$basicDo.author</li>
+        					<li><a href="$basicDo.targetLink">$!basicDo.title</a>/$basicDo.author</li>
         					 #end
             		   #end
         		</ul>
