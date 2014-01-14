@@ -587,8 +587,10 @@ document.writeln("</select>翻页<input type=checkbox name=autopage id=autopage on
 
 function footer(){
 document.writeln("<p>本站所有小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</p>");
-document.writeln("<p>Copyright &copy; 2014 书中书 All Rights Reserved.</p>");
-document.writeln("<p></p>");
+document.writeln("<p>Copyright &copy; 2014 书中书 All Rights Reserved.");
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F86fecc123102d82824193cd33bbfb547' type='text/javascript'%3E%3C/script%3E"));
+document.writeln("</p><p></p>");
 }
 function search_panel(){
 document.writeln("<div class=\"header_search\"><form name=\"form\" method=\"post\"  action=\"\" id=\"sform\" ><input type=\"hidden\" name=\"action\" value=\"normal/CommonAction\"/><input type=\"hidden\" name=\"event_submit_do_commit\" value=\"submit\"/><input type=\"text\" value=\"可搜书名和作者的中文或拼音\" name=\"keyword\" class=\"search\" id=\"wd\" baiduSug=\"2\" /><button id=\"sss\" type=\"submit\"> 搜 索 </button></form></div>"); 

@@ -1,0 +1,14 @@
+User-agent: Baiduspider
+Disallow: /download/
+
+User-agent: baiduspider
+Disallow: /download/
+
+User-agent: Googlebot
+Disallow: /download/
+
+User-agent: 360Spider
+Disallow: /download/
+
+User-agent: *
+Disallow: / 

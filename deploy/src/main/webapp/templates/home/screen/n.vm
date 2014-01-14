@@ -21,7 +21,7 @@
 					<p>动&nbsp;&nbsp;&nbsp;&nbsp;作：<a href="#footer">直达底部</a></p>
 					<p>最后更新：$!novelStatus.novelBasicDo.lastUpdateTime </p>
 					<p>是否完结:#if($novelStatus.novelBasicDo.isFinished()) 完结 #else 未完结 #end </p>
-					<p>txt下载: #if($novelStatus.novelBasicDo.isGenerateTxt()) <a href="/download$!{novelStatus.novelBasicDo.nid}.html">$!{novelStatus.novelBasicDo.title}txt下载</a>   #end </p>
+					<p>txt下载: #if($novelStatus.novelBasicDo.isGenerateTxt()) <a href="/download/$!{novelStatus.novelBasicDo.nid}.html">$!{novelStatus.novelBasicDo.title}txt下载</a>   #end </p>
 				</div>
 				<div id="intro">
 					<p>$!novelStatus.novelBasicDo.introduce</p>
