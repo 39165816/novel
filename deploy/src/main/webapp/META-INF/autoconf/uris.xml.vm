@@ -14,7 +14,15 @@
              ">
 
     <services:uris>
+
+    	<uris:uri id="novelSiteDomain" exposed="true">
+          <uris:serverURI>http://${novel_site_domain}</uris:serverURI>        
+        </uris:uri>
+
+		<!--µÇÂ¼µÄÅäÖÃ -->
+		<turbine-uri id="loginLink" exposed="true" extends="novelSiteDomain">
+			<componentPath>/content/backdoor/login.htm</componentPath>
+		</turbine-uri>
 		
-		<uri id="server" />
     </services:uris>
 </beans:beans>

@@ -21,6 +21,9 @@
 			description="前台图片的访问路径" />
 		<property name="mysql.url" defaultValue="jdbc:wrap-jdbc:filters=default:jdbc:mysql://10.72.16.157:3306/novel?useUnicode=true&amp;characterEncoding=UTF-8"
 			description="mysql路径" />
+		<property name="novel.site.domain" defaultValue="127.0.0.1"
+			description="网站访问路径" />
+			
 	</group>
 	
 	<script>

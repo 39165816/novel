@@ -1,0 +1,49 @@
+<form action="" method="post">
+  
+  <input type="hidden" name="action" value="backdoor/LoginAction"/>
+  <input type="hidden" name="event_submit_do_login" value="submit"/>
+              
+  <table border="0" cellpadding="0" cellspacing="10" width="100%" class="box">
+  
+     <tr align="center">
+      <td><strong>#if($!errors) $!errors #end </strong><br />
+      </td>
+    </tr>
+  
+    <tr align="center">
+      <td><strong>用户登录</strong><br />
+        <hr/>
+      </td>
+    </tr>
+    <tr align="center">
+      <td><table border="0" cellpadding="0" cellspacing="10" width="10">
+        <tr>
+          <td nowrap="nowrap">用户名：</td>
+          <td width="100%">
+            <input type="text" name="userId" value=""/>
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">密码： </td>
+          <td>
+            <input type="password" name="password" value=""/>
+          </td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td><hr/></td>
+    </tr>
+    
+    <tr align="center">
+      <td><table border="0" cellpadding="0" cellspacing="10" width="10">
+        <tr>
+          <td width="100%"><input type="submit"  value="提交"/></td>
+        </tr>
+      </table></td>
+    </tr>
+    
+    
+  </table>
+
+</form>

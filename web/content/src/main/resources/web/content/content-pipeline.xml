@@ -23,6 +23,8 @@
         <!-- ·ÖÎöURL£¬È¡µÃtarget¡£ -->
         <analyzeURL />
 
+		<valve class="com.mike.novel.user.webx.valve.UserLoginValve" />
+		
         <loop>
             <choose>
                 <when>

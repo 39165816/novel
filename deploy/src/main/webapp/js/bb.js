@@ -587,7 +587,8 @@ document.writeln("</select>翻页<input type=checkbox name=autopage id=autopage on
 
 function footer(){
 document.writeln("<p>本站所有小说为转载作品，所有章节均由网友上传，转载至本站只是为了宣传本书让更多读者欣赏。</p>");
-document.writeln("<p>Copyright &copy; 2014 书中书 All Rights Reserved.");
+document.writeln("<p>Copyright &copy; 2014 书中书 All Rights Reserved.</p>");
+document.writeln("<p>网站备案号: 浙ICP备14001516号-1</p><p>");
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F86fecc123102d82824193cd33bbfb547' type='text/javascript'%3E%3C/script%3E"));
 document.writeln("</p><p></p>");

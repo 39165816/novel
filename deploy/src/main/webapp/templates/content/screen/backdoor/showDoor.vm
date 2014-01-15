@@ -2,7 +2,6 @@
 	<div class="presell">
 
 		<form method="post" action="" name="presaleForm">
-			#set ($inputUrlForm = $form.inputUrlForm.defaultInstance)
 
 			<input type="hidden" name="action" value="backdoor/CurlWebAction"/>
             <input type="hidden" name="event_submit_do_commit" value="submit"/>
