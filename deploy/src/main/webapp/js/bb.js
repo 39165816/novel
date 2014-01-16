@@ -590,7 +590,7 @@ document.writeln("<p>±¾Õ¾ËùÓĞĞ¡ËµÎª×ªÔØ×÷Æ·£¬ËùÓĞÕÂ½Ú¾ùÓÉÍøÓÑÉÏ´«£¬×ªÔØÖÁ±¾Õ¾Ö»Ê
 document.writeln("<p>Copyright &copy; 2014 ÊéÖĞÊé All Rights Reserved.</p>");
 document.writeln("<p>ÍøÕ¾±¸°¸ºÅ: ÕãICP±¸14001516ºÅ-1</p><p>");
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F86fecc123102d82824193cd33bbfb547' type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F89d125e9c4bc2843955679aca37e5dab' type='text/javascript'%3E%3C/script%3E"));
 document.writeln("</p><p></p>");
 }
 function search_panel(){
