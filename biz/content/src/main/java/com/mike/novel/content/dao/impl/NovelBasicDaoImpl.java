@@ -132,4 +132,14 @@ public class NovelBasicDaoImpl extends PageSqlMapClientDaoSupport<NovelBasicDo>
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public NovelBasicDo queryByTitle(String title) {
+		List<NovelBasicDo> flowList = getSqlMapClientTemplate().queryForList(
+				getSqlMapNamesapce() + "queryByTitle", title);
+		if (flowList != null && flowList.size() >= 1) {
+			return flowList.get(0);
+		} else
+			return null;
+	}
 }

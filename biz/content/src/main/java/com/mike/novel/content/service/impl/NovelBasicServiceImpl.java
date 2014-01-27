@@ -62,4 +62,9 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 		novelBasicDao.updateTxtStatus(novelBasicDo);
 	}
 
+	@Override
+	public NovelBasicDo queryByTitle(String name) {
+		return novelBasicDao.queryByTitle(name);
+	}
+
 }

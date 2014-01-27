@@ -1,5 +1,6 @@
 package com.mike.novel.content.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,10 +11,12 @@ import com.mike.novel.content.dao.NovelVolumDao;
 import com.mike.novel.content.service.NovelBasicService;
 import com.mike.novel.content.service.NovelCombServcie;
 import com.mike.novel.content.service.TasksService;
+import com.mike.novel.dto.HottestDo;
 import com.mike.novel.dto.NovelBasicDo;
 import com.mike.novel.dto.NovelChapterDo;
 import com.mike.novel.dto.NovelVolumDo;
 import com.mike.novel.dto.TasksDo;
+import com.mike.novel.dto.vo.HottestVo;
 import com.mike.novel.dto.vo.NovelStatusVo;
 import com.mike.novel.spider.biqege.BqgChapterTask;
 import com.mike.novel.util.ConfigConstants;
@@ -141,5 +144,28 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 			return;
 		}
 		bqgChapterTask.processTask(tasksDo);
+	}
+
+	@Override
+	public List<HottestVo> getAddtionalInfo(List<HottestDo> dos) {
+		List<HottestVo> vos = new ArrayList<HottestVo>();
+		if (dos == null) {
+			return vos;
+		}
+
+		for (HottestDo one : dos) {
+			HottestVo dd = new HottestVo();
+			dd.setHottestDo(one);
+			NovelBasicDo novelBasicDo = novelBasicService.queryByTitle(one
+					.getName());
+			if (novelBasicDo != null) {
+				dd.setFinished(novelBasicDo.isFinished());
+				dd.setIntroduced(true);
+				dd.setTargetUrl(novelBasicDo.getTargetLink());
+			}
+			vos.add(dd);
+		}
+
+		return vos;
 	}
 }

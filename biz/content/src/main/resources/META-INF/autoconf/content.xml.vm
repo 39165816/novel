@@ -81,10 +81,20 @@
 	 <bean id="novelPageDao" class="com.mike.novel.content.dao.impl.NovelPageDaoImpl"/>
 	 <bean id="novelVolumDao" class="com.mike.novel.content.dao.impl.NovelVolumDaoImpl"/>
 	 <bean id="tasksDao" class="com.mike.novel.content.dao.impl.TasksDaoImpl"/>
+	 <bean id="hottestDao" class="com.mike.novel.content.dao.impl.HottestDaoImpl"/>
+	 <bean id="hottestService" class="com.mike.novel.content.service.impl.HottestServiceImpl"/>
+
+
 	 <bean id="recommondDaoImpl" class="com.mike.novel.content.dao.impl.RecommondDaoImpl"/>
 	 
 	 <bean id="generateOneTxt" class="com.mike.novel.tools.txt.GenerateOneTxt"/>
 	 <bean id="txtGenerator" class="com.mike.novel.tools.txt.TxtGenerator"/>
+
+	 <bean id="baiduHotAccess" class="com.mike.novel.spider.baidu.BaiduHotAccess"/>
+	 <bean id="baiduHotTask" class="com.mike.novel.spider.baidu.BaiduHotTask"/>
+
+
+
 
    	
 </beans>

@@ -13,6 +13,7 @@
 	<sqlMap resource="META-INF/sqlmap/config/NovelPage.xml" />
 	<sqlMap resource="META-INF/sqlmap/config/Tasks.xml" />
 	<sqlMap resource="META-INF/sqlmap/config/Recommond.xml" />
+	<sqlMap resource="META-INF/sqlmap/config/Hottest.xml" />
 
 	
 </sqlMapConfig>

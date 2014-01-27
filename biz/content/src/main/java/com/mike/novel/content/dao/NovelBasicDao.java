@@ -39,4 +39,6 @@ public interface NovelBasicDao {
 
 	public void updateTxtStatus(NovelBasicDo novelBasicDo);
 
+	public NovelBasicDo queryByTitle(String name);
+
 }

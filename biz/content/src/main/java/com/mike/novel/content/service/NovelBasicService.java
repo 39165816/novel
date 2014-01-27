@@ -60,4 +60,9 @@ public interface NovelBasicService {
 	 */
 	public void updateTxtStatus(NovelBasicDo novelBasicDo);
 
+	/**
+	 * 根据标题，查找小说，暂不考虑小说重名问题
+	 */
+	public NovelBasicDo queryByTitle(String name);
+
 }

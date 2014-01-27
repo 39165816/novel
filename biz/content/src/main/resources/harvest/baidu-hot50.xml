@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<var-def name="trs">
+			<xpath expression='//table[@class="list-table"]/tbody/tr'>
+				<html-to-xml>
+					<http url="${topUrl}" />  
+				</html-to-xml>
+			</xpath>
+	</var-def>
+
+    <template language="beanshell">
+		${com.mike.novel.spider.baidu.BaiduDataHolder baiduDataHolder = new com.mike.novel.spider.baidu.BaiduDataHolder()};
+    </template>
+	 
+	<loop item="detailUrlCatch" index="i" >
+    <list>
+        <var name="trs" />
+    </list>
+    <body>
+        <var-def name="itemIndex" >
+            <template language="beanshell">${i}</template>
+        </var-def>
+        
+        <var-def name="order"  >
+             <xpath expression="//td[1]/span/text()">
+                <var name="detailUrlCatch" />
+            </xpath>
+        </var-def>
+
+        <var-def name="name"  >
+             <xpath expression="//td[2]/a[1]/text()">
+                <var name="detailUrlCatch" />
+            </xpath>
+        </var-def>
+
+        <var-def name="hotIndex"  >
+             <xpath expression="//td[4]/span/text()">
+                <var name="detailUrlCatch" />
+            </xpath>
+        </var-def>
+
+        <template language="beanshell">
+            ${baiduDataHolder.add(itemIndex, order, name, hotIndex)};
+        </template>
+    </body>
+    </loop>
+    
+   <script><![CDATA[
+         SetContextVar("baiduDataHolder", baiduDataHolder);
+    ]]></script>
+    
+</config>
+

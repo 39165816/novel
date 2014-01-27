@@ -56,8 +56,6 @@ public class CurlWebAction {
 	 * @param nav
 	 */
 	public void doCommit(TurbineRunData runData, Context context, Navigator nav) {
-		// TODO: ·ÀÖ¹csrf¹¥»÷
-
 		// ¼ì²é²ÎÊý
 		String targetUrl = runData.getParameters().getString("inputUrl");
 		if (targetUrl == null || targetUrl.equals("")) {

@@ -108,6 +108,13 @@
 	    ]]>
 	</select>
 	
+	<select id="novelBasic.queryByTitle" resultMap="novelBasic.rm">
+		SELECT <include refid="novelBasic.columns" />
+	    <![CDATA[
+		    FROM NovelBasic WHERE TITLE = #title#
+	    ]]>
+	</select>
+	
 	<select id="novelBasic.findByNids" parameterClass="list" resultMap="novelBasic.rm">
 		SELECT <include refid="novelBasic.columns" />
 	    <![CDATA[

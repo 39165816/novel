@@ -1,0 +1,59 @@
+<div id="content">
+	<div class="presell">
+
+		<form method="post" action="" name="presaleForm">
+
+			<input type="hidden" name="action" value="backdoor/HottestAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+
+			<!-- 校验错误信息提示 -->
+			#if($!errors)
+				#foreach($msg in $!errors)
+					<div class="ui-msg ui-page-tip presell-ui-msg">
+						<div class="ui-msg-con ui-msg-error">
+							$msg</br>
+							<s class="ui-msg-icon"></s>
+						</div>
+			        </div>
+				#end
+			#end
+<h1>百度热点小说</h1>
+    		<table width="100%" >
+    			<tr>
+    				<td>日期：</td>
+    				<td><input type="text" name="date" style="height:51px;width:100px" value="" msg="笔趣阁小说UR"/>格式如：2014-1-27</td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		
+    		<table width="100%" >
+    			<tr>
+    				<td>日期</td>
+    				<td>排名</td>
+    				<td>小说名</td>
+    				<td>本站是否包含</td>
+    				<td>是否完结</td>
+    				<td>热门指数</td>
+    				<td>本站链接</td>
+    			</tr>
+    		#foreach( $vos in $hottestVos)
+				<tr>
+    				<td>${vos.hottestDo.statisticTime}</td>
+    				<td>${vos.hottestDo.order}</td>
+    				<td>${vos.hottestDo.name}</td>
+    				<td>#if(${vos.isIntroduced()})包含#else<font color="#0099FF">未包含</font>#end</td>
+    				<td>#if(${vos.isIntroduced()})#if(${vos.isFinished()})<font color="#0099FF">完结</font>#else未完结#end#end</td>
+    				<td>${vos.hottestDo.hotIndex}</td>
+    				<td>#if(${vos.targetUrl}) <a href="${vos.targetUrl}">本站链接</a>#end</td>
+    			</tr>
+			#end
+    		</table>    		
+        </form>
+	</div>
+</div>

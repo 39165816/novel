@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="hottest">
+
+	<typeAlias alias="HottestDo" type="com.mike.novel.dto.HottestDo" />
+
+	<resultMap id="hottestDo.rm" class="HottestDo">
+        <result property="id" column="ID"/>
+        <result property="gmtCreate" column="GMTCREATE"/>
+        <result property="gmtModify" column="GMTMODIFY"/>
+        <result property="statisticTime" column="STATISTICTIME"/>
+        <result property="name" column="NAME"/>
+        <result property="type" column="TYPE"/>
+        <result property="order" column="ORDERNUM"/>
+        <result property="hotIndex" column="HOTINDEX"/>
+	</resultMap>
+	
+	<sql id="hottestDo.columns">
+	    <![CDATA[
+	    	ID,GMTCREATE,GMTMODIFY,STATISTICTIME,NAME,TYPE,ORDERNUM,HOTINDEX
+	    ]]>
+	</sql>
+	
+	<insert id="hottest.insert" parameterClass="HottestDo">
+    <![CDATA[
+        INSERT INTO Hottest 
+        (ID,GMTCREATE,GMTMODIFY,STATISTICTIME,NAME,TYPE,ORDERNUM,HOTINDEX)
+        VALUES
+        (#id#,now(),now(),#statisticTime#,#name#,#type#,#order#,#hotIndex#)
+    ]]>
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">  
+        SELECT @@IDENTITY AS ID
+    </selectKey>
+	</insert>
+   
+    <delete id="hottest.deleteById">
+    <![CDATA[
+        DELETE FROM Hottest WHERE
+        ID = #id# 
+    ]]>
+    </delete>
+    
+     <select id="hottest.getTodayCount" parameterClass="HottestDo" resultClass="int">
+        SELECT count(*) FROM Hottest WHERE STATISTICTIME=#statisticTime#
+    </select>
+    
+    <select id="hottest.getById" resultMap="hottestDo.rm">
+		SELECT <include refid="hottestDo.columns" />
+	    <![CDATA[
+		    FROM Hottest WHERE ID = #id#
+	    ]]>
+	</select>
+
+    <select id="hottest.findByTime" resultMap="hottestDo.rm">
+		SELECT <include refid="hottestDo.columns" />
+	    <![CDATA[
+		    FROM Hottest WHERE STATISTICTIME=#statisticTime#
+	    ]]>
+	</select>	
+	
+	
+</sqlMap>
