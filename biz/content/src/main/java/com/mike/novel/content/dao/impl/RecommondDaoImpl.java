@@ -11,8 +11,11 @@ public class RecommondDaoImpl extends PageSqlMapClientDaoSupport<RecommondDo>
 
 	@Override
 	public Integer save(RecommondDo recommondDo) {
-		// TODO Auto-generated method stub
-		return null;
+		if (recommondDo == null) {
+			return 0;
+		}
+		return (Integer) getSqlMapClientTemplate().insert(
+				getSqlMapNamesapce() + "insert", recommondDo);
 	}
 
 	@Override
@@ -25,6 +28,18 @@ public class RecommondDaoImpl extends PageSqlMapClientDaoSupport<RecommondDo>
 
 	private String getSqlMapNamesapce() {
 		return "recommond.";
+	}
+
+	@Override
+	public void deleteByTypeDirect(int pid) {
+		getSqlMapClientTemplate().delete(getSqlMapNamesapce() + "deleteByPid",
+				pid);
+	}
+
+	@Override
+	public void deleteByIds(List<Integer> ids) {
+		getSqlMapClientTemplate().delete(getSqlMapNamesapce() + "deleteByIds",
+				ids);
 	}
 
 }

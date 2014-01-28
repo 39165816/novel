@@ -1,5 +1,6 @@
 package com.mike.novel.content.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -29,6 +30,9 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 
 	@Override
 	public List<NovelBasicDo> findByNids(List<Integer> nids) {
+		if (nids == null || nids.size() == 0) {
+			return new ArrayList<NovelBasicDo>();
+		}
 		return novelBasicDao.findByNids(nids);
 	}
 

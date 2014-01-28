@@ -37,8 +37,27 @@
 	<select id="recommond.getByPid" resultMap="recommond.rm">
 		SELECT <include refid="recommond.columns" />
 	    <![CDATA[
-		    FROM Recommond WHERE 1=1 and PID=#pid#
+		    FROM Recommond WHERE 1=1 and PID=#pid# order by id desc
 	    ]]>
 	</select>
+	
+	<delete id="recommond.deleteByPid">
+    <![CDATA[
+        DELETE FROM Recommond WHERE
+        PID = #pid# 
+    ]]>
+    </delete>
+    	
+	<delete id="recommond.deleteByIds"  parameterClass="list" >
+    <![CDATA[
+        DELETE FROM Recommond WHERE
+        ID 
+    ]]>
+   <dynamic prepend=" in ">
+			<iterate open="(" close=")" conjunction=", ">
+			#idList[]#
+			</iterate>
+		</dynamic>
+    </delete>
 	
 </sqlMap>

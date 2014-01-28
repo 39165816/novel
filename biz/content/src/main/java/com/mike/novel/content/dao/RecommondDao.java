@@ -10,4 +10,8 @@ public interface RecommondDao {
 
 	public List<RecommondDo> getByPid(int pid);
 
+	public void deleteByTypeDirect(int pid);
+
+	public void deleteByIds(List<Integer> ids);
+
 }

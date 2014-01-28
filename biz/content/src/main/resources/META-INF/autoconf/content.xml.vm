@@ -46,9 +46,6 @@
 		                 <entry  key ="t1"> 
 		                     <value>201</value> 
 		                 </entry> 
-		                 <entry  key ="t2"> 
-		                     <value>202</value> 
-		                 </entry> 
 		                 <entry  key ="q1"> 
 		                     <value>301</value> 
 		                 </entry> 
@@ -92,9 +89,6 @@
 
 	 <bean id="baiduHotAccess" class="com.mike.novel.spider.baidu.BaiduHotAccess"/>
 	 <bean id="baiduHotTask" class="com.mike.novel.spider.baidu.BaiduHotTask"/>
-
-
-
-
+	 <bean id="recommendRandomTask" class="com.mike.novel.tasks.RecommendRandomTask"/>
    	
 </beans>

@@ -11,6 +11,10 @@ public class HottestVo implements Comparable<HottestVo> {
 	private boolean isIntroduced;
 	// 本站的小说地址
 	private String targetUrl;
+	// 小说分类
+	private int type;
+	// 小说id
+	private int nid;
 
 	public boolean isFinished() {
 		return isFinished;
@@ -47,6 +51,22 @@ public class HottestVo implements Comparable<HottestVo> {
 	@Override
 	public int compareTo(HottestVo o) {
 		return this.hottestDo.getOrder() - o.getHottestDo().getOrder();
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public int getNid() {
+		return nid;
+	}
+
+	public void setNid(int nid) {
+		this.nid = nid;
 	}
 
 }

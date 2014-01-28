@@ -162,6 +162,8 @@ public class NovelCombServcieImpl implements NovelCombServcie {
 				dd.setFinished(novelBasicDo.isFinished());
 				dd.setIntroduced(true);
 				dd.setTargetUrl(novelBasicDo.getTargetLink());
+				dd.setType(novelBasicDo.getType());
+				dd.setNid(novelBasicDo.getNid());
 			}
 			vos.add(dd);
 		}

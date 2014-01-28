@@ -11,4 +11,18 @@ public interface RecommondService {
 
 	List<Integer> queryByTypeDirect(int type);
 
+	/**
+	 * 根据推荐频道id，删除这个频道的所有信息
+	 */
+	void deleteByTypeDirect(int pid);
+
+	/**
+	 * 保存频道的推荐
+	 */
+	void save(int intPid, List<Integer> nids);
+
+	/**
+	 * 把所有的频道推荐随一下
+	 */
+	void random();
 }

@@ -1,0 +1,172 @@
+<div id="content">
+	<div class="presell">
+
+
+
+<h1>推荐榜单的手动管理页面，注意后台每天凌晨会自动根据热点更新</h1>
+
+<h2><a href="/content/backdoor/randomRec.htm">随一下</a></h2>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="201"/>
+    		<table width="100%" >    
+    		<tr><h3>首页榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置6个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(201)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="301"/>
+    		<table width="100%" >    
+    		<tr><h3>全本榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置6个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(301)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="101"/>
+    		<table width="100%" >    
+    		<tr><h3>修真小说榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置9个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(101)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="102"/>
+    		<table width="100%" >    
+    		<tr><h3>玄幻小说榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置9个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(102)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="103"/>
+    		<table width="100%" >    
+    		<tr><h3>都市小说榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置9个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(103)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="104"/>
+    		<table width="100%" >    
+    		<tr><h3>穿越小说榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置9个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(104)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="105"/>
+    		<table width="100%" >    
+    		<tr><h3>网游小说榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置9个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(105)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+			<form method="post" action="" name="">
+			<input type="hidden" name="action" value="backdoor/RecommendAction"/>
+            <input type="hidden" name="event_submit_do_commit" value="submit"/>
+            <input type="hidden" name="pid" value="106"/>
+    		<table width="100%" >    
+    		<tr><h3>科幻小说榜单</h3></tr>            		
+    			<tr>
+    				<td>当前推荐（至少配置9个）：</td>
+    				<td><input type="textarea" name="config" style="height:50px;width:850px" value="$!{contentMap.get(106)}" msg=""/></td>
+    			</tr>
+	
+    			<tr class="presell-tab-btn">
+    				<td></td>
+    				<td>
+						<input type="submit" value="提交"/>
+					</td>
+    			</tr>
+    		</table>
+    		</form>
+=========================================================================
+
+	</div>
+</div>
