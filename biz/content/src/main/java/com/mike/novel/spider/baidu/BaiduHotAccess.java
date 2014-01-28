@@ -1,6 +1,7 @@
 package com.mike.novel.spider.baidu;
 
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import javax.annotation.Resource;
 
@@ -25,7 +26,7 @@ public class BaiduHotAccess {
 
 	private static boolean isFromMain = false;
 
-	public String accessTop50() {
+	public String accessTop50() throws UnsupportedEncodingException {
 		ScraperConfiguration pageConfig;
 		try {
 			pageConfig = new ScraperConfiguration(getProjectBaseHome()
@@ -40,7 +41,12 @@ public class BaiduHotAccess {
 		Variable baiduDataHolder = (Variable) pageScraper.getContext().get(
 				"baiduDataHolder");
 
-		return filterUsedInfo(new String(baiduDataHolder.toBinary("iso-8859-1")));
+		// System.out.println("baiduDataHolder.getWrappedObject().toString()"
+		// + baiduDataHolder.getWrappedObject().toString());
+		// System.out.println("default" + new
+		// String(baiduDataHolder.toBinary()));
+
+		return filterUsedInfo(baiduDataHolder.getWrappedObject().toString());
 	}
 
 	private String getProjectBaseHome() {
@@ -63,7 +69,7 @@ public class BaiduHotAccess {
 		return sb.toString();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnsupportedEncodingException {
 		String result = new BaiduHotAccess().accessTop50();
 		System.out.println("result = " + result);
 	}

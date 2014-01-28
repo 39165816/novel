@@ -11,7 +11,7 @@ public interface BqgConstants {
 	String HARVEST_PAGE_CONFIG = "biz/content/src/main/resources/harvest/biquge-page.xml";
 
 	// Page harvest配置文件路径
-	String BAIDU_TOP_CONFIG = "biz/content/src/main/resources/harvest/baidu-hot50.xml";
+	String BAIDU_TOP_CONFIG = "META-INF/harvest/baidu-hot50.xml";
 
 	// harvest 工作目录
 	String HARVEST_WORKING_DIR = "tmp";
