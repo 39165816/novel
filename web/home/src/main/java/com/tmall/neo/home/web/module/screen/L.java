@@ -76,9 +76,9 @@ public class L {
 			for (NovelBasicDo one : recommend) {
 				String intro = one.getIntroduce();
 
-				if (intro.length() > 80)
+				if (intro.length() > 88)
 					// ×ª»¯picÂ·¾¶
-					one.setIntroduce(intro.substring(0, 77) + "...");
+					one.setIntroduce(intro.substring(0, 88) + "...");
 			}
 		}
 	}

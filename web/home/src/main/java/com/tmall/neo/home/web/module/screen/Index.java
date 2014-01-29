@@ -36,7 +36,7 @@ public class Index {
 		if (recommondIds != null && !recommondIds.isEmpty()) {
 			recommend = novelBasicService.findByNids(recommondIds);
 			conventPicPath(recommend);
-			conventIntroduce(recommend, 80);
+			conventIntroduce(recommend, 84);
 			limitSize(recommend, 6);
 		}
 		context.put("strongRecommend", recommend);
@@ -50,7 +50,7 @@ public class Index {
 			if (recommondIds != null && !recommondIds.isEmpty()) {
 				pidrecommend = novelBasicService.findByNids(recommondIds);
 				conventPicPath(pidrecommend);
-				conventIntroduce(pidrecommend, 40);
+				conventIntroduce(pidrecommend, 55);
 				limitSize(pidrecommend, 9);
 			}
 			pidRecommend.put(one.name, pidrecommend);
@@ -67,7 +67,8 @@ public class Index {
 		if (recommend != null) {
 			for (NovelBasicDo one : recommend) {
 				// ×ª»¯picÂ·¾¶
-				one.setPicturePath(configConstants.getPictureAccessPath() + one.getPicturePath());
+				one.setPicturePath(configConstants.getPictureAccessPath()
+						+ one.getPicturePath());
 			}
 		}
 	}
