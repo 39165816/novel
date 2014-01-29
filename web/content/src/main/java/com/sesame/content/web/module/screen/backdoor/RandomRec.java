@@ -13,6 +13,6 @@ public class RandomRec {
 
 	public void execute(HttpSession httpSession, Context context, Navigator nav) {
 		recommondService.random();
-		nav.forwardTo("/backdoor/recommend.vm");
+		nav.redirectToLocation("/content/backdoor/recommend.htm");
 	}
 }

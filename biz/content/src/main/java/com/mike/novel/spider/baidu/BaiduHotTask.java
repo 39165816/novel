@@ -45,6 +45,7 @@ public class BaiduHotTask implements InitializingBean {
 		public void run() {
 			while (true) {
 				try {
+					loggor.info("BaiduHotTask is running!");
 					// 获取当前的时间，并检测db是否存在记录
 					java.util.Date now = new java.util.Date();
 					Date statisticTime = new Date(now.getYear(),

@@ -175,7 +175,7 @@ public class RecommondServiceImpl implements RecommondService {
 		HashSet<Integer> keep = new HashSet<Integer>();
 		List<Integer> ids = new ArrayList<Integer>();
 		for (RecommondDo one : recommonds) {
-			if (keep.size() < size) {
+			if (keep.size() < size && !keep.contains(one.getNid())) {
 				keep.add(one.getNid());
 			} else {
 				ids.add(one.getId());

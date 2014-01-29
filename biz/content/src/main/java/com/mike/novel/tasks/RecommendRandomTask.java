@@ -29,6 +29,7 @@ public class RecommendRandomTask implements InitializingBean {
 		@Override
 		public void run() {
 			while (true) {
+				loggor.info("RecommendRandomRunnable is running!");
 				try {
 					// 获取当前的时间,是否超过24小时
 					Calendar now = Calendar.getInstance();

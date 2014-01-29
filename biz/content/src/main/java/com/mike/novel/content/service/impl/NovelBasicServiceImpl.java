@@ -33,7 +33,21 @@ public class NovelBasicServiceImpl implements NovelBasicService {
 		if (nids == null || nids.size() == 0) {
 			return new ArrayList<NovelBasicDo>();
 		}
-		return novelBasicDao.findByNids(nids);
+		List<NovelBasicDo> findByNids = novelBasicDao.findByNids(nids);
+		// 因为in返回不能保证顺序，这里再处理回来
+		List<NovelBasicDo> result = new ArrayList<NovelBasicDo>();
+		if (findByNids != null && findByNids.size() > 0) {
+			for (int one : nids) {
+				for (NovelBasicDo novelBasicDo : findByNids) {
+					if (novelBasicDo.getNid() == one) {
+						result.add(novelBasicDo);
+						break;
+					}
+				}
+			}
+		}
+		return result;
+
 	}
 
 	@Override
