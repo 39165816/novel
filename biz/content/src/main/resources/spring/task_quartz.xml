@@ -29,7 +29,7 @@
                 <ref bean="jobtask"/>
             </property>
             <property name="cronExpression">
-                <value>/5 * * * * ?</value>
+                <value>0 0 1 * * ?</value>
             </property>
         </bean>
                 
@@ -48,7 +48,7 @@
                 <ref bean="baiduHotJob"/>
             </property>
             <property name="cronExpression">
-                <value>/5 * * * * ?</value>
+                <value>0 0 2 * * ?</value>
             </property>
         </bean>
         
@@ -67,7 +67,7 @@
                 <ref bean="recommendRandomJob"/>
             </property>
             <property name="cronExpression">
-                <value>/5 * * * * ?</value>
+                <value>0 0 3 * * ?</value>
             </property>
         </bean>
     
