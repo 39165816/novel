@@ -66,6 +66,10 @@
   <groupId>net.sourceforge.pinyin4j</groupId>
   <artifactId>pinyin4j</artifactId>
 </dependency>
-                        
+<dependency>
+	<groupId>org.quartz-scheduler</groupId>
+	<artifactId>quartz</artifactId>
+</dependency>
+                                    
 	</dependencies>
 </project>

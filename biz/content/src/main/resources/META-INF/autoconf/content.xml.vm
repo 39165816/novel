@@ -21,6 +21,9 @@
 		                 <entry  key ="project_base_home_key"> 
 		                     <value>${novel_project_base_home}</value> 
 		                 </entry> 
+		                 <entry  key ="config_file_path_key"> 
+		                     <value>${novel_config_file_path}</value> 
+		                 </entry> 
 		             </map> 
 				</property>
 				 <property name="recommends"> 
@@ -88,7 +91,5 @@
 	 <bean id="txtGenerator" class="com.mike.novel.tools.txt.TxtGenerator"/>
 
 	 <bean id="baiduHotAccess" class="com.mike.novel.spider.baidu.BaiduHotAccess"/>
-	 <bean id="baiduHotTask" class="com.mike.novel.spider.baidu.BaiduHotTask"/>
-	 <bean id="recommendRandomTask" class="com.mike.novel.tasks.RecommendRandomTask"/>
    	
 </beans>

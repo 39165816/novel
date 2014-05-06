@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>    
+
+        <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+        <bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+            <property name="triggers">
+                <list>
+                    <ref bean="doTime"/>
+                    <ref bean="baiduHotTime"/>
+                    <ref bean="recommendRandomTime"/>
+                </list>
+            </property>
+        </bean>
+        
+        
+        <!-- 自动更新任务的配置 -->
+        <bean id="autoUpdateBqgTask" class="com.mike.novel.tasks.AutoUpdateBqgTask"></bean>
+        <bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+            <property name="targetObject">
+                <ref bean="autoUpdateBqgTask"/>
+            </property>
+            <property name="targetMethod">
+                <value>update</value>
+            </property>
+        </bean>
+        <bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+            <property name="jobDetail">
+                <ref bean="jobtask"/>
+            </property>
+            <property name="cronExpression">
+                <value>/5 * * * * ?</value>
+            </property>
+        </bean>
+                
+       <!-- 百度热点任务的配置 -->
+        <bean id="baiduHotTask" class="com.mike.novel.tasks.BaiduHotTask"/>
+        <bean id="baiduHotJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+            <property name="targetObject">
+                <ref bean="baiduHotTask"/>
+            </property>
+            <property name="targetMethod">
+                <value>runTask</value>
+            </property>
+        </bean>
+        <bean id="baiduHotTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+            <property name="jobDetail">
+                <ref bean="baiduHotJob"/>
+            </property>
+            <property name="cronExpression">
+                <value>/5 * * * * ?</value>
+            </property>
+        </bean>
+        
+       <!-- 热榜随机任务的配置 -->
+        <bean id="recommendRandomTask" class="com.mike.novel.tasks.RecommendRandomTask"/>
+        <bean id="recommendRandomJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+            <property name="targetObject">
+                <ref bean="recommendRandomTask"/>
+            </property>
+            <property name="targetMethod">
+                <value>runTask</value>
+            </property>
+        </bean>
+        <bean id="recommendRandomTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+            <property name="jobDetail">
+                <ref bean="recommendRandomJob"/>
+            </property>
+            <property name="cronExpression">
+                <value>/5 * * * * ?</value>
+            </property>
+        </bean>
+    
+</beans>

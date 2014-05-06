@@ -46,6 +46,7 @@
    	<beans:import resource="classpath:spring/content.xml" />
    	<beans:import resource="classpath:spring/biz-datasource.xml" />
    	<beans:import resource="classpath:spring/core-utility-sequence.xml" />
+   	<beans:import resource="classpath:spring/task_quartz.xml" />
    	
     <!-- ×ÛºÏÉèÖÃ¡£ -->
     <services:webx-configuration>
