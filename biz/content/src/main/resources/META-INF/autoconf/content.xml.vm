@@ -84,6 +84,7 @@
 	 <bean id="hottestDao" class="com.mike.novel.content.dao.impl.HottestDaoImpl"/>
 	 <bean id="hottestService" class="com.mike.novel.content.service.impl.HottestServiceImpl"/>
 
+	 <bean id="bqgIndexCommonService" class="com.mike.novel.spider.biqege.BqgIndexCommonServiceImpl"/>
 
 	 <bean id="recommondDaoImpl" class="com.mike.novel.content.dao.impl.RecommondDaoImpl"/>
 	 
@@ -91,5 +92,8 @@
 	 <bean id="txtGenerator" class="com.mike.novel.tools.txt.TxtGenerator"/>
 
 	 <bean id="baiduHotAccess" class="com.mike.novel.spider.baidu.BaiduHotAccess"/>
+    
+     <bean id="bqgAutoUpdateService" class="com.mike.novel.content.service.impl.BqgAutoUpdateServiceImpl"/>
+	
    	
 </beans>

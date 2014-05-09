@@ -39,6 +39,16 @@
     </selectKey>
 	</insert>
    
+	<update id="novelChapter.update" parameterClass="NovelChapterDo">
+    <![CDATA[
+        UPDATE NovelChapter SET
+	        NEXTID = #nextid# ,
+	        GMTMODIFY = now()
+        WHERE 
+	        ID = #id# 
+    ]]>
+	</update>   
+   
     <delete id="novelChapter.deleteById">
     <![CDATA[
         DELETE FROM NovelChapter WHERE

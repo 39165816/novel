@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <config>
 	<var-def name="maininfo">
 			<xpath expression='//div[@id="maininfo"]'>
 				<html-to-xml>
-					<http url="${IndexPage}" charset="gbk"/>
+					<http url="${IndexPage}" charset="ISO-8859-1"/>
 				</html-to-xml>
 			</xpath>
 	</var-def>

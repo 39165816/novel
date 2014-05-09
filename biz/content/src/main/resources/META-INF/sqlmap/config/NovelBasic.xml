@@ -78,6 +78,16 @@
 	        ID = #id# 
     ]]>
 	</update>
+
+	<update id="novelBasic.update" parameterClass="NovelBasicDo">
+    <![CDATA[
+        UPDATE NovelBasic SET
+	        ISFINISHED = #isFinished# ,
+	        GMTMODIFY = now()
+        WHERE 
+	        NID = #nid#
+    ]]>
+	</update>
    
    
     <delete id="novelBasic.deleteById">

@@ -1,13 +1,9 @@
 package com.mike.novel.spider.biqege;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.webharvest.definition.ScraperConfiguration;
 import org.webharvest.runtime.Scraper;
 import org.webharvest.runtime.variables.Variable;
 
@@ -18,9 +14,7 @@ import com.mike.novel.dto.NovelBasicDo;
 import com.mike.novel.dto.NovelVolumDo;
 import com.mike.novel.dto.vo.NovelStatusVo;
 import com.mike.novel.spider.BasicInfoAccess;
-import com.mike.novel.util.BqgConstants;
 import com.mike.novel.util.ConfigConstants;
-import com.mike.novel.util.NovelType;
 
 /**
  * biquge基本信息爬虫
@@ -29,111 +23,56 @@ import com.mike.novel.util.NovelType;
  */
 public class BqgBasiceInfo implements BasicInfoAccess {
 
-	@Resource
-	private ConfigConstants configConstants;
-	@Resource
-	private NovelBasicService novelBasicService;
-	@Resource
-	private NovelCombServcie novelCombServcie;
+    @Resource
+    private ConfigConstants           configConstants;
+    @Resource
+    private NovelBasicService         novelBasicService;
+    @Resource
+    private NovelCombServcie          novelCombServcie;
+    @Resource
+    private BqgIndexCommonServiceImpl bqgIndexCommonService;
+    @Resource
+    private BizCommonSequence         bizCommonSequence;
 
-	@Resource
-	private BizCommonSequence bizCommonSequence;
+    public NovelStatusVo executeIndexPage(String indexPage) {
+        Scraper indexScraper = bqgIndexCommonService.getIndexScraper();
+        bqgIndexCommonService.executeIndexCurl(indexPage, indexScraper);
 
-	public NovelStatusVo executeIndexPage(String indexPage) {
-		ScraperConfiguration indexConfig;
-		try {
-			indexConfig = new ScraperConfiguration(
-					configConstants.getProjectBaseHome()
-							+ BqgConstants.HARVEST_INDEX_CONFIG);
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException("首页harvest配置文件路径没找到", e);
-		}
-		Scraper indexScraper = new Scraper(indexConfig,
-				configConstants.getProjectBaseHome()
-						+ BqgConstants.HARVEST_WORKING_DIR);
+        // 分析基本信息
+        NovelBasicDo novelBasicDo = bqgIndexCommonService.parseBasicInfo(indexScraper, indexPage);
+        // 处理图片
+        String picName = getPictureName();
+        downloadPicture(indexScraper, picName);
+        novelBasicDo.setPicturePath(picName);
+        // 通过全局id来做
+        novelBasicDo.setNid(bizCommonSequence.getNidSequenceCode());
+        novelBasicService.insert(novelBasicDo);
 
-		String picName = getPictureName();
-		NovelStatusVo result = new NovelStatusVo();
+        // 分析卷和章节信息，并把volum和task存到db
+        int nid = novelBasicDo.getNid();
+        List<NovelVolumDo> volums = bqgIndexCommonService.parseVolums(indexScraper,
+                novelBasicDo.getTitle(), nid);
+        novelCombServcie.saveVolumAndTask(volums, 0l, true);
 
-		// 设置spider的变量
-		indexScraper.getContext().setVar("IndexPage", indexPage);
-		indexScraper.getContext().setVar("pictureSavePath",
-				configConstants.getPictureSavePath() + picName);
-		indexScraper.execute();
+        //保存结果
+        NovelStatusVo result = new NovelStatusVo();
+        result.setNovelBasicDo(novelBasicDo);
+        result.setVolums(volums);
+        return result;
+    }
 
-		// 分析并保存基本信息
-		NovelBasicDo novelBasicDo = curlBasicInfo(indexScraper, picName,
-				indexPage);
-		result.setNovelBasicDo(novelBasicDo);
-		novelBasicService.insert(novelBasicDo);
+    private void downloadPicture(Scraper indexScraper, String picName) {
+        Variable pictureUrl = (Variable) indexScraper.getContext().get("pictureUrl");
+        Scraper pictureScraper = bqgIndexCommonService.getPictureScraper();
+        pictureScraper.getContext().setVar("pictureUrl", pictureUrl.toString());
+        pictureScraper.getContext().setVar("pictureSavePath",
+                configConstants.getPictureSavePath() + picName);
+    }
 
-		int nid = novelBasicDo.getNid();
-
-		Variable allinfo = (Variable) indexScraper.getContext().get("allinfo");
-		List<NovelVolumDo> volums = BggIndexParseHelper.parse(
-				allinfo.toString(), novelBasicDo.getTitle().length(), nid);
-		result.setVolums(volums);
-		// 把volum和task存到db中
-		novelCombServcie.saveVolumAndTask(volums);
-
-		return result;
-	}
-
-	private NovelBasicDo curlBasicInfo(Scraper indexScraper,
-			String pictureSavePath, String indexPage) {
-		NovelBasicDo novelBasicDo = new NovelBasicDo();
-		// 设置原始输入URL
-		novelBasicDo.setOriginalUrl(indexPage.trim());
-		// 标题
-		Variable title = (Variable) indexScraper.getContext().get("title");
-		novelBasicDo.setTitle(title.toString());
-		// 作者
-		Variable author = (Variable) indexScraper.getContext().get("author");
-		novelBasicDo.setAuthor(author.toString().split("：")[1]);
-		// 最后更新时间
-		Variable lastUpdateTime = (Variable) indexScraper.getContext().get(
-				"lastUpdateTime");
-		novelBasicDo.setLastUpdateTime(Date.valueOf(lastUpdateTime.toString()
-				.split("：")[1]));
-		// 简介
-		Variable introduce = (Variable) indexScraper.getContext().get(
-				"introduce");
-		String intro = introduce.toString();
-		if (intro != null && intro.length() > 2000) {
-			intro = intro.substring(0, 1999);
-		}
-
-		novelBasicDo.setIntroduce(intro);
-		// 图片地址
-		novelBasicDo.setPicturePath(pictureSavePath);
-		// 类型
-		Variable type = (Variable) indexScraper.getContext().get("type");
-		novelBasicDo.setType(NovelType.getType(type.toString()).type);
-		// 是否完结
-		Variable isFinishedFlag = (Variable) indexScraper.getContext().get(
-				"isFinishedFlag");
-		if ("b".equals(isFinishedFlag.toString())) {
-			novelBasicDo.setFinished(false);
-		} else {
-			novelBasicDo.setFinished(true);
-		}
-		// 设置其它基本信息的默认值
-		novelBasicDo.setIsForDownload(0);// 默认不提供下载
-		novelBasicDo.setReadyPublic(false);// 默认不公开
-		novelBasicDo.setGenerateHtml(false);// 默认走db,不生成html
-		novelBasicDo.setNid(bizCommonSequence.getNidSequenceCode()); // 通过全局id来做
-
-		return novelBasicDo;
-	}
-
-	public String getPictureName() {
-		StringBuffer sb = new StringBuffer();
-		sb.append(System.nanoTime()).append(".jpg");
-		return sb.toString();
-	}
-
-	public static void main(String[] args) throws IOException {
-		new BqgBasiceInfo().executeIndexPage("http://www.biquge.com/0_494/");
-	}
+    private String getPictureName() {
+        StringBuffer sb = new StringBuffer();
+        sb.append(System.nanoTime()).append(".jpg");
+        return sb.toString();
+    }
 
 }
