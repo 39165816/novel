@@ -48,7 +48,7 @@
                 <ref bean="baiduHotJob"/>
             </property>
             <property name="cronExpression">
-                <value>0 0 2 * * ?</value>
+                <value>0 0 * * * ?</value>
             </property>
         </bean>
         

@@ -150,18 +150,26 @@ public class RecommondServiceImpl implements RecommondService {
     }
 
     private List<Integer> getNeeds(List<HottestVo> real, int size) {
+        //处理下可能的nid重复问题
+        List<Integer> original = new ArrayList<Integer>();
+        for (HottestVo vo : real) {
+            if (!original.contains(vo.getNid())) {
+                original.add(vo.getNid());
+            }
+        }
+
         List<Integer> nids = new ArrayList<Integer>();
-        if (real.size() > size) {
+        if (original.size() > size) {
             Random random = new Random();
             while (nids.size() < size) {
-                int nextInt = random.nextInt(real.size());
-                if (!nids.contains(real.get(nextInt).getNid())) {
-                    nids.add(real.get(nextInt).getNid());
+                int nextInt = random.nextInt(original.size());
+                if (!nids.contains(original.get(nextInt))) {
+                    nids.add(original.get(nextInt));
                 }
             }
         } else {
-            for (HottestVo one : real) {
-                nids.add(one.getNid());
+            for (Integer one : original) {
+                nids.add(one);
             }
         }
         return nids;
